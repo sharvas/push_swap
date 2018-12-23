@@ -12,9 +12,9 @@
 
 # include <push_swap.h>
 
-void	ft_error(void)
+void	ft_error(t_all *all)
 {
 	ft_putstr("Error\n");
-	// free everything
+	ft_free_all(all);//
 	exit (1);
 }

@@ -23,6 +23,10 @@ typedef struct		s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-
+typedef struct		s_all
+{
+	struct s_stack	*a;
+	struct s_stack	*b;
+}					t_all;
 
 #endif
