@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/05 15:22:07 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/05 15:22:09 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+int	ft_isdigit(int c)
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
-}
-
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
-	{
-
-	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

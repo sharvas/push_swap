@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/05 15:23:59 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/05 15:24:02 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+char	*ft_strdup(const char *s1)
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
-}
+	int		i;
+	char	*str;
 
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
+	i = ft_strlen(s1);
+	if (!(str = malloc(sizeof(*s1) * (i + 1))))
+		return (NULL);
+	while (i >= 0)
 	{
-
+		str[i] = s1[i];
+		i--;
 	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	return (str);
 }

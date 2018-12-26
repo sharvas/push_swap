@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/05 15:29:23 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/05 15:29:24 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+int		ft_toupper(int c)
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
-}
-
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
-	{
-
-	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

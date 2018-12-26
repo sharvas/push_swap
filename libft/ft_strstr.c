@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/05 15:27:59 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/05 15:28:01 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
-}
+	int	i;
+	int	j;
 
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
+	i = 0;
+	if (needle[i] == '\0')
+		return ((char*)haystack);
+	while (haystack[i])
 	{
-
+		j = 0;
+		while (needle[j] && haystack[i + j] == needle[j])
+		{
+			j++;
+			if (needle[j] == '\0')
+				return ((char*)&haystack[i]);
+		}
+		i++;
 	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	return (NULL);
 }

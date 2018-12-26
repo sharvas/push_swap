@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/06 07:59:36 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/06 07:59:38 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
-}
+	char			*fresh;
+	unsigned int	i;
 
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
+	if (!s || !f)
+		return (NULL);
+	if (!(fresh = ft_strnew(ft_strlen(s))))
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-
+		fresh[i] = (*f)(i, s[i]);
+		i++;
 	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	return (fresh);
 }

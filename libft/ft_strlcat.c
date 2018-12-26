@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/05 15:26:03 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/05 15:26:05 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
-}
+	size_t	i;
+	size_t	j;
+	size_t	len;
 
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
-	{
-
-	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	i = 0;
+	j = 0;
+	while (dst[i] && i < size)
+		i++;
+	while (src[j])
+		j++;
+	len = i + j;
+	j = 0;
+	while (size != 0 && i < (size - 1) && src[j])
+		dst[i++] = src[j++];
+	while (i < size)
+		dst[i++] = 0;
+	return (len);
 }

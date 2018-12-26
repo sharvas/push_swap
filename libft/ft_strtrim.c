@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/06 09:15:10 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/06 09:15:12 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+char	*ft_strtrim(char const *s)
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
-}
+	char	*fresh;
+	size_t	sta;
+	size_t	end;
 
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
-	{
-
-	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	if (!s)
+		return (0);
+	sta = 0;
+	end = ft_strlen(s) - 1;
+	while (s[sta] && (s[sta] == ' ' || s[sta] == '\n' || s[sta] == '\t'))
+		sta++;
+	while (sta < end && (s[end] == ' ' || s[end] == '\n' || s[end] == '\t'))
+		end--;
+	fresh = ft_strsub(s, sta, (end - sta + 1));
+	return (fresh);
 }

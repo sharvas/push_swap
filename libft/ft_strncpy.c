@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/05 15:26:55 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/05 15:26:56 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
-}
+	unsigned int	i;
+	unsigned int	end;
 
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
+	i = 0;
+	end = 0;
+	while (i < len)
 	{
-
+		if (src[i] == '\0')
+			end = 1;
+		if (end == 0)
+			dst[i] = src[i];
+		else
+			dst[i] = '\0';
+		i++;
 	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	return (dst);
 }

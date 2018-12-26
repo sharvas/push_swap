@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_itoa_unsigned.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/12/17 17:07:00 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/12/17 17:07:04 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+static int	ft_find_len(uintmax_t n)
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
+	int			len;
+
+	len = 1;
+	while ((n /= 10) > 0)
+		len++;
+	return (len);
 }
 
-void	ft_free_stack(t_stack *stack)
+char		*ft_itoa_unsigned(uintmax_t n)
 {
-	while ()
+	char	*fresh;
+	int		len;
+
+	if (n == 0)
+		return (ft_strdup("0"));
+	len = ft_find_len(n);
+	if (!(fresh = ft_strnew(len + 1)))
+		return (NULL);
+	fresh[len + 1] = '\0';
+	while (n > 0)
 	{
-
+		fresh[--len] = (n % 10) + '0';
+		n = n / 10;
 	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	return (fresh);
 }

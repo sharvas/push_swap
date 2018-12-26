@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/06 06:51:18 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/06 06:51:20 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include "libft.h"
 
-void	ft_error(t_all *all)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	ft_putstr("Error\n");
-	ft_free_all(all);//
-	exit (1);
-}
+	const char	*a;
+	char		*b;
 
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
+	b = (char*)dst;
+	a = (const char*)src;
+	if (a > b)
+		ft_memcpy(b, a, n);
+	else
 	{
-
+		while (n)
+		{
+			n--;
+			b[n] = a[n];
+		}
 	}
-}
-
-void	ft_free_all()
-{
-	ft_free_stack(a);
-	ft_free_stack(b);
-
+	return (dst);
 }

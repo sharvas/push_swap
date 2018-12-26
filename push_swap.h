@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include "unistd.h"
+# include "stdio.h" // rm, just fpr testing
 
 typedef struct		s_stack
 {
@@ -28,5 +29,12 @@ typedef struct		s_all
 	struct s_stack	*a;
 	struct s_stack	*b;
 }					t_all;
+
+t_all	*ft_initialize(t_all *all);
+void	ft_checker(char **argv);
+int		main(int argc, char **argv);
+void	ft_fill_a(t_all *all, char **argv);
+void	ft_add_end(t_all *all, int n);
+void	ft_is_sorted(t_all *all);
 
 #endif

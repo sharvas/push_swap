@@ -10,64 +10,110 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+# include "push_swap.h"
 
-void	ft_initialize(t_stack *a)
+t_all	*ft_initialize(t_all *all)
 {
-	a->n = 0;
-	a->next = //
-	a->prev = //
+	if (!(all = (t_all *)malloc(sizeof(t_all))))
+		exit(1);
+	all->a = NULL;
+	all->b = NULL;
+	return (all);
 }
 
-void	ft_fill_a()//takes ints and makes a double linked list
+void	ft_checker(char **argv)
 {
-	t_stack	a;
-	t_stack	top;
+	t_all	*all;
 
-
+	all = NULL;
+	all = ft_initialize(all);
+	ft_fill_a(all, argv);
+//	ft_do_ops(all);//
+	ft_is_sorted(all);
+//	ft_free_all(all);
 }
 
-void	ft_del_top()
+int		main(int argc, char **argv)
 {
-
+	if (argc > 1)
+		ft_checker(argv);
+	return (0);
 }
 
-void	ft_add_top(t_stack *stack, int n)
+void	ft_fill_a(t_all *all, char **argv)//takes argv and makes a double linked list
 {
+	int	i;
+
+	i = 1;
+	while (argv[i])
+		ft_add_end(all, ft_atoi(argv[i++]));
+}
+
+void	ft_add_end(t_all *all, int n)
+{
+	t_stack	**top;
 	t_stack	*tmp;
 
-	
-}
-
-void	ft_debug_v()//prints the stack's status
-{
-	printf("%s\n", "a:\t|\tb:");
-	printf("%d\t|\tb:\n",)
-	while (a->next != top->next)
-	printf("%")
-}//convert printf to ft_printf
-
-
-
-
-typedef struct		s_stack
-{
-	int				n;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}					t_stack;
-
-void	ft_free_stack(t_stack *stack)
-{
-	while ()
+	top = &all->a;
+	if (*top)
 	{
+/*		if (!(*/tmp = (t_stack *)malloc(sizeof(t_stack))/*))*/;
+//			ft_error(all);//
+		tmp->next = *top;
+		tmp->prev = (*top)->prev;
+		(*top)->prev = tmp;
+		tmp->prev->next = tmp;
+		tmp->n = n;
+	}
+	else
+	{
+/*		if (!(*/*top = (t_stack *)malloc(sizeof(t_stack))/*))*/;
+//			ft_error(all);//
+		(*top)->next = *top;
+		(*top)->prev = *top;
+		(*top)->n = n;	
 
 	}
 }
 
-void	ft_free_all()
+void	ft_is_sorted(t_all *all)
 {
-	ft_free_stack(a);
-	ft_free_stack(b);
+	t_stack	*tmp;
+	int		ko;
 
+	ko = 0;
+	tmp = all->a;
+	// if (frame->b)
+	// 	ko = 1;
+	while (tmp && tmp->next != all->a)
+	{
+		if (tmp->n > tmp->next->n)
+			ko = 1;
+		tmp = tmp->next;
+	}
+	if (ko)
+		ft_putstr("KO\n");
+	else
+		ft_putstr("OK\n");
 }
+
+// void	ft_debug_v()//prints the stack's status
+// {
+// 	printf("%s\n", "a:\t|\tb:");
+// 	printf("%d\t|\tb:\n",)
+// 	while (a->next != top->next)
+// 	printf("%")
+// }//convert printf to ft_printf
+
+
+// void	ft_del_top()
+// {
+
+// }
+
+// void	ft_add_top(t_all *all, int n)
+// {
+// 	t_stack	*tmp;
+
+	
+// }
