@@ -21,25 +21,6 @@ t_all	*ft_initialize(t_all *all)
 	return (all);
 }
 
-void	ft_checker(char **argv)
-{
-	t_all	*all;
-
-	all = NULL;
-	all = ft_initialize(all);
-	ft_fill_a(all, argv);
-//	all = ft_do_ops(all);//
-	ft_ko_ok(all);
-//	ft_free_all(all);
-}
-
-int		main(int argc, char **argv)
-{
-	if (argc > 1)
-		ft_checker(argv);
-	return (0);
-}
-
 void	ft_fill_a(t_all *all, char **argv)//takes argv and makes a double linked list
 {
 	int	i;

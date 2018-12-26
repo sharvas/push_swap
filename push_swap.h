@@ -30,9 +30,39 @@ typedef struct		s_all
 	struct s_stack	*b;
 }					t_all;
 
-t_all	*ft_initialize(t_all *all);
+/*
+**		checker.c
+*/
 void	ft_checker(char **argv);
 int		main(int argc, char **argv);
+
+/*
+**		do_push_swap.c
+*/
+void	ft_sa(t_all *all);
+void	ft_sb(t_all *all);
+void	ft_pa(t_all *all);
+void	ft_pb(t_all *all);
+
+/*
+**		do_rotate.c
+*/
+void	ft_ra(t_all *all);
+void	ft_rb(t_all *all);
+void	ft_rra(t_all *all);
+void	ft_rrb(t_all *all);
+
+/*
+**		do_comb.c
+*/
+void	ft_ss(t_all *all);
+void	ft_rr(t_all *all);
+void	ft_rrr(t_all *all);
+
+
+
+
+t_all	*ft_initialize(t_all *all);
 void	ft_fill_a(t_all *all, char **argv);
 void	ft_add_end(t_all *all, int n);
 void	ft_ko_ok(t_all *all);
