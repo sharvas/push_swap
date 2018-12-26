@@ -33,6 +33,7 @@ typedef struct		s_all
 /*
 **		checker.c
 */
+t_all	*ft_do_ops(t_all *all);
 void	ft_checker(char **argv);
 int		main(int argc, char **argv);
 
@@ -59,9 +60,16 @@ void	ft_ss(t_all *all);
 void	ft_rr(t_all *all);
 void	ft_rrr(t_all *all);
 
+/*
+**		error.c
+*/
+void	ft_error(/*t_all *all*/);
+int		ft_is_error(char *argv, intmax_t n);
+int 	ft_is_duplicate(t_all *all, intmax_t n);
 
-
-
+/*
+**		stack.c
+*/
 t_all	*ft_initialize(t_all *all);
 void	ft_fill_a(t_all *all, char **argv);
 void	ft_add_end(t_all *all, int n);

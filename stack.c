@@ -21,13 +21,20 @@ t_all	*ft_initialize(t_all *all)
 	return (all);
 }
 
-void	ft_fill_a(t_all *all, char **argv)//takes argv and makes a double linked list
+void	ft_fill_a(t_all *all, char **argv)
 {
 	int	i;
+	intmax_t	n;
 
-	i = 1;
-	while (argv[i])
-		ft_add_end(all, ft_atoi(argv[i++]));
+	i = 0;
+	n = 0;
+	while (argv[++i])
+	{
+		n = ft_atoi_intmax(argv[i]);
+		if (ft_is_error(argv[i], n) || ft_is_duplicate(all, n))
+			ft_error(all);
+		ft_add_end(all, n);
+	}
 }
 
 void	ft_add_end(t_all *all, int n)
@@ -38,8 +45,8 @@ void	ft_add_end(t_all *all, int n)
 	top = &all->a;
 	if (*top)
 	{
-/*		if (!(*/tmp = (t_stack *)malloc(sizeof(t_stack))/*))*/;
-//			ft_error(all);//
+		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
+			ft_error(/*all*/);
 		tmp->next = *top;
 		tmp->prev = (*top)->prev;
 		(*top)->prev = tmp;
@@ -48,8 +55,8 @@ void	ft_add_end(t_all *all, int n)
 	}
 	else
 	{
-/*		if (!(*/*top = (t_stack *)malloc(sizeof(t_stack))/*))*/;
-//			ft_error(all);//
+		if (!(*top = (t_stack *)malloc(sizeof(t_stack))))
+			ft_error(/*all*/);
 		(*top)->next = *top;
 		(*top)->prev = *top;
 		(*top)->n = n;	

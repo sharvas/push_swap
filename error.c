@@ -10,26 +10,60 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+# include "push_swap.h"
 
-void	ft_error(t_all *all)
+void	ft_error(/*t_all *all*/)
 {
 	ft_putstr("Error\n");
-	ft_free_all(all);//
+//	ft_free_all(all);//
 	exit (1);
 }
 
-void	ft_free_stack(t_stack *stack)
+int		ft_is_error(char *argv, intmax_t n)
 {
-	while ()
+	int		i;
+
+	i = -1;
+	if (n > 2147483647 || n < -2147483648)
+		return (1);
+	while (argv[++i])
 	{
-
+		if ((!ft_isdigit(argv[i]) && argv[i] != '-'))
+			return (1);
 	}
+	return (0);
 }
 
-void	ft_free_all()
+int 	ft_is_duplicate(t_all *all, intmax_t n)
 {
-	ft_free_stack(a);
-	ft_free_stack(b);
+	t_stack	*ref;
 
+	ref = all->a;
+	if (ref == NULL)
+		return (0);
+	if (n == ref->n)
+		return (1);
+	ref = ref->next;
+	while (ref != all->a)
+	{
+		if (n == ref->n)
+			return (1);
+		ref = ref->next;
+	}
+	return (0);
 }
+
+// void	ft_free_stack(t_stack *stack)
+// {
+// 	while ()
+// 	{
+
+// 	}
+// }
+
+// void	ft_free_all()
+// {
+// 	ft_free_stack(a);
+// 	ft_free_stack(b);
+
+// }

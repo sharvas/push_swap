@@ -12,6 +12,22 @@
 
 # include "push_swap.h"
 
+// t_all	*ft_do_ops(t_all *all)
+// {
+// 	char	*line;
+
+// 	line = NULL;
+// 	printf("here\n");
+// 	while((get_next_line(0, &line)) == 1)
+// 	{
+// 		printf("line: %s\n", line);
+// 		free(line);
+// 		line = NULL;
+// 	}
+// 	printf("B\n");
+// 	return (all);
+// }
+
 void	ft_checker(char **argv)
 {
 	t_all	*all;
@@ -19,7 +35,7 @@ void	ft_checker(char **argv)
 	all = NULL;
 	all = ft_initialize(all);
 	ft_fill_a(all, argv);
-//	all = ft_do_ops(all);//
+//	all = ft_do_ops(all);
 	ft_ko_ok(all);
 //	ft_free_all(all);
 }

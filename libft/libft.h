@@ -17,6 +17,7 @@
 # include <unistd.h>
 
 int					ft_atoi(const char *str);
+intmax_t			ft_atoi_intmax(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
