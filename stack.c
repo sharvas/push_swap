@@ -28,8 +28,8 @@ void	ft_checker(char **argv)
 	all = NULL;
 	all = ft_initialize(all);
 	ft_fill_a(all, argv);
-//	ft_do_ops(all);//
-	ft_is_sorted(all);
+//	all = ft_do_ops(all);//
+	ft_ko_ok(all);
 //	ft_free_all(all);
 }
 
@@ -72,29 +72,31 @@ void	ft_add_end(t_all *all, int n)
 		(*top)->next = *top;
 		(*top)->prev = *top;
 		(*top)->n = n;	
-
 	}
 }
 
-void	ft_is_sorted(t_all *all)
+void	ft_ko_ok(t_all *all)
+{
+	if (ft_is_sorted(all))
+		ft_putstr("OK\n");
+	else
+		ft_putstr("KO\n");
+}
+
+int		ft_is_sorted(t_all *all)
 {
 	t_stack	*tmp;
-	int		ko;
 
-	ko = 0;
+	if (!all->a || all->b)
+		return (0);
 	tmp = all->a;
-	// if (frame->b)
-	// 	ko = 1;
-	while (tmp && tmp->next != all->a)
+	while (tmp->next != all->a)
 	{
 		if (tmp->n > tmp->next->n)
-			ko = 1;
+			return (0);
 		tmp = tmp->next;
 	}
-	if (ko)
-		ft_putstr("KO\n");
-	else
-		ft_putstr("OK\n");
+	return (1);
 }
 
 // void	ft_debug_v()//prints the stack's status
