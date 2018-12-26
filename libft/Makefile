@@ -12,6 +12,8 @@
 
 NAME = libft.a
 
+GNL = get_next_line.h
+
 SRCS = ft_atoi.c \
 		ft_bzero.c \
 		ft_isalnum.c \
@@ -84,7 +86,8 @@ SRCS = ft_atoi.c \
 		ft_listlen_int.c \
 		ft_listlen_char.c \
 		ft_2d_int_free.c \
-		ft_2d_char_free.c
+		ft_2d_char_free.c \
+		get_next_line.c
 
 OBJ = $(SRCS:.c=.o)
 
@@ -99,7 +102,7 @@ $(NAME): $(OBJ)
 	@ranlib $(NAME)
 
 $(OBJ): $(SRCS)
-	@gcc -c $(FLAGS) $(SRCS) -I $(INC)
+	@gcc -c -I $(INC) -I $(GNL) $(FLAGS) $(SRCS)
 
 clean:
 	@/bin/rm -f $(OBJ)

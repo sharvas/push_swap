@@ -1,41 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_push_swap.c                                     :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 15:37:52 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/26 15:37:53 by dfinnis          ###   ########.fr       */
+/*   Created: 2018/11/15 10:42:07 by dfinnis           #+#    #+#             */
+/*   Updated: 2018/11/15 10:42:08 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 32
+# include "libft.h"
 
-void	ft_sa(t_all *all)
-{
-	int	tmp;
+int	get_next_line(const int fd, char **line);
 
-	tmp = a->n;
-	a->n = a->next->n;
-	a->next->n = tmp;
-}
-
-void	ft_sb(t_all *all)
-{
-	int	tmp;
-
-	tmp = b->n;
-	b->n = b->next->n;
-	b->next->n = tmp;
-}
-
-void	ft_pa(t_all *all)
-{
-	
-}
-
-void	ft_pb(t_all *all)
-{
-	
-}
+#endif
