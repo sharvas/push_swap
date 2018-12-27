@@ -18,6 +18,7 @@ t_all	*ft_initialize(t_all *all)
 		exit(1);
 	all->a = NULL;
 	all->b = NULL;
+	all->v = 0;
 	return (all);
 }
 
@@ -26,14 +27,20 @@ void	ft_fill_a(t_all *all, char **argv)
 	int	i;
 	int	n;
 
-	i = 0;
+	i = 1;
 	n = 0;
-	while (argv[++i])
+	if (ft_strcmp(argv[i], "-v") == 0)
+	{
+		all->v = 1;
+		i++;
+	}
+	while (argv[i])
 	{
 		n = ft_atoi_error(argv[i]);
 		if (ft_is_duplicate(all, n))
 			ft_error(all);
 		ft_add_end(all, n);
+		i++;
 	}
 }
 
@@ -87,13 +94,32 @@ int		ft_is_sorted(t_all *all)
 	return (1);
 }
 
-// void	ft_debug_v()//prints the stack's status
-// {
-// 	printf("%s\n", "a:\t|\tb:");
-// 	printf("%d\t|\tb:\n",)
-// 	while (a->next != top->next)
-// 	printf("%")
-// }//convert printf to ft_printf
+void	ft_debug_v(t_all *all)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	// char	*a;
+	// char	*b;
+
+	stack_a = all->a;
+	stack_b = all->b;
+	printf("a\t|\tb\n");
+	while (stack_a->next != all->a)
+	{
+		// a = (stack_a) ? ft_itoa(stack_a->n) : ft_strdup("");
+		// b = (stack_b) ? ft_itoa(stack_b->n) : ft_strdup("");
+		printf("%d\t|\t%d\n", stack_a->n, stack_b->n);
+		stack_a = stack_a->next;
+		stack_b = stack_b->next;
+	}
+	printf("%d\t|\t%d\n", stack_a->n, stack_b->n);
+
+
+	// printf("%s\n", "a:\t|\tb:");
+	// printf("%d\t|\tb:\n",)
+	// while (a->next != top->next)
+	// printf("%")
+}//convert printf to ft_printf
 
 
 // void	ft_del_top()

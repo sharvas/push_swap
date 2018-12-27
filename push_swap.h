@@ -28,6 +28,7 @@ typedef struct		s_all
 {
 	struct s_stack	*a;
 	struct s_stack	*b;
+	int				v;
 }					t_all;
 
 /*
@@ -75,5 +76,5 @@ void	ft_fill_a(t_all *all, char **argv);
 void	ft_add_end(t_all *all, int n);
 void	ft_ko_ok(t_all *all);
 int		ft_is_sorted(t_all *all);
-
+void	ft_debug_v(t_all *all);
 #endif

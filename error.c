@@ -58,7 +58,7 @@ int	ft_atoi_error(char *str)//
 	while (str[i] >= '0' && str[i] <= '9' && i < 11)
 		a = (a * 10) + (str[i++] - '0');
 	a *= n;
-	if (str[i] || a > 2147483647 || a < -2147483648)// min int error
+	if (str[i] || a > 2147483647 || a < -2147483648)
 		ft_error();
 	return (a);
 }

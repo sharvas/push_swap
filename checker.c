@@ -42,7 +42,7 @@ void	ft_checker(char **argv)
 
 int		main(int argc, char **argv)
 {
-	if (argc > 1)
+	if ((argc > 1 && !(ft_strcmp(argv[1], "-v") == 0)) || argc > 2)
 		ft_checker(argv);
 	return (0);
 }
