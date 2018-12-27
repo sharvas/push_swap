@@ -24,14 +24,14 @@ t_all	*ft_initialize(t_all *all)
 void	ft_fill_a(t_all *all, char **argv)
 {
 	int	i;
-	intmax_t	n;
+	int	n;
 
 	i = 0;
 	n = 0;
 	while (argv[++i])
 	{
-		n = ft_atoi_intmax(argv[i]);
-		if (ft_is_error(argv[i], n) || ft_is_duplicate(all, n))
+		n = ft_atoi_error(argv[i]);
+		if (ft_is_duplicate(all, n))
 			ft_error(all);
 		ft_add_end(all, n);
 	}

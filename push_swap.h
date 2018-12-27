@@ -64,7 +64,7 @@ void	ft_rrr(t_all *all);
 **		error.c
 */
 void	ft_error(/*t_all *all*/);
-int		ft_is_error(char *argv, intmax_t n);
+int		ft_atoi_error(char *str);
 int 	ft_is_duplicate(t_all *all, intmax_t n);
 
 /*

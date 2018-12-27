@@ -19,21 +19,6 @@ void	ft_error(/*t_all *all*/)
 	exit (1);
 }
 
-int		ft_is_error(char *argv, intmax_t n)
-{
-	int		i;
-
-	i = -1;
-	if (n > 2147483647 || n < -2147483648)
-		return (1);
-	while (argv[++i])
-	{
-		if ((!ft_isdigit(argv[i]) && argv[i] != '-'))
-			return (1);
-	}
-	return (0);
-}
-
 int 	ft_is_duplicate(t_all *all, intmax_t n)
 {
 	t_stack	*ref;
@@ -51,6 +36,30 @@ int 	ft_is_duplicate(t_all *all, intmax_t n)
 		ref = ref->next;
 	}
 	return (0);
+}
+
+int		ft_atoi_error(char *str)//
+{
+	long	a;
+	int		i;
+	int		n;
+
+	a = 0;
+	i = 0;
+	n = 1;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			n = -1;
+		i++;
+	}
+	if (str[i] < '0' || str[i] > '9')
+		ft_error();
+	while (str[i] >= '0' && str[i] <= '9' && i < 11)
+		a = (a * 10) + (str[i++] - '0');
+	if (str[i] || a > 2147483647 || a < -2147483648)// min int error
+		ft_error();
+	return (a * n);
 }
 
 // void	ft_free_stack(t_stack *stack)
