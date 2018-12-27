@@ -36,6 +36,7 @@ void	ft_checker(char **argv)
 	all = ft_initialize(all);
 	ft_fill_a(all, argv);
 //	all = ft_do_ops(all);
+	ft_debug_v(all);//
 	ft_ko_ok(all);
 //	ft_free_all(all);
 }

@@ -98,27 +98,25 @@ void	ft_debug_v(t_all *all)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	// char	*a;
-	// char	*b;
 
 	stack_a = all->a;
 	stack_b = all->b;
-	printf("a\t|\tb\n");
+	printf(" %-11s| %s\n", "a", "b");
 	while (stack_a->next != all->a)
 	{
-		// a = (stack_a) ? ft_itoa(stack_a->n) : ft_strdup("");
-		// b = (stack_b) ? ft_itoa(stack_b->n) : ft_strdup("");
-		printf("%d\t|\t%d\n", stack_a->n, stack_b->n);
-		stack_a = stack_a->next;
-		stack_b = stack_b->next;
+		if (stack_a && stack_b)
+			printf("%- 12d| %- 12d\n", stack_a->n, stack_b->n);
+		else if (stack_a)
+			printf("%- 12d|\n", stack_a->n);
+		if (stack_a)
+			stack_a = stack_a->next;
+		if (stack_b)
+			stack_b = stack_b->next;
 	}
-	printf("%d\t|\t%d\n", stack_a->n, stack_b->n);
-
-
-	// printf("%s\n", "a:\t|\tb:");
-	// printf("%d\t|\tb:\n",)
-	// while (a->next != top->next)
-	// printf("%")
+	if (stack_a && stack_b)
+	 	printf("%- 12d| %- 12d\n", stack_a->n, stack_b->n);
+	else if (stack_a)
+		printf("%- 12d|\n", stack_a->n);
 }//convert printf to ft_printf
 
 
