@@ -44,32 +44,6 @@ void	ft_fill_a(t_all *all, char **argv)
 	}
 }
 
-void	ft_add_end(t_all *all, int n)
-{
-	t_stack	**top;
-	t_stack	*tmp;
-
-	top = &all->a;
-	if (*top)
-	{
-		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(/*all*/);
-		tmp->next = *top;
-		tmp->prev = (*top)->prev;
-		(*top)->prev = tmp;
-		tmp->prev->next = tmp;
-		tmp->n = n;
-	}
-	else
-	{
-		if (!(*top = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(/*all*/);
-		(*top)->next = *top;
-		(*top)->prev = *top;
-		(*top)->n = n;	
-	}
-}
-
 void	ft_ko_ok(t_all *all)
 {
 	if (ft_is_sorted(all))
@@ -94,40 +68,79 @@ int		ft_is_sorted(t_all *all)
 	return (1);
 }
 
-void	ft_debug_v(t_all *all)
+void	ft_add_end(t_all *all, int n)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	**top;
+	t_stack	*tmp;
 
-	stack_a = all->a;
-	stack_b = all->b;
-	printf(" %-11s| %s\n", "a", "b");
-	while (stack_a->next != all->a)
+	top = &all->a;
+	if (*top)
 	{
-		if (stack_a && stack_b)
-			printf("%- 12d| %- 12d\n", stack_a->n, stack_b->n);
-		else if (stack_a)
-			printf("%- 12d|\n", stack_a->n);
-		if (stack_a)
-			stack_a = stack_a->next;
-		if (stack_b)
-			stack_b = stack_b->next;
+		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
+			ft_error(/*all*/);
+		tmp->next = *top;
+		tmp->prev = (*top)->prev;
+		(*top)->prev = tmp;
+		tmp->prev->next = tmp;
+		tmp->n = n;
 	}
-	if (stack_a && stack_b)
-	 	printf("%- 12d| %- 12d\n", stack_a->n, stack_b->n);
-	else if (stack_a)
-		printf("%- 12d|\n", stack_a->n);
-}//convert printf to ft_printf
+	else
+	{
+		if (!(*top = (t_stack *)malloc(sizeof(t_stack))))
+			ft_error(/*all*/);
+		(*top)->next = *top;
+		(*top)->prev = *top;
+		(*top)->n = n;
+	}
+}
 
+void	ft_add_top(t_all *all, char stack, int n)
+{
+	t_stack	**top;
+	t_stack	*tmp;
 
-// void	ft_del_top()
-// {
+	top = (stack == 'a') ? &all->a : &all->b;
+	if (*top)
+	{
+		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
+			ft_error(/*all*/);
+		tmp->next = *top;
+		tmp->prev = (*top)->prev;
+		(*top)->prev = tmp;
+		tmp->prev->next = tmp;
+		tmp->n = n;
+		*top = (*top)->prev;
+	}
+	else
+	{
+		if (!(*top = (t_stack *)malloc(sizeof(t_stack))))
+			ft_error(/*all*/);
+		(*top)->next = *top;
+		(*top)->prev = *top;
+		(*top)->n = n;
+	}
+}
 
-// }
+void	ft_del_top(t_all *all, char stack)
+{
+	t_stack	**top;
+	t_stack	*tmp;
 
-// void	ft_add_top(t_all *all, int n)
-// {
-// 	t_stack	*tmp;
-
-	
-// }
+	top = (stack == 'a') ? &all->a : &all->b;
+	if (*top)
+	{
+		if ((*top)->next == *top)
+		{
+			free(*top);
+			*top = NULL;
+		}
+		else
+		{
+			tmp = *top;
+			*top = (*top)->next;
+			tmp->prev->next = *top;
+			(*top)->prev = tmp->prev;
+			free(tmp);
+		}
+	}
+}

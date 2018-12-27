@@ -73,8 +73,17 @@ int 	ft_is_duplicate(t_all *all, intmax_t n);
 */
 t_all	*ft_initialize(t_all *all);
 void	ft_fill_a(t_all *all, char **argv);
+
 void	ft_add_end(t_all *all, int n);
+void	ft_add_top(t_all *all, char stack, int n);
+void	ft_del_top(t_all *all, char stack);
+
 void	ft_ko_ok(t_all *all);
 int		ft_is_sorted(t_all *all);
+
+/*
+**		bonus.c
+*/
 void	ft_debug_v(t_all *all);
+
 #endif

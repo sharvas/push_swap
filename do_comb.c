@@ -14,18 +14,18 @@
 
 void	ft_ss(t_all *all)
 {
-	ft_sa();
-	ft_sb();
+	ft_sa(all);
+	ft_sb(all);
 }
 
 void	ft_rr(t_all *all)
 {
-	ft_ra();
-	ft_rb();
+	ft_ra(all);
+	ft_rb(all);
 }
 
 void	ft_rrr(t_all *all)
 {
-	ft_rra();
-	ft_rrb();
+	ft_rra(all);
+	ft_rrb(all);
 }

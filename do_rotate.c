@@ -14,20 +14,24 @@
 
 void	ft_ra(t_all *all)
 {
-	all->a = all->a->next;
+	if (all->a)
+		all->a = all->a->next;
 }
 
 void	ft_rb(t_all *all)
 {
-	all->b = all->b->next;
+	if (all->b)
+		all->b = all->b->next;
 }
 
 void	ft_rra(t_all *all)
 {
+	if (all->a)
 	all->a = all->a->prev;
 }
 
 void	ft_rrb(t_all *all)
 {
-	all->b = all->b->prev;
+	if (all->b)
+		all->b = all->b->prev;
 }

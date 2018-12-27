@@ -16,26 +16,40 @@ void	ft_sa(t_all *all)
 {
 	int	tmp;
 
-	tmp = a->n;
-	a->n = a->next->n;
-	a->next->n = tmp;
+	if (all->a && all->a->next != all->a)
+	{
+		tmp = all->a->n;
+		all->a->n = all->a->next->n;
+		all->a->next->n = tmp;
+	}
 }
 
 void	ft_sb(t_all *all)
 {
 	int	tmp;
 
-	tmp = b->n;
-	b->n = b->next->n;
-	b->next->n = tmp;
+	if (all->b && all->b->next != all->b)
+	{
+		tmp = all->b->n;
+		all->b->n = all->b->next->n;
+		all->b->next->n = tmp;
+	}
 }
 
 void	ft_pa(t_all *all)
 {
-	
+	if (all->b)
+	{
+		ft_add_top(all, 'a', all->b->n);
+		ft_del_top(all, 'b');
+	}
 }
 
 void	ft_pb(t_all *all)
 {
-	
+	if (all->a)
+	{
+		ft_add_top(all, 'b', all->a->n);
+		ft_del_top(all, 'a');
+	}
 }
