@@ -38,7 +38,7 @@ int 	ft_is_duplicate(t_all *all, intmax_t n)
 	return (0);
 }
 
-int		ft_atoi_error(char *str)//
+int	ft_atoi_error(char *str)//
 {
 	long	a;
 	int		i;
@@ -57,9 +57,10 @@ int		ft_atoi_error(char *str)//
 		ft_error();
 	while (str[i] >= '0' && str[i] <= '9' && i < 11)
 		a = (a * 10) + (str[i++] - '0');
+	a *= n;
 	if (str[i] || a > 2147483647 || a < -2147483648)// min int error
 		ft_error();
-	return (a * n);
+	return (a);
 }
 
 // void	ft_free_stack(t_stack *stack)
