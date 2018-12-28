@@ -15,7 +15,7 @@
 
 # include "libft/libft.h"
 # include "unistd.h"
-# include "stdio.h" // rm, just fpr testing
+# include "stdio.h" // rm, just for testing
 
 typedef struct		s_stack
 {
@@ -29,6 +29,9 @@ typedef struct		s_all
 	struct s_stack	*a;
 	struct s_stack	*b;
 	int				v;
+	long long 		mean;
+	int				min;
+	int				max;
 }					t_all;
 
 /*
@@ -37,6 +40,14 @@ typedef struct		s_all
 t_all	*ft_do_ops(t_all *all);
 void	ft_checker(char **argv);
 int		main(int argc, char **argv);
+
+/*
+**		sort.c
+*/
+void	ft_find_mean(t_all *all);
+void	ft_find_min_max(t_all *all);
+void	ft_ko_ok(t_all *all);
+int		ft_is_sorted(t_all *all);
 
 /*
 **		do_push_swap.c
@@ -78,8 +89,6 @@ void	ft_add_end(t_all *all, int n);
 void	ft_add_top(t_all *all, char stack, int n);
 void	ft_del_top(t_all *all, char stack);
 
-void	ft_ko_ok(t_all *all);
-int		ft_is_sorted(t_all *all);
 
 /*
 **		bonus.c

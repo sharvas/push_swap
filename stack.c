@@ -19,6 +19,9 @@ t_all	*ft_initialize(t_all *all)
 	all->a = NULL;
 	all->b = NULL;
 	all->v = 0;
+	all->max = 0;
+	all->mean = 0;
+	all->min = 0;
 	return (all);
 }
 
@@ -42,30 +45,6 @@ void	ft_fill_a(t_all *all, char **argv)
 		ft_add_end(all, n);
 		i++;
 	}
-}
-
-void	ft_ko_ok(t_all *all)
-{
-	if (ft_is_sorted(all))
-		ft_putstr("OK\n");
-	else
-		ft_putstr("KO\n");
-}
-
-int		ft_is_sorted(t_all *all)
-{
-	t_stack	*tmp;
-
-	if (!all->a || all->b)
-		return (0);
-	tmp = all->a;
-	while (tmp->next != all->a)
-	{
-		if (tmp->n > tmp->next->n)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
 }
 
 void	ft_add_end(t_all *all, int n)
