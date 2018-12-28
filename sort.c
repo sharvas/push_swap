@@ -49,12 +49,13 @@ t_all	*ft_simple_sort(t_all *all)
 	return (all);
 }
 
-void	ft_find_median(t_all *all)
+void	ft_find_ref(t_all *all)
 {
 	t_stack		*tmp;
 	t_all		*cpy;
 	int			count;
 
+	all->len = ft_find_len(all);
 	cpy = ft_simple_sort(all);
 	tmp = cpy->a;
 	count = (ft_find_len(all) / 4);
@@ -75,7 +76,7 @@ void	ft_find_median(t_all *all)
 	while (tmp->next != all->a)
 		tmp = tmp->next;
 	all->max = tmp->n;
-	printf("min: %d, qu: %d, median: %d, three_qu: %d, max: %d\n", all->min, all->qu, all->median, all->three_qu, all->max);
+	printf("min: %d, qu: %d, median: %d, three_qu: %d, max: %d, len: %d\n", all->min, all->qu, all->median, all->three_qu, all->max, all->len);
 	//free_cpy??//
 }
 

@@ -47,8 +47,7 @@ int		main(int argc, char **argv);
 /*
 **		sort.c
 */
-void	ft_find_median(t_all *all);
-void	ft_find_min_max(t_all *all);
+void	ft_find_ref(t_all *all);
 void	ft_ko_ok(t_all *all);
 int		ft_is_sorted(t_all *all);
 
