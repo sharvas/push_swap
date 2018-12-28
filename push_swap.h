@@ -29,6 +29,9 @@ typedef struct		s_all
 	struct s_stack	*a;
 	struct s_stack	*b;
 	int				v;
+	long long 		mean;
+	int				min;
+	int				max;
 }					t_all;
 
 /*
@@ -37,6 +40,11 @@ typedef struct		s_all
 t_all	*ft_do_ops(t_all *all);
 void	ft_checker(char **argv);
 int		main(int argc, char **argv);
+
+/*
+**		sort.c
+*/
+void	ft_find_mean(t_all *all);
 
 /*
 **		do_push_swap.c

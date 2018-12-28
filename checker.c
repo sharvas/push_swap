@@ -67,6 +67,7 @@ void	ft_checker(char **argv)
 	all = NULL;
 	all = ft_initialize(all);
 	ft_fill_a(all, argv);
+	ft_find_mean(all);//
 	all = ft_do_ops(all);
 	ft_ko_ok(all);
 //	ft_free_all(all);
