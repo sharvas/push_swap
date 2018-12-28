@@ -29,9 +29,12 @@ typedef struct		s_all
 	struct s_stack	*a;
 	struct s_stack	*b;
 	int				v;
-	long long 		mean;
 	int				min;
+	int				qu;
+	int				median;
+	int				three_qu;
 	int				max;
+	int				len;
 }					t_all;
 
 /*
@@ -44,10 +47,13 @@ int		main(int argc, char **argv);
 /*
 **		sort.c
 */
-void	ft_find_mean(t_all *all);
+void	ft_find_median(t_all *all);
 void	ft_find_min_max(t_all *all);
 void	ft_ko_ok(t_all *all);
 int		ft_is_sorted(t_all *all);
+
+int		ft_find_len(t_all *all);
+t_all	*ft_simple_sort(t_all *all);
 
 /*
 **		do_push_swap.c
