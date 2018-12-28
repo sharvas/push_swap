@@ -6,7 +6,7 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/28 14:28:57 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/28 15:21:08 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,39 @@
 
 char	*ft_sort(t_all *all, char *instructions)
 {
-	instruct
+	t_stack *tmp_a;
+	t_stack *tmp_b;
+	int		counter;
 
+	tmp_a = all->a;
+	while (tmp->a != top_a->prev)
+	{
+		if (tmp_a->n < all->mean)
+		{
+			ft_pb(all);
+			top_b = all->b;
+			counter = 0;
+			while (all->b != top_b->prev)
+			{
+				if (top_b->n < all->b)
+				{
+					all->b = top_b;
+					while (counter)
+					{
+						ft_sb(all);
+						all->b = all->b->next;
+						counter--;
+					}
+					break ;
+				}
+				counter++;
+				all->b = all->b->next;
+			}
+		}
+		all->a = all->a->next;
+	}
+	all
+	while ()
 }
 
 void	ft_push_swap(char **av)
