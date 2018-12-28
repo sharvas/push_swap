@@ -47,7 +47,6 @@ void	ft_fill_a(t_all *all, char **argv)
 	}
 }
 
-
 void	ft_add_end(t_all *all, int n)
 {
 	t_stack	**top;

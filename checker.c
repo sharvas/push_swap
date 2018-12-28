@@ -49,7 +49,6 @@ t_all	*ft_do_ops(t_all *all)
 		ft_debug_v(all);
 	while((get_next_line(0, &line)) == 1)
 	{
-		// printf("line: %s\n", line);//
 		ft_read_do(line, all);
 		if (all->v)
 			ft_debug_v(all);
