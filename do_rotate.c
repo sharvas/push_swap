@@ -27,7 +27,7 @@ void	ft_rb(t_all *all)
 void	ft_rra(t_all *all)
 {
 	if (all->a)
-	all->a = all->a->prev;
+		all->a = all->a->prev;
 }
 
 void	ft_rrb(t_all *all)

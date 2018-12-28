@@ -47,7 +47,7 @@ t_all	*ft_do_ops(t_all *all)
 	line = NULL;
 	if (all->v)
 		ft_debug_v(all);
-	while((get_next_line(0, &line)) == 1)
+	while ((get_next_line(0, &line)) == 1)
 	{
 		ft_read_do(line, all);
 		if (all->v)
