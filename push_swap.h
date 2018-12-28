@@ -15,7 +15,7 @@
 
 # include "libft/libft.h"
 # include "unistd.h"
-# include "stdio.h" // rm, just fpr testing
+# include "stdio.h" // rm, just for testing
 
 typedef struct		s_stack
 {
@@ -45,6 +45,7 @@ int		main(int argc, char **argv);
 **		sort.c
 */
 void	ft_find_mean(t_all *all);
+void	ft_find_min_max(t_all *all);
 
 /*
 **		do_push_swap.c

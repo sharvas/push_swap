@@ -21,17 +21,31 @@ void	ft_find_mean(t_all *all)
 	total = 0;
 	len = 0;
 	tmp = all->a;
-	printf("meana: %lld\n", all->mean);//
 	while (tmp->next != all->a)
 	{
 		total += tmp->n;
 		len++;
-		printf("total: %lld, len: %d\n", total, len);//
 		tmp = tmp->next;
 	}
 	total += tmp->n;
 	len++;
-	printf("total: %lld, len: %d\n", total, len);
 	all->mean = (total / len);
-	printf("mean: %lld\n", all->mean);//
+}
+
+void	ft_find_min_max(t_all *all)
+{
+	t_stack		*tmp;
+
+	tmp = all->a;
+	all->min = tmp->n;
+	all->max = tmp->n;
+	tmp = tmp->next;
+	while (tmp->next != all->a->next)
+	{
+		if (tmp->n < all->min)
+			all->min = tmp->n;
+		if (tmp->n > all->max)
+			all->max = tmp->n;
+		tmp = tmp->next;
+	}
 }
