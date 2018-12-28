@@ -23,6 +23,7 @@ void	ft_debug_v(t_all *all)
 	flag_b = 0;	
 	stack_a = all->a;
 	stack_b = all->b;
+	printf("\E[H\E[2J");
 	printf(" %-11s| %s\n", "a", "b");
 	while ((stack_a && stack_a->next != all->a) || (stack_b && stack_b->next != all->b))
 	{

@@ -16,10 +16,10 @@ void	ft_error(/*t_all *all*/)
 {
 	ft_putstr("Error\n");
 //	ft_free_all(all);//
-	exit (1);
+	exit(1);
 }
 
-int 	ft_is_duplicate(t_all *all, intmax_t n)
+int		ft_is_duplicate(t_all *all, intmax_t n)
 {
 	t_stack	*ref;
 
@@ -38,7 +38,7 @@ int 	ft_is_duplicate(t_all *all, intmax_t n)
 	return (0);
 }
 
-int	ft_atoi_error(char *str)//
+int		ft_atoi_error(char *str)
 {
 	long	a;
 	int		i;
