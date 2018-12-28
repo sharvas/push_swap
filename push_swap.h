@@ -47,12 +47,11 @@ int		main(int argc, char **argv);
 /*
 **		sort.c
 */
+int		ft_find_len(t_all *all);
+t_all	*ft_simple_sort(t_all *all);
 void	ft_find_ref(t_all *all);
 void	ft_ko_ok(t_all *all);
 int		ft_is_sorted(t_all *all);
-
-int		ft_find_len(t_all *all);
-t_all	*ft_simple_sort(t_all *all);
 
 /*
 **		do_push_swap.c
@@ -89,7 +88,6 @@ int 	ft_is_duplicate(t_all *all, intmax_t n);
 */
 t_all	*ft_initialize(t_all *all);
 void	ft_fill_a(t_all *all, char **argv);
-
 void	ft_add_end(t_all *all, int n);
 void	ft_add_top(t_all *all, char stack, int n);
 void	ft_del_top(t_all *all, char stack);
