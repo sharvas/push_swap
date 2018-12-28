@@ -16,13 +16,17 @@ void	ft_debug_v(t_all *all)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		flag_a;
+	int		flag_b;	
 
+	flag_a = 0;
+	flag_b = 0;	
 	stack_a = all->a;
 	stack_b = all->b;
 	printf(" %-11s| %s\n", "a", "b");
 	while ((stack_a && stack_a->next != all->a) || (stack_b && stack_b->next != all->b))
 	{
-		if (stack_a && stack_b && stack_a->next != all->a && stack_b->next != all->b)
+		if (stack_a && stack_b && !flag_a && !flag_b)
 			printf("%- 12d|%- 12d\n", stack_a->n, stack_b->n);
 		else if (stack_a && stack_a->next != all->a)
 			printf("%- 12d|%12s\n", stack_a->n, "");
@@ -30,13 +34,17 @@ void	ft_debug_v(t_all *all)
 			printf("%12s|%- 12d\n", "", stack_b->n);
 		if (stack_a && stack_a->next != all->a)
 			stack_a = stack_a->next;
+		else
+			flag_a = 1;
 		if (stack_b && stack_b->next != all->b)
 			stack_b = stack_b->next;
+		else
+			flag_b = 1;
 	}
-	if (stack_a && stack_b)
+	if (stack_a && stack_b && !flag_a && !flag_b)
 	 	printf("%- 12d|%- 12d\n", stack_a->n, stack_b->n);
-	else if (stack_a)
+	else if (stack_a && !flag_a)
 		printf("%- 12d|%12s\n", stack_a->n, "");
-	else if (stack_b)
+	else if (stack_b && !flag_b)
 		printf("%12s|%- 12d\n", "", stack_b->n);
 }//convert printf to ft_printf
