@@ -6,7 +6,7 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/28 15:21:08 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/28 15:28:23 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ char	*ft_sort(t_all *all, char *instructions)
 {
 	t_stack *tmp_a;
 	t_stack *tmp_b;
-	int		counter;
+	int		size;
 
 	tmp_a = all->a;
-	while (tmp->a != top_a->prev)
+	size = ft_find_len(all);
+	while (size)
 	{
 		if (tmp_a->n < all->mean)
 		{
@@ -43,7 +44,8 @@ char	*ft_sort(t_all *all, char *instructions)
 				all->b = all->b->next;
 			}
 		}
-		all->a = all->a->next;
+		tmp_a = tmp_a->next;
+		size--;
 	}
 	all
 	while ()
