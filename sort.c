@@ -58,18 +58,18 @@ void	ft_find_ref(t_all *all)
 	all->len = ft_find_len(all);
 	cpy = ft_simple_sort(all);
 	tmp = cpy->a;
-	count = (ft_find_len(all) / 4);
+	count = (all->len / 4);
 	all->min = tmp->n;
 	while (count--)
 		tmp = tmp->next;
 	all->qu = tmp->n;
 	tmp = cpy->a;
-	count = (ft_find_len(all) / 2);
+	count = (all->len / 2);
 	while (count--)
 		tmp = tmp->next;
 	all->median = tmp->n;
 	tmp = cpy->a;
-	count = ((ft_find_len(all) / 2) + (ft_find_len(all) / 4));
+	count = ((all->len / 2) + (all->len / 4));
 	while (count--)
 		tmp = tmp->next;
 	all->three_qu = tmp->n;
