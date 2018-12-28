@@ -49,3 +49,27 @@ void	ft_find_min_max(t_all *all)
 		tmp = tmp->next;
 	}
 }
+
+void	ft_ko_ok(t_all *all)
+{
+	if (ft_is_sorted(all))
+		ft_putstr("OK\n");
+	else
+		ft_putstr("KO\n");
+}
+
+int		ft_is_sorted(t_all *all)
+{
+	t_stack	*tmp;
+
+	if (!all->a || all->b)
+		return (0);
+	tmp = all->a;
+	while (tmp->next != all->a)
+	{
+		if (tmp->n > tmp->next->n)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}

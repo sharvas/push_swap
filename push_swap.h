@@ -46,6 +46,8 @@ int		main(int argc, char **argv);
 */
 void	ft_find_mean(t_all *all);
 void	ft_find_min_max(t_all *all);
+void	ft_ko_ok(t_all *all);
+int		ft_is_sorted(t_all *all);
 
 /*
 **		do_push_swap.c
@@ -87,8 +89,6 @@ void	ft_add_end(t_all *all, int n);
 void	ft_add_top(t_all *all, char stack, int n);
 void	ft_del_top(t_all *all, char stack);
 
-void	ft_ko_ok(t_all *all);
-int		ft_is_sorted(t_all *all);
 
 /*
 **		bonus.c
