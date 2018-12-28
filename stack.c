@@ -19,11 +19,11 @@ t_all	*ft_initialize(t_all *all)
 	all->a = NULL;
 	all->b = NULL;
 	all->v = 0;
-	all->max = 0;
-	all->qu = 0;
-	all->three_qu = 0;
-	all->median = 0;
 	all->min = 0;
+	all->qu = 0;
+	all->median = 0;
+	all->three_qu = 0;
+	all->max = 0;
 	all->len = 0;
 	return (all);
 }

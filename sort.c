@@ -76,7 +76,7 @@ void	ft_find_ref(t_all *all)
 	while (tmp->next != all->a)
 		tmp = tmp->next;
 	all->max = tmp->n;
-	printf("min: %d, qu: %d, median: %d, three_qu: %d, max: %d, len: %d\n", all->min, all->qu, all->median, all->three_qu, all->max, all->len);
+//	printf("min: %d, qu: %d, median: %d, three_qu: %d, max: %d, len: %d\n", all->min, all->qu, all->median, all->three_qu, all->max, all->len);//
 	//free_cpy??//
 }
 
