@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Updated: 2018/12/29 18:42:16 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_is_duplicate(t_all *all, intmax_t n)
 	if (n == ref->n)
 		return (1);
 	ref = ref->next;
-	while (ref != all->a)
+	while (ref != /*all->a*/NULL)
 	{
 		if (n == ref->n)
 			return (1);

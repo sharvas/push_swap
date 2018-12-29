@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 13:19:49 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/23 13:19:51 by dfinnis          ###   ########.fr       */
+/*   Updated: 2018/12/29 21:34:22 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_all	*ft_initialize(t_all *all)
 	all->b = NULL;
 	all->v = 0;
 	all->min = 0;
-	all->qu = 0;
+//	all->qu = 0;
 	all->median = 0;
-	all->three_qu = 0;
+//	all->three_qu = 0;
 	all->max = 0;
 	all->len = 0;
 	all->display = 0;
@@ -31,9 +31,9 @@ t_all	*ft_initialize(t_all *all)
 
 void	ft_fill_a(t_all *all, char **argv)
 {
-	int	i;
-	int	j;
-	int	n;
+	int		i;
+	int		j;
+	int		n;
 	char	**array;
 
 	i = 1;
@@ -70,81 +70,97 @@ void	ft_fill_a(t_all *all, char **argv)
 			i++;
 		}
 	}
+	while (all->a->prev)
+		all->a = all->a->prev;
 }
 
 void	ft_add_end(t_all *all, int n)
 {
-	t_stack	**top;
+//	t_stack	/***/*top;
 	t_stack	*tmp;
 
-	top = &all->a;
-	if (*top)
+//	top = /*&*/all->a;
+	if (/**top*/all->a)
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
 			ft_error(/*all*/);
-		tmp->next = *top;
-		tmp->prev = (*top)->prev;
-		(*top)->prev = tmp;
-		tmp->prev->next = tmp;
+//		tmp->next = *top;
+		tmp->prev = all->a;//(*top)->prev;
+		tmp->next = NULL;
+		all->a->next = tmp;
+//		(*top)->prev = tmp;
+//		tmp->prev->next = tmp;
 		tmp->n = n;
+		all->a = tmp;
 	}
 	else
 	{
-		if (!(*top = (t_stack *)malloc(sizeof(t_stack))))
+		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
 			ft_error(/*all*/);
-		(*top)->next = *top;
-		(*top)->prev = *top;
-		(*top)->n = n;
+//		(*top)->next = *top;
+//		(*top)->prev = *top;
+//		(*top)->n = n;
+		tmp->prev = NULL;
+		tmp->next = NULL;
+		tmp->n = n;
+		all->a = tmp;
 	}
 }
 
 void	ft_add_top(t_all *all, char stack, int n)
 {
-	t_stack	**top;
+	t_stack	/***/*top;
 	t_stack	*tmp;
 
-	top = (stack == 'a') ? &all->a : &all->b;
-	if (*top)
+	top = (stack == 'a') ? /*&*/all->a : /*&*/all->b;
+	if (/***/top)
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
 			ft_error(/*all*/);
-		tmp->next = *top;
-		tmp->prev = (*top)->prev;
-		(*top)->prev = tmp;
-		tmp->prev->next = tmp;
+		tmp->next = /***/top;
+		tmp->prev = NULL;//(*top)->prev;
+		top->prev = tmp;
+//		(*top)->prev = tmp;
+//		tmp->prev->next = tmp;
 		tmp->n = n;
-		*top = (*top)->prev;
+//		*top = (*top)->prev;
+		top = tmp;
 	}
 	else
 	{
-		if (!(*top = (t_stack *)malloc(sizeof(t_stack))))
+		if (!(/***/top = (t_stack *)malloc(sizeof(t_stack))))
 			ft_error(/*all*/);
-		(*top)->next = *top;
-		(*top)->prev = *top;
-		(*top)->n = n;
+		top->next = NULL;
+		top->prev = NULL;
+		top->n = n;
+//		(*top)->next = *top;
+//		(*top)->prev = *top;
+//		(*top)->n = n;
 	}
 }
 
 void	ft_del_top(t_all *all, char stack)
 {
-	t_stack	**top;
+	t_stack	/***/*top;
 	t_stack	*tmp;
 
-	top = (stack == 'a') ? &all->a : &all->b;
-	if (*top)
+	top = (stack == 'a') ? /*&*/all->a : /*&*/all->b;
+	if (/***/top)
 	{
-		if ((*top)->next == *top)
+		if (/*(*top)->next == *top*/top->next == NULL)
 		{
-			free(*top);
-			*top = NULL;
+			free(/***/top);
+			/***/top = NULL;
 		}
 		else
 		{
-			tmp = *top;
-			*top = (*top)->next;
-			tmp->prev->next = *top;
-			(*top)->prev = tmp->prev;
+			tmp = /***/top;
+			/***/top->prev->next = tmp->next; //(*top)->next;
+			top->next->prev = tmp->prev;
+//			tmp->prev->next = *top;
+//			(*top)->prev = tmp->prev;
 			free(tmp);
+			tmp = NULL;
 		}
 	}
 }
