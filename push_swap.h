@@ -98,5 +98,6 @@ void	ft_del_top(t_all *all, char stack);
 **		bonus.c
 */
 void	ft_debug_v(t_all *all, char *str);
+void	ft_exit_usage(void);
 
 #endif

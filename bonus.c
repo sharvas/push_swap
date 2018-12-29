@@ -50,3 +50,10 @@ void	ft_debug_v(t_all *all, char *str)
 		printf("%12s|%- 12d\n", "", stack_b->n);
 	printf("\n");
 }//convert printf to ft_printf
+
+void	ft_exit_usage(void)
+{
+	ft_putstr("usage:	./checker [-v] n1 [n2...]\n");
+	ft_putstr("n1, n2 etc.: numbers between -2147483648 and 2147483647\n");
+	exit(1);
+}
