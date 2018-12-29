@@ -6,7 +6,7 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/28 15:53:08 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/28 18:58:15 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 				tmp_b = tmp_b->next;
 			}
 		}
-		tmp_a = tmp_a->next;
+		ft_ra(all);
 		size_a--;
 	}
 	while (size_b)
@@ -51,7 +51,6 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 		ft_pa(all);
 		size_b--;
 	}
-	return (instructions);
 }
 
 char	*ft_sort_less(all, tmp_a, size_a, instructions)
@@ -85,7 +84,7 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 				tmp_b = tmp_b->next;
 			}
 		}
-		tmp_a = tmp_a->next;
+		ft_ra(all);
 		size_a--;
 	}
 	while (size_b)
@@ -93,7 +92,6 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 		ft_pa(all);
 		size_b--;
 	}
-	return (instructions)
 }
 
 char	*ft_sort(t_all *all, char *instructions)
@@ -103,22 +101,19 @@ char	*ft_sort(t_all *all, char *instructions)
 
 	tmp_a = all->a;
 	size_a = all->len;
-	instructions = ft_sort_less(all, tmp_a, size_a, instructions);
-	instructions = ft_sort_more(all, tmp_a, size_a, instructions);
+	ft_sort_less(all, tmp_a, size_a);
+	ft_sort_more(all, tmp_a, size_a);
 }
 
 void	ft_push_swap(char **av)
 {
 	t_all	*all;
-	char	*instructions;
 
 	all = NULL;
-	instructions = NULL;
 	all = ft_initialize(all);
 	ft_fill_a(all, av);
 	ft_find_ref(all);
-	instructions = ft_sort(all, instructions);
-	ft_putstr_fd(instructions, 0);
+	ft_sort(all);
 }
 
 int		main(int ac, char **av)
