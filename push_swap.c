@@ -6,47 +6,46 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/29 10:45:37 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/29 11:36:35 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_less(t_all *all, t_stack *tmp_a, int size_a)
+void	ft_sort_less(t_all *all, t_stack *tmp_a, int count_a)
 {
 	t_stack	*tmp_b;
-	int		count;
+	int		count_b;
 	int		size_b;
 
 	size_b = 0;
-	while (size_a)
+	while (count_a < all->len - 1)
 	{
-		tmp_a = all->a;
-		if (tmp_a->n < all->median)
+		if (all->a->n < all->median)
 		{
 			ft_pb(all);
 			size_b++;
 			tmp_b = all->b;
-			count = 0;
-			while (count < size_b)
+			count_b = 0;
+			while (count_b < size_b)
 			{
-				if (tmp_b->n < all->b->n)
+				if (tmp_b->n > all->b->n)
 				{
-					while (count)
+					while (count_b)
 					{
 						ft_sb(all);
 						ft_rb(all);
-						count--;
+						count_b--;
 					}
 					break ;
 				}
-				count++;
+				count_b++;
 				tmp_b = tmp_b->next;
 			}
 		}
 		else
 			ft_ra(all);
-		size_a--;
+		count_a++;
 	}
 	while (size_b)
 	{
@@ -55,41 +54,40 @@ void	ft_sort_less(t_all *all, t_stack *tmp_a, int size_a)
 	}
 }
 
-void	ft_sort_more(t_all *all, t_stack *tmp_a, int size_a)
+void	ft_sort_more(t_all *all, t_stack *tmp_a, int count_a)
 {
 	t_stack	*tmp_b;
-	int		count;
+	int		count_b;
 	int		size_b;
 
 	size_b = 0;
-	while (size_a)
+	while (count_a < all->len - 1)
 	{
-		tmp_a = all->a;
-		if (tmp_a->n >= all->median)
+		if (all->a->n >= all->median)
 		{
 			ft_pb(all);
 			size_b++;
 			tmp_b = all->b;
-			count = 0;
-			while (count < size_b)
+			count_b = 0;
+			while (count_b < size_b)
 			{
-				if (tmp_b->n < all->b->n)
+				if (tmp_b->n > all->b->n)
 				{
-					while (count)
+					while (count_b)
 					{
 						ft_sb(all);
 						ft_rb(all);
-						count--;
+						count_b--;
 					}
 					break ;
 				}
-				count++;
+				count_b++;
 				tmp_b = tmp_b->next;
 			}
 		}
 		else
 			ft_ra(all);
-		size_a--;
+		count_a++;
 	}
 	while (size_b)
 	{
@@ -101,12 +99,16 @@ void	ft_sort_more(t_all *all, t_stack *tmp_a, int size_a)
 void	ft_sort(t_all *all)
 {
 	t_stack *tmp_a;
-	int		size_a;
+	int		count_a;
 
+	count_a = 0;
 	tmp_a = all->a;
-	size_a = all->len;
-	ft_sort_less(all, tmp_a, size_a);
-	ft_sort_more(all, tmp_a, size_a);
+	if (!ft_is_sorted(all))
+	{
+		ft_sort_more(all, tmp_a, count_a);
+		if (!ft_is_sorted(all))
+			ft_sort_less(all, tmp_a, count_a);
+	}
 }
 
 void	ft_push_swap(char **av)
