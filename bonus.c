@@ -51,7 +51,14 @@ void	ft_debug_v(t_all *all, char *str)
 	printf("\n");
 }//convert printf to ft_printf
 
-void	ft_exit_usage(void)
+void	ft_push_swap_usage(void)
+{
+	ft_putstr("usage:	./push_swap n1 [n2...]\n");
+	ft_putstr("n1, n2 etc.: numbers between -2147483648 and 2147483647\n");
+	exit(1);
+}
+
+void	ft_checker_usage(void)
 {
 	ft_putstr("usage:	./checker [-v] n1 [n2...]\n");
 	ft_putstr("n1, n2 etc.: numbers between -2147483648 and 2147483647\n");
