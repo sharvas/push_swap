@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/28 10:20:19 by dfinnis          ###   ########.fr       */
+/*   Updated: 2018/12/29 15:21:08 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ t_all	*ft_simple_sort(t_all *all)
 
 void	ft_find_ref(t_all *all)
 {
-	t_stack		*tmp;
+/*	t_stack		*tmp;
 	t_all		*cpy;
-	int			count;
+	int			count;*/
 
 	all->len = ft_find_len(all);
-	cpy = ft_simple_sort(all);
+/*	cpy = ft_simple_sort(all);
 	tmp = cpy->a;
 	count = (all->len / 4);
 	all->min = tmp->n;
@@ -72,10 +72,11 @@ void	ft_find_ref(t_all *all)
 	count = ((all->len / 2) + (all->len / 4));
 	while (count--)
 		tmp = tmp->next;
-	all->three_qu = tmp->n;
-	while (tmp->next != all->a)
+	all->three_qu = tmp->n;*/
+	all->median = 5;
+/*	while (tmp->next != all->a)
 		tmp = tmp->next;
-	all->max = tmp->n;
+	all->max = tmp->n;*/
 //	printf("min: %d, qu: %d, median: %d, three_qu: %d, max: %d, len: %d\n", all->min, all->qu, all->median, all->three_qu, all->max, all->len);//
 	//free_cpy??//
 }

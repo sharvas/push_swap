@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:37:52 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/26 15:37:53 by dfinnis          ###   ########.fr       */
+/*   Updated: 2018/12/29 13:24:09 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ void	ft_pb(t_all *all)
 		ft_del_top(all, 'a');
 	}
 	if (all->display)
-		ft_putstr("pa\n");
+		ft_putstr("pb\n");
 }
