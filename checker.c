@@ -62,7 +62,7 @@ t_all	*ft_do_ops(t_all *all)
 		line = NULL;
 	}
 	if (all->v)
-		printf("instructions count: %d\n\n", count);
+		printf("instruction count: %d\n\n", count);
 	return (all);
 }
 
