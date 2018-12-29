@@ -31,6 +31,7 @@ void	ft_ra(t_all *all)
 //		all->a = all->a->next;
 		all->a = tmp;
 	}
+//	printf("%i\n", all->a->next->next->next->next->n);
 	if (all->display)
 		ft_putstr("ra\n");
 }

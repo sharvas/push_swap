@@ -137,6 +137,10 @@ void	ft_add_top(t_all *all, char stack, int n)
 //		(*top)->prev = *top;
 //		(*top)->n = n;
 	}
+	if (stack == 'a')
+		all->a = top;
+	else
+		all->b = top;
 }
 
 void	ft_del_top(t_all *all, char stack)
@@ -145,22 +149,28 @@ void	ft_del_top(t_all *all, char stack)
 	t_stack	*tmp;
 
 	top = (stack == 'a') ? /*&*/all->a : /*&*/all->b;
+	tmp = top->next;
 	if (/***/top)
 	{
-		if (/*(*top)->next == *top*/top->next == NULL)
-		{
+//		if (/*(*top)->next == *top*/top->next == NULL)
+//		{
 			free(/***/top);
 			/***/top = NULL;
-		}
-		else
-		{
-			tmp = /***/top;
-			/***/top->prev->next = tmp->next; //(*top)->next;
-			top->next->prev = tmp->prev;
+//		}
+//		else
+//		{
+//			printf("-?-\n");
+//			tmp = /***/top;
+//			/***/top->prev->next = NULL; //(*top)->next;
+//			top->next->prev = tmp->prev;
 //			tmp->prev->next = *top;
 //			(*top)->prev = tmp->prev;
-			free(tmp);
-			tmp = NULL;
-		}
+//			free(tmp);
+//			tmp = NULL;
+//		}
 	}
+	if (stack == 'a')
+		all->a = top;
+	else
+		all->b = top;
 }

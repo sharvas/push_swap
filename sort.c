@@ -15,13 +15,11 @@
 int		ft_find_len(t_all *all, char c)
 {
 	t_stack		*tmp;
-	//	t_stack		*top;
 	int			len;
 
 	len = 1;
 	tmp = (c == 'a') ? all->a : all->b;
-	//	top = tmp;
-	while (tmp->next/* != top*/)
+	while (tmp->next)
 	{
 		len++;
 		tmp = tmp->next;
@@ -29,16 +27,13 @@ int		ft_find_len(t_all *all, char c)
 	return (len);
 }
 
-/*t_all*/void	ft_simple_sort(t_stack *cpy)
+void	ft_simple_sort(t_stack *cpy)
 {
 	t_stack		*top;
 	int			swap;
-	//	int			count;
 
 	top = cpy;
-	//	printf("%i\n", cpy->next->n);
-	//	count = 0;
-	while (/*count < all->len*/cpy->next)
+	while (cpy->next)
 	{
 		if (cpy->n < cpy->next->n)
 			cpy = cpy->next;
@@ -48,28 +43,24 @@ int		ft_find_len(t_all *all, char c)
 			cpy->n = cpy->next->n;
 			cpy->next->n = swap;
 			cpy = top;
-			//			count = 0;
 		}
-		//		count++;
 	}
-	//	return (all);
+	cpy = top;
 }
 
-void	add_stuff(t_stack **list, int n)
+t_stack	*add_link(t_stack *cpy, int n)
 {
 	t_stack	*tmp;
-	t_stack	*copy;
 
-	copy = *list;
-	if (copy)
+	if (cpy)
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
 			ft_error(/*all*/);
-		tmp->prev = copy;
+		tmp->prev = cpy;
 		tmp->next = NULL;
-		copy->next = tmp;
+		cpy->next = tmp;
 		tmp->n = n;
-		copy = tmp;
+		cpy = tmp;
 	}
 	else
 	{
@@ -78,88 +69,45 @@ void	add_stuff(t_stack **list, int n)
 		tmp->prev = NULL;
 		tmp->next = NULL;
 		tmp->n = n;
-		copy = tmp;
+		cpy = tmp;
 	}
+	return (cpy);
 }
 
 t_stack	*ft_dublicate_list(t_all *all)
 {
-	t_stack		**copy;
-//	t_stack		*all;
+	t_stack		*cpy;
 	t_stack		*tmp;
 
 	tmp = all->a;
-	*copy = NULL;
+	cpy = NULL;
 	while (tmp)
 	{
-		add_stuff(copy, tmp->n);
-		printf("%i\n", *copy->n);
+		cpy = add_link(cpy, tmp->n);
 		tmp = tmp->next;
 	}
-	tmp = *copy;
-	while (tmp->prev)
-		tmp = tmp->prev;
-	return (tmp);
-//	if (!(copy = (t_stack *)malloc(sizeof(t_stack))))
-//		ft_error(/*all and copy*/);
-/*	copy->n = tmp->n;
-	copy->next = NULL;
-	copy->prev = NULL;
-	tmp = tmp->next;
-
-	while (tmp)
-	{
-		if (!(all = (t_stack *)malloc(sizeof(t_stack))))
-*///			ft_error(/*all and copy*/);
-/*		all->n = tmp->n;
-		all->prev = copy;
-
-		copy->n = tmp->n;
-		//	printf("%i\n", copy->n);
-		//		copy->next = tmp->next;
-		//		copy->prev = tmp->prev;
-		copy = copy->next;
-		tmp = tmp->next;
-	}
-	//	tmp = NULL;
-	//	while (tmp->prev)
-	//		tmp = tmp->prev;
-	return (top);*/
+	while (cpy->prev)
+		cpy = cpy->prev;
+	return (cpy);
 }
 
 void	ft_find_ref(t_all *all)
 {
-	//	t_stack		*tmp;
 	t_stack		*cpy;
 	int			count;
 
 	all->len = ft_find_len(all, 'a');
 	cpy = ft_dublicate_list(all);
-	printf("%i\n", all->len);
-	/*cpy = */ft_simple_sort(cpy);
-	//	tmp = cpy->a;
-	//	count = (all->len / 4);
+	ft_simple_sort(cpy);
 	all->min = cpy->n;
-	//	while (count--)
-	//		cpy = cpy->next;
-	//	all->qu = cpy->n;
-	//	tmp = cpy->a;
 	count = (all->len / 2);
 	while (count--)
 		cpy = cpy->next;
 	all->median = cpy->n;
-	//	tmp = cpy->a;
-	//	count = ((all->len / 2) + (all->len / 4));
-	//	while (count--)
-	//		cpy = cpy->next;
-	//	all->three_qu = cpy->n;
-	//	all->median = 5;
-	count = 0;
-	while (count++ < all->len)
+	count = (all->len / 2);
+	while (++count < all->len)
 		cpy = cpy->next;
 	all->max = cpy->n;
-	//	printf("min: %d, qu: %d, median: %d, three_qu: %d, max: %d, len: %d\n", 
-	//	all->min, all->qu, all->median, all->three_qu, all->max, all->len);//
 	free(cpy);
 }
 
@@ -178,7 +126,7 @@ int		ft_is_sorted(t_all *all)
 	if (!all->a || all->b)
 		return (0);
 	tmp = all->a;
-	while (tmp->next != /*all->a*/NULL)
+	while (tmp->next != NULL)
 	{
 		if (tmp->n > tmp->next->n)
 			return (0);

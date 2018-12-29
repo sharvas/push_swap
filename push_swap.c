@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void	ft_sort_less(t_all *all, int count_a)
+void	ft_sort_less(t_all *all)
 {
 	t_stack	*tmp;
 	int		count_b;
 	int		size_b;
 
 	size_b = 0;
-	while (count_a < all->len)
+	while (all->a)
 	{
 		if (all->a->n < all->median)
 		{
@@ -44,8 +44,9 @@ void	ft_sort_less(t_all *all, int count_a)
 		}
 		else
 			ft_ra(all);
-		count_a++;
 	}
+	while (all->a->prev)
+		all->a = all->a->prev;
 	while (size_b)
 	{
 		ft_pa(all);
@@ -53,14 +54,14 @@ void	ft_sort_less(t_all *all, int count_a)
 	}
 }
 
-void	ft_sort_more(t_all *all, int count_a)
+void	ft_sort_more(t_all *all)
 {
 	t_stack	*tmp;
 	int		count_b;
 	int		size_b;
 
 	size_b = 0;
-	while (count_a < all->len)
+	while (all->a)
 	{
 		if (all->a->n >= all->median)
 		{
@@ -68,13 +69,14 @@ void	ft_sort_more(t_all *all, int count_a)
 			size_b++;
 			tmp = all->b;
 			count_b = -1;
-				printf("tmp: %i ir all: %i\n", tmp->next->n, all->b->n);
-			while (tmp->n <= all->b->n && (count_b < size_b - 1))
+//				printf("tmp: %i ir all: %i\n", tmp->n, all->b->n);
+			printf("%i\n", all->a->n);
+			while (tmp && tmp->n <= all->b->n && (count_b < size_b - 1))
 			{
 				count_b++;
 				tmp = tmp->next;
 			}
-			printf("size: %i ir count_b: %i\n", size_b, count_b);
+//			printf("size: %i ir count_b: %i\n", size_b, count_b);
 			if (count_b > 0)
 			{
 				while (count_b >= 0)
@@ -87,8 +89,9 @@ void	ft_sort_more(t_all *all, int count_a)
 		}
 		else
 			ft_ra(all);
-		count_a++;
 	}
+	while (all->a->prev)
+		all->a = all->a->prev;
 	while (size_b)
 	{
 		ft_pa(all);
@@ -99,15 +102,12 @@ void	ft_sort_more(t_all *all, int count_a)
 void	ft_sort(t_all *all)
 {
 	t_stack	*top;
-	int		count_a;
 
-	count_a = 0;
 //	if (!ft_is_sorted(all))
 //	{
-		ft_sort_more(all, count_a);
-		count_a = 0;
+		ft_sort_more(all);
 //		if (!ft_is_sorted(all))
-			ft_sort_less(all, count_a);
+			ft_sort_less(all);
 //	}
 }
 
