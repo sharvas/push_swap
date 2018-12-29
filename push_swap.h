@@ -35,6 +35,7 @@ typedef struct		s_all
 	int				three_qu;
 	int				max;
 	int				len;
+	int				display;
 }					t_all;
 
 /*

@@ -25,6 +25,7 @@ t_all	*ft_initialize(t_all *all)
 	all->three_qu = 0;
 	all->max = 0;
 	all->len = 0;
+	all->display = 0;
 	return (all);
 }
 
