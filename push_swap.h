@@ -97,6 +97,6 @@ void	ft_del_top(t_all *all, char stack);
 /*
 **		bonus.c
 */
-void	ft_debug_v(t_all *all);
+void	ft_debug_v(t_all *all, char *str);
 
 #endif

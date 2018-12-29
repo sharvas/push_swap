@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_debug_v(t_all *all)
+void	ft_debug_v(t_all *all, char *str)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -23,7 +23,7 @@ void	ft_debug_v(t_all *all)
 	flag_b = 0;	
 	stack_a = all->a;
 	stack_b = all->b;
-	printf("\E[H\E[2J");
+	printf("%s\n", str);
 	printf(" %-11s| %s\n", "a", "b");
 	while ((stack_a && stack_a->next != all->a) || (stack_b && stack_b->next != all->b))
 	{
@@ -48,4 +48,5 @@ void	ft_debug_v(t_all *all)
 		printf("%- 12d|%12s\n", stack_a->n, "");
 	else if (stack_b && !flag_b)
 		printf("%12s|%- 12d\n", "", stack_b->n);
+	printf("\n");
 }//convert printf to ft_printf
