@@ -43,8 +43,10 @@ void	ft_read_do(char *line, t_all *all)
 t_all	*ft_do_ops(t_all *all)
 {
 	char	*line;
+	int		count;
 
 	line = NULL;
+	count = 0;
 	if (all->v)
 	{
 		printf("\E[H\E[2J");
@@ -53,11 +55,14 @@ t_all	*ft_do_ops(t_all *all)
 	while ((get_next_line(0, &line)) == 1)
 	{
 		ft_read_do(line, all);
+		count++;
 		if (all->v)
 			ft_debug_v(all, line);
 		free(line);
 		line = NULL;
 	}
+	if (all->v)
+		printf("instruction count: %d\n\n", count);
 	return (all);
 }
 
@@ -75,7 +80,8 @@ void	ft_checker(char **argv)
 
 int		main(int argc, char **argv)
 {
-	if ((argc > 1 && !(ft_strcmp(argv[1], "-v") == 0)) || argc > 2)
-		ft_checker(argv);
+	if (argc == 1 || (argc == 2 && (ft_strcmp(argv[1], "-v") == 0)))
+		ft_checker_usage();
+	ft_checker(argv);
 	return (0);
 }

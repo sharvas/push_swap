@@ -125,7 +125,8 @@ void	ft_push_swap(char **av)
 
 int		main(int ac, char **av)
 {
-	if (ac > 1)
-		ft_push_swap(av);
+	if (ac == 1)
+		ft_push_swap_usage();
+	ft_push_swap(av);
 	return (0);
 }
