@@ -115,6 +115,7 @@ void	ft_push_swap(char **av)
 
 	all = NULL;
 	all = ft_initialize(all);
+	all->display = 1;
 	ft_fill_a(all, av);
 	ft_find_ref(all);
 	ft_sort(all);

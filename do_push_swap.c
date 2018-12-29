@@ -22,6 +22,8 @@ void	ft_sa(t_all *all)
 		all->a->n = all->a->next->n;
 		all->a->next->n = tmp;
 	}
+	if (all->display)
+		ft_putstr("sa\n");
 }
 
 void	ft_sb(t_all *all)
@@ -34,6 +36,8 @@ void	ft_sb(t_all *all)
 		all->b->n = all->b->next->n;
 		all->b->next->n = tmp;
 	}
+	if (all->display)
+		ft_putstr("sb\n");
 }
 
 void	ft_pa(t_all *all)
@@ -43,6 +47,8 @@ void	ft_pa(t_all *all)
 		ft_add_top(all, 'a', all->b->n);
 		ft_del_top(all, 'b');
 	}
+	if (all->display)
+		ft_putstr("pa\n");
 }
 
 void	ft_pb(t_all *all)
@@ -52,4 +58,6 @@ void	ft_pb(t_all *all)
 		ft_add_top(all, 'b', all->a->n);
 		ft_del_top(all, 'a');
 	}
+	if (all->display)
+		ft_putstr("pa\n");
 }
