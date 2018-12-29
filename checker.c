@@ -43,8 +43,10 @@ void	ft_read_do(char *line, t_all *all)
 t_all	*ft_do_ops(t_all *all)
 {
 	char	*line;
+	int		count;
 
 	line = NULL;
+	count = 0;
 	if (all->v)
 	{
 		printf("\E[H\E[2J");
@@ -53,11 +55,14 @@ t_all	*ft_do_ops(t_all *all)
 	while ((get_next_line(0, &line)) == 1)
 	{
 		ft_read_do(line, all);
+		count++;
 		if (all->v)
 			ft_debug_v(all, line);
 		free(line);
 		line = NULL;
 	}
+	if (all->v)
+		printf("instructions count: %d\n\n", count);
 	return (all);
 }
 
