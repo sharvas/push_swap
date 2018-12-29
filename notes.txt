@@ -2,4 +2,4 @@
 2. print out the move in visualiser
 3. print usage (no input or -h)
 4. read from file (with flag -f needs aditional argument for file path)
-5. 
+

@@ -6,13 +6,13 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/28 18:58:15 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/29 10:45:37 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_sort_less(all, tmp_a, size_a, instructions)
+void	ft_sort_less(t_all *all, t_stack *tmp_a, int size_a)
 {
 	t_stack	*tmp_b;
 	int		count;
@@ -21,7 +21,8 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 	size_b = 0;
 	while (size_a)
 	{
-		if (tmp_a->n < all->mean)
+		tmp_a = all->a;
+		if (tmp_a->n < all->median)
 		{
 			ft_pb(all);
 			size_b++;
@@ -29,7 +30,7 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 			count = 0;
 			while (count < size_b)
 			{
-				if (tmp_b->n < all->b)
+				if (tmp_b->n < all->b->n)
 				{
 					while (count)
 					{
@@ -43,7 +44,8 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 				tmp_b = tmp_b->next;
 			}
 		}
-		ft_ra(all);
+		else
+			ft_ra(all);
 		size_a--;
 	}
 	while (size_b)
@@ -53,7 +55,7 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 	}
 }
 
-char	*ft_sort_less(all, tmp_a, size_a, instructions)
+void	ft_sort_more(t_all *all, t_stack *tmp_a, int size_a)
 {
 	t_stack	*tmp_b;
 	int		count;
@@ -62,7 +64,8 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 	size_b = 0;
 	while (size_a)
 	{
-		if (tmp_a->n >= all->mean)
+		tmp_a = all->a;
+		if (tmp_a->n >= all->median)
 		{
 			ft_pb(all);
 			size_b++;
@@ -70,7 +73,7 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 			count = 0;
 			while (count < size_b)
 			{
-				if (tmp_b->n < all->b)
+				if (tmp_b->n < all->b->n)
 				{
 					while (count)
 					{
@@ -84,7 +87,8 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 				tmp_b = tmp_b->next;
 			}
 		}
-		ft_ra(all);
+		else
+			ft_ra(all);
 		size_a--;
 	}
 	while (size_b)
@@ -94,7 +98,7 @@ char	*ft_sort_less(all, tmp_a, size_a, instructions)
 	}
 }
 
-char	*ft_sort(t_all *all, char *instructions)
+void	ft_sort(t_all *all)
 {
 	t_stack *tmp_a;
 	int		size_a;
