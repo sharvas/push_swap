@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:04:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/29 09:59:25 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 15:49:51 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int		main(int argc, char **argv);
 /*
 **		sort.c
 */
-int		ft_find_len(t_all *all);
-t_all	*ft_simple_sort(t_all *all);
+int		ft_find_len(t_all *all, char c);
+void	ft_simple_sort(t_stack *cpy);
 void	ft_find_ref(t_all *all);
 void	ft_ko_ok(t_all *all);
 int		ft_is_sorted(t_all *all);
