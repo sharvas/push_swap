@@ -70,7 +70,7 @@ void	ft_sort_more(t_all *all)
 			tmp = all->b;
 			count_b = -1;
 //				printf("tmp: %i ir all: %i\n", tmp->n, all->b->n);
-			printf("%i\n", all->a->n);
+			printf("%i\n", all->b->n);
 			while (tmp && tmp->n <= all->b->n && (count_b < size_b - 1))
 			{
 				count_b++;
