@@ -88,6 +88,7 @@ int 	ft_is_duplicate(t_all *all, intmax_t n);
 **		stack.c
 */
 t_all	*ft_initialize(t_all *all);
+void	ft_fill_error(t_all *all, char *str);
 void	ft_fill_a(t_all *all, char **argv);
 void	ft_add_end(t_all *all, int n);
 void	ft_add_top(t_all *all, char stack, int n);

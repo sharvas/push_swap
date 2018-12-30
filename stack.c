@@ -29,16 +29,24 @@ t_all	*ft_initialize(t_all *all)
 	return (all);
 }
 
+void	ft_fill_error(t_all *all, char *str)
+{
+	int	n;
+
+	n = ft_atoi_error(str);
+	if (ft_is_duplicate(all, n))
+		ft_error(all);
+	ft_add_end(all, n);
+}
+
 void	ft_fill_a(t_all *all, char **argv)
 {
 	int	i;
 	int	j;
-	int	n;
 	char	**array;
 
 	i = 1;
 	j = 0;
-	n = 0;
 	array = NULL;
 	if (ft_strcmp(argv[i], "-v") == 0)
 	{
@@ -49,24 +57,12 @@ void	ft_fill_a(t_all *all, char **argv)
 	{
 		array = ft_split_whitespaces(argv[i]);
 		while (array[j])
-		{
-			n = ft_atoi_error(array[j]);
-			if (ft_is_duplicate(all, n))
-				ft_error(all);
-			ft_add_end(all, n);
-			j++;
-		}
+			ft_fill_error(all, array[j++]);
 	}
 	else
 	{
 		while (argv[i])
-		{
-			n = ft_atoi_error(argv[i]);
-			if (ft_is_duplicate(all, n))
-				ft_error(all);
-			ft_add_end(all, n);
-			i++;
-		}
+			ft_fill_error(all, argv[i++]);
 	}
 }
 
