@@ -89,6 +89,7 @@ SRCS = ft_atoi.c \
 		ft_2d_int_free.c \
 		ft_2d_char_free.c \
 		ft_split_whitespaces.c \
+		ft_isblank.c \
 		get_next_line.c
 
 OBJ = $(SRCS:.c=.o)

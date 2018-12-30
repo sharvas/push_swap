@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>//
 
 static int	ft_count_words(char *str)
 {
@@ -24,34 +23,32 @@ static int	ft_count_words(char *str)
 	word = 0;
 	if (!str)
 		return (0);
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		while (str[i] && (str[i] != ' ' && !(str[i] >= 9 && str[i] <= 13)))
+		while (str[i] && !ft_isblank(str[i]))
 		{
 			i++;
 			word = 1;
 		}
-		while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+		while (str[i] && ft_isblank(str[i]))
 			i++;
 		if (word == 1)
 			count++;
 		word = 0;
 	}
-	printf("word count: %d\n", count);//
 	return (count);
 }
 
-static int	ft_word_length(char *str, int i)
+static int	ft_word_len(char *str, int i)
 {
 	int	count;
 
-	count = 0;
-	while (str[i] != ' ' && !(str[i] >= 9 && str[i] <= 13))
+	count = 1;
+	while (str[i] && !ft_isblank(str[i]))
 	{
 		count++;
 		i++;
 	}
-	printf("word length: %d\n", count);//
 	return (count);
 }
 
@@ -69,13 +66,13 @@ char		**ft_split_whitespaces(char *str)
 	while (str[i])
 	{
 		k = 0;
-		while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+		while (str[i] && ft_isblank(str[i]))
 			i++;
 		if (!str[i])
 			break ;
-		if (!(res[j] = (char *)malloc(sizeof(char) * (ft_word_length(str, i) + 1))))
+		if (!(res[j] = (char *)malloc(sizeof(char) * (ft_word_len(str, i)))))
 			return (NULL);
-		while (str[i] && (str[i] != ' ' && !(str[i] >= 9 && str[i] <= 13)))
+		while (str[i] && !ft_isblank(str[i]))
 			res[j][k++] = str[i++];
 		res[j][k] = '\0';
 		j++;

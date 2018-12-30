@@ -45,11 +45,9 @@ void	ft_fill_a(t_all *all, char **argv)
 		all->v = 1;
 		i++;
 	}
-	if (ft_strchr(argv[i], ' '))// buggy
+	if (ft_strchr(argv[i], ' '))
 	{
-		ft_putstr("here\n");
 		array = ft_split_whitespaces(argv[i]);
-		ft_putstr("here2\n");
 		while (array[j])
 		{
 			n = ft_atoi_error(array[j]);
