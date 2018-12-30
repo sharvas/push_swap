@@ -6,7 +6,7 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/30 16:01:37 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 16:10:46 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	ft_sort_less(t_all *all)
 	}
 	while (all->b->n != all->median)
 		ft_rb(all);
-	while (all->b)
+	size_b = ft_find_len(all, 'b');
+	while (size_b--)
 		ft_pa(all);
 }
 
@@ -84,7 +85,8 @@ void	ft_sort_more(t_all *all)
 	}
 	while (all->b->n != all->max)
 		ft_rb(all);
-	while (all->b)
+	size_b = ft_find_len(all, 'b');
+	while (size_b--)
 		ft_pa(all);
 }
 

@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/30 15:59:19 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 16:30:26 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_simple_sort(t_stack *cpy)
 	int			swap;
 
 	top = cpy;
-	while (cpy->next)
+	while (cpy && cpy->next)
 	{
 		if (cpy->n < cpy->next->n)
 			cpy = cpy->next;
@@ -83,11 +83,13 @@ t_stack	*ft_dublicate_list(t_all *all)
 
 	tmp = all->a;
 	cpy = NULL;
-	while (tmp != all->a)
+	while (tmp->next != all->a)
 	{
 		cpy = add_link(cpy, tmp->n);
 		tmp = tmp->next;
 	}
+	cpy = add_link(cpy, tmp->n);
+	tmp = tmp->next;
 	while (cpy->prev)
 		cpy = cpy->prev;
 	return (cpy);
