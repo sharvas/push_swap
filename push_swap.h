@@ -29,6 +29,7 @@ typedef struct		s_all
 	struct s_stack	*a;
 	struct s_stack	*b;
 	int				v;
+	int				c;
 	int				min;
 	int				qu;
 	int				median;
@@ -99,7 +100,9 @@ void	ft_del_top(t_all *all, char stack);
 **		bonus.c
 */
 void	ft_debug_v(t_all *all, char *str);
+void	ft_debug_c(t_all *all, char *str);
 void	ft_push_swap_usage(void);
 void	ft_checker_usage(void);
+int		ft_is_bonus(char *str);
 
 #endif

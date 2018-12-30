@@ -19,6 +19,7 @@ t_all	*ft_initialize(t_all *all)
 	all->a = NULL;
 	all->b = NULL;
 	all->v = 0;
+	all->c = 0;
 	all->min = 0;
 	all->qu = 0;
 	all->median = 0;
@@ -48,10 +49,23 @@ void	ft_fill_a(t_all *all, char **argv)
 	i = 1;
 	j = 0;
 	array = NULL;
-	if (ft_strcmp(argv[i], "-v") == 0)
+	while (ft_is_bonus(argv[i]))
 	{
-		all->v = 1;
-		i++;
+		if (ft_strcmp(argv[i], "-v") == 0)
+		{
+			all->v = 1;
+			i++;
+		}
+		if (ft_strcmp(argv[i], "-c") == 0)
+		{
+			all->c = 1;
+			i++;
+		}
+		if (ft_strcmp(argv[i], "-f") == 0)
+		{
+			i++;
+//			open fd//
+		}
 	}
 	if (ft_strchr(argv[i], ' '))
 	{
