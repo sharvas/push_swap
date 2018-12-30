@@ -6,20 +6,20 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/29 15:21:08 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 15:54:57 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_find_len(t_all *all)
+int		ft_find_len(t_all *all, char c)
 {
 	t_stack		*tmp;
 	int			len;
 
 	len = 1;
-	tmp = all->a;
-	while (tmp->next != all->a)
+	tmp = (c == 'a') ? all->a : all->b;
+	while (tmp->next)
 	{
 		len++;
 		tmp = tmp->next;
@@ -27,58 +27,99 @@ int		ft_find_len(t_all *all)
 	return (len);
 }
 
-t_all	*ft_simple_sort(t_all *all)
+void	ft_simple_sort(t_stack *cpy)
 {
-	t_stack		*tmp;
+	t_stack		*top;
 	int			swap;
 
-	tmp = all->a;
-	swap = 0;
-	while (tmp->next != all->a)
+	top = cpy;
+	while (cpy->next)
 	{
-		if (tmp->n < tmp->next->n)
-			tmp = tmp->next;
+		if (cpy->n < cpy->next->n)
+			cpy = cpy->next;
 		else
 		{
-			swap = tmp->n;
-			tmp->n = tmp->next->n;
-			tmp->next->n = swap;
-			tmp = all->a;
+			swap = cpy->n;
+			cpy->n = cpy->next->n;
+			cpy->next->n = swap;
+			cpy = top;
 		}
 	}
-	return (all);
+	cpy = top;
+}
+
+t_stack	*add_link(t_stack *cpy, int n)
+{
+	t_stack	*tmp;
+
+	if (cpy)
+	{
+		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
+			ft_error(/*all*/);
+		tmp->prev = cpy;
+		tmp->next = NULL;
+		cpy->next = tmp;
+		tmp->n = n;
+		cpy = tmp;
+	}
+	else
+	{
+		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
+			ft_error(/*all*/);
+		tmp->prev = NULL;
+		tmp->next = NULL;
+		tmp->n = n;
+		cpy = tmp;
+	}
+	return (cpy);
+}
+
+t_stack	*ft_dublicate_list(t_all *all)
+{
+	t_stack		*cpy;
+	t_stack		*tmp;
+
+	tmp = all->a;
+	cpy = NULL;
+	while (tmp != all->a)
+	{
+		cpy = add_link(cpy, tmp->n);
+		tmp = tmp->next;
+	}
+	while (cpy->prev)
+		cpy = cpy->prev;
+	return (cpy);
 }
 
 void	ft_find_ref(t_all *all)
 {
-/*	t_stack		*tmp;
-	t_all		*cpy;
-	int			count;*/
+	t_stack		*top;
+	t_stack		*cpy;
+	int			count;
 
-	all->len = ft_find_len(all);
-/*	cpy = ft_simple_sort(all);
-	tmp = cpy->a;
+	all->len = ft_find_len(all, 'a');
+	cpy = ft_dublicate_list(all);
+	ft_simple_sort(cpy);
+	top = cpy;
 	count = (all->len / 4);
-	all->min = tmp->n;
+	all->min = cpy->n;
 	while (count--)
-		tmp = tmp->next;
-	all->qu = tmp->n;
-	tmp = cpy->a;
+		cpy = cpy->next;
+	all->qu = cpy->n;
+	cpy = top;
 	count = (all->len / 2);
 	while (count--)
-		tmp = tmp->next;
-	all->median = tmp->n;
-	tmp = cpy->a;
+		cpy = cpy->next;
+	all->median = cpy->n;
+	cpy = top;
 	count = ((all->len / 2) + (all->len / 4));
 	while (count--)
-		tmp = tmp->next;
-	all->three_qu = tmp->n;*/
-	all->median = 5;
-/*	while (tmp->next != all->a)
-		tmp = tmp->next;
-	all->max = tmp->n;*/
-//	printf("min: %d, qu: %d, median: %d, three_qu: %d, max: %d, len: %d\n", all->min, all->qu, all->median, all->three_qu, all->max, all->len);//
-	//free_cpy??//
+		cpy = cpy->next;
+	all->three_qu = cpy->n;
+	while (cpy->next)
+		cpy = cpy->next;
+	all->max = cpy->n;
+	free(cpy);
 }
 
 void	ft_ko_ok(t_all *all)
@@ -104,40 +145,3 @@ int		ft_is_sorted(t_all *all)
 	}
 	return (1);
 }
-
-// void	ft_find_min_max(t_all *all)
-// {
-// 	t_stack		*tmp;
-
-// 	tmp = all->a;
-// 	all->min = tmp->n;
-// 	all->max = tmp->n;
-// 	tmp = tmp->next;
-// 	while (tmp->next != all->a->next)
-// 	{
-// 		if (tmp->n < all->min)
-// 			all->min = tmp->n;
-// 		if (tmp->n > all->max)
-// 			all->max = tmp->n;
-// 		tmp = tmp->next;
-// 	}
-// }
-
-
-// void	ft_find_min_max(t_all *all)
-// {
-// 	t_stack		*tmp;
-
-// 	tmp = all->a;
-// 	all->min = tmp->n;
-// 	all->max = tmp->n;
-// 	tmp = tmp->next;
-// 	while (tmp->next != all->a->next)
-// 	{
-// 		if (tmp->n < all->min)
-// 			all->min = tmp->n;
-// 		if (tmp->n > all->max)
-// 			all->max = tmp->n;
-// 		tmp = tmp->next;
-// 	}
-// }
