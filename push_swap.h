@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:04:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/30 15:49:51 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 18:48:10 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct		s_stack
 	int				n;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+//	int				top;
 }					t_stack;
 
 typedef struct		s_all

@@ -6,7 +6,7 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/30 16:10:46 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 17:06:51 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_sort_less(t_all *all)
 {
-	t_stack	*tmp;
+	t_stack	*tmp_b;
 	int		count_b;
 	int		count_a;
 	int		size_a;
@@ -30,11 +30,15 @@ void	ft_sort_less(t_all *all)
 				size_b = ft_find_len(all, 'b');
 			else
 				size_b = 0;
-			count_b = 1;
-			tmp = all->a;
-			while (all->b && size_b > 1 && count_b < size_b && tmp->n > all->b->n)
+			count_b = 0;
+			tmp_b = all->b;
+//			tmp = all->a;
+			while (all->b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n)
+			{
 				count_b++;
-			if (count_b < size_b)
+				tmp_b = tmp_b->next;
+			}
+			if (count_b <= size_b)
 			{
 				while (count_b--)
 					ft_rb(all);
@@ -53,7 +57,8 @@ void	ft_sort_less(t_all *all)
 
 void	ft_sort_more(t_all *all)
 {
-	t_stack	*tmp;
+//	t_stack	*tmp_a;
+	t_stack	*tmp_b;
 	int		count_b;
 	int		count_a;
 	int		size_b;
@@ -69,11 +74,15 @@ void	ft_sort_more(t_all *all)
 				size_b = ft_find_len(all, 'b');
 			else
 				size_b = 0;
-			count_b = 1;
-			tmp = all->a;
-			while (all->b && size_b > 1 && count_b < size_b && tmp->n > all->b->n)
+			count_b = 0;
+			tmp_b = all->b;
+//			tmp_a = all->a;
+			while (all->b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n)
+			{
 				count_b++;
-			if (count_b < size_b)
+				tmp_b = tmp_b->next;
+			}
+			if (count_b <= size_b)
 			{
 				while (count_b--)
 					ft_rb(all);

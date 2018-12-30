@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 13:19:49 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/23 13:19:51 by dfinnis          ###   ########.fr       */
+/*   Updated: 2018/12/30 18:50:34 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_all	*ft_initialize(t_all *all)
 {
 	if (!(all = (t_all *)malloc(sizeof(t_all))))
-		exit(1);
+		ft_error();
 	all->a = NULL;
 	all->b = NULL;
 	all->v = 0;
@@ -42,8 +42,8 @@ void	ft_fill_error(t_all *all, char *str)
 
 void	ft_fill_a(t_all *all, char **argv)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	**array;
 
 	i = 1;
@@ -64,7 +64,7 @@ void	ft_fill_a(t_all *all, char **argv)
 		if (ft_strcmp(argv[i], "-f") == 0)
 		{
 			i++;
-//			open fd//
+//			open fd
 		}
 	}
 	if (ft_strchr(argv[i], ' '))
@@ -95,6 +95,8 @@ void	ft_add_end(t_all *all, int n)
 		(*top)->prev = tmp;
 		tmp->prev->next = tmp;
 		tmp->n = n;
+//		tmp->top = 1;
+//		(*top)->top = 0;
 	}
 	else
 	{
@@ -103,6 +105,7 @@ void	ft_add_end(t_all *all, int n)
 		(*top)->next = *top;
 		(*top)->prev = *top;
 		(*top)->n = n;
+//		(*top)->top = 1;
 	}
 }
 
@@ -122,6 +125,8 @@ void	ft_add_top(t_all *all, char stack, int n)
 		tmp->prev->next = tmp;
 		tmp->n = n;
 		*top = (*top)->prev;
+//		tmp->top = 1;
+//		(*top)->top = 0;
 	}
 	else
 	{
@@ -130,6 +135,7 @@ void	ft_add_top(t_all *all, char stack, int n)
 		(*top)->next = *top;
 		(*top)->prev = *top;
 		(*top)->n = n;
+//		(*top)->top = 1;
 	}
 }
 
@@ -153,6 +159,7 @@ void	ft_del_top(t_all *all, char stack)
 			tmp->prev->next = *top;
 			(*top)->prev = tmp->prev;
 			free(tmp);
+//			(*top)->top = 1;
 		}
 	}
 }

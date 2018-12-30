@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/30 16:30:26 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 18:50:46 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_stack	*ft_dublicate_list(t_all *all)
 
 	tmp = all->a;
 	cpy = NULL;
-	while (tmp->next != all->a)
+	while (tmp != all->a->prev)
 	{
 		cpy = add_link(cpy, tmp->n);
 		tmp = tmp->next;
