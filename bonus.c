@@ -63,7 +63,7 @@ void	ft_debug_c(t_all *all, char *str)
 	stack_a = all->a;
 	stack_b = all->b;
 	printf("%s\n", str);
-	printf(" %-11s| %s\n", "a", "b");
+	printf("\x1B[35m %-11s|\x1B[0m %s\n", "a", "b");
 	while ((stack_a && stack_a->next != all->a) || (stack_b && stack_b->next != all->b))
 	{
 		if (stack_a && stack_b && !flag_a && !flag_b)
