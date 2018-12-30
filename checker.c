@@ -47,21 +47,29 @@ t_all	*ft_do_ops(t_all *all)
 
 	line = NULL;
 	count = 0;
-	if (all->v)
+	if (all->v || all->c)
 	{
 		printf("\E[H\E[2J");
-		ft_debug_v(all, "initial state:");
+		if (all->c)
+			ft_debug_c(all, "initial state:");
+		else
+			ft_debug_v(all, "initial state:");
 	}
 	while ((get_next_line(0, &line)) == 1)
 	{
 		ft_read_do(line, all);
 		count++;
-		if (all->v)
-			ft_debug_v(all, line);
+		if (all->v || all->c)
+		{
+			if (all->c)
+				ft_debug_c(all, line);
+			else
+				ft_debug_v(all, line);
+		}
 		free(line);
 		line = NULL;
 	}
-	if (all->v)
+	if (all->v || all->c)
 		printf("instruction count: %d\n\n", count);
 	return (all);
 }
@@ -80,7 +88,11 @@ void	ft_checker(char **argv)
 
 int		main(int argc, char **argv)
 {
-	if (argc == 1 || (argc == 2 && (ft_strcmp(argv[1], "-v") == 0)))
+	if (argc == 1 ||
+		(argc == 2 && ft_is_bonus(argv[1])) ||
+		(argc == 3 && ft_is_bonus(argv[1]) && ft_is_bonus(argv[2])) ||
+		(argc == 4 && ft_is_bonus(argv[1]) && ft_is_bonus(argv[2]) &&
+		ft_is_bonus(argv[3])))
 		ft_checker_usage();
 	ft_checker(argv);
 	return (0);
