@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/30 15:54:57 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 15:59:19 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int		ft_find_len(t_all *all, char c)
 {
 	t_stack		*tmp;
+	t_stack		*top;
 	int			len;
 
 	len = 1;
 	tmp = (c == 'a') ? all->a : all->b;
-	while (tmp->next)
+	top = tmp;
+	while (tmp->next != top)
 	{
 		len++;
 		tmp = tmp->next;
