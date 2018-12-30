@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 13:19:49 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/29 21:34:22 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 11:00:12 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,15 +109,15 @@ void	ft_add_end(t_all *all, int n)
 
 void	ft_add_top(t_all *all, char stack, int n)
 {
-	t_stack	/***/*top;
+	t_stack	*top;
 	t_stack	*tmp;
 
 	top = (stack == 'a') ? /*&*/all->a : /*&*/all->b;
-	if (/***/top)
+	if (top)
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
 			ft_error(/*all*/);
-		tmp->next = /***/top;
+		tmp->next = top;
 		tmp->prev = NULL;//(*top)->prev;
 		top->prev = tmp;
 //		(*top)->prev = tmp;
@@ -128,7 +128,7 @@ void	ft_add_top(t_all *all, char stack, int n)
 	}
 	else
 	{
-		if (!(/***/top = (t_stack *)malloc(sizeof(t_stack))))
+		if (!(top = (t_stack *)malloc(sizeof(t_stack))))
 			ft_error(/*all*/);
 		top->next = NULL;
 		top->prev = NULL;
@@ -137,25 +137,26 @@ void	ft_add_top(t_all *all, char stack, int n)
 //		(*top)->prev = *top;
 //		(*top)->n = n;
 	}
-//	if (stack == 'a')
-//		all->a = top;
-//	else
-//		all->b = top;
+	if (stack == 'a')
+		all->a = top;
+	else
+		all->b = top;
 }
 
 void	ft_del_top(t_all *all, char stack)
 {
-	t_stack	/***/*top;
+	t_stack	*top;
 	t_stack	*tmp;
 
-	top = (stack == 'a') ? /*&*/all->a : /*&*/all->b;
-	tmp = top->next;
-	if (/***/top)
+	tmp = (stack == 'a') ? /*&*/all->a : /*&*/all->b;
+	top = tmp->next;
+	if (tmp)
 	{
+//		tmp->next->prev = NULL;
 //		if (/*(*top)->next == *top*/top->next == NULL)
 //		{
-			free(/***/top);
-			/***/top = NULL;
+		free(tmp);
+		tmp = NULL;
 //		}
 //		else
 //		{
@@ -169,8 +170,8 @@ void	ft_del_top(t_all *all, char stack)
 //			tmp = NULL;
 //		}
 	}
-//	if (stack == 'a')
-//		all->a = top;
-//	else
-//		all->b = top;
+	if (stack == 'a')
+		all->a = top;
+	else
+		all->b = top;
 }

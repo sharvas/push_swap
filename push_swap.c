@@ -6,7 +6,7 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/29 20:16:53 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 14:55:46 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,99 +16,82 @@ void	ft_sort_less(t_all *all)
 {
 	t_stack	*tmp;
 	int		count_b;
+	int		count_a;
+	int		size_a;
 	int		size_b;
 
-	size_b = 0;
-	while (all->a)
+	count_a = 0;
+	size_a = ft_find_len(all, 'a');
+	while (count_a++ < size_a)
 	{
-		if (all->a->n < all->median)
+		if (all->a->n <= all->median)
 		{
-			ft_pb(all);
-			size_b++;
-			tmp = all->b;
-			count_b = -1;
-			while (tmp->n >= all->b->n && (count_b < size_b - 1))
-			{
+			if (all->b)
+				size_b = ft_find_len(all, 'b');
+			else
+				size_b = 0;
+			count_b = 1;
+			tmp = all->a;
+			while (all->b && size_b > 1 && count_b < size_b && tmp->n > all->b->n)
 				count_b++;
-				tmp = tmp->next;
-			}
-			if (count_b > 0)
+			if (count_b < size_b)
 			{
-				while (count_b >= 0)
-				{
-					ft_sb(all);
+				while (count_b--)
 					ft_rb(all);
-					count_b--;
-				}
 			}
+			ft_pb(all);
 		}
 		else
 			ft_ra(all);
 	}
-	while (all->a->prev)
-		all->a = all->a->prev;
-	while (size_b)
-	{
+	while (all->b->n != all->median)
+		ft_rb(all);
+	while (all->b)
 		ft_pa(all);
-		size_b--;
-	}
 }
 
 void	ft_sort_more(t_all *all)
 {
 	t_stack	*tmp;
 	int		count_b;
+	int		count_a;
 	int		size_b;
+	int		size_a;
 
-	size_b = 0;
-	while (all->a)
+	count_a = 0;
+	size_a = ft_find_len(all, 'a');
+	while (count_a++ < size_a)
 	{
-		if (all->a->n >= all->median)
+		if (all->a->n > all->median)
 		{
-			ft_pb(all);
-			size_b++;
-			tmp = all->b;
-			count_b = -1;
-//				printf("tmp: %i ir all: %i\n", tmp->n, all->b->n);
-			printf("%i\n", all->b->n);
-			while (tmp && tmp->n <= all->b->n && (count_b < size_b - 1))
-			{
+			if (all->b)
+				size_b = ft_find_len(all, 'b');
+			else
+				size_b = 0;
+			count_b = 1;
+			tmp = all->a;
+			while (all->b && size_b > 1 && count_b < size_b && tmp->n > all->b->n)
 				count_b++;
-				tmp = tmp->next;
-			}
-//			printf("size: %i ir count_b: %i\n", size_b, count_b);
-			if (count_b > 0)
+			if (count_b < size_b)
 			{
-				while (count_b >= 0)
-				{
-					ft_sb(all);
+				while (count_b--)
 					ft_rb(all);
-					count_b--;
-				}
 			}
+			ft_pb(all);
 		}
 		else
 			ft_ra(all);
 	}
-	while (all->a->prev)
-		all->a = all->a->prev;
-	while (size_b)
-	{
+	while (all->b->n != all->max)
+		ft_rb(all);
+	while (all->b)
 		ft_pa(all);
-		size_b--;
-	}
 }
 
 void	ft_sort(t_all *all)
 {
-	t_stack	*top;
-
-//	if (!ft_is_sorted(all))
-//	{
-		ft_sort_more(all);
-//		if (!ft_is_sorted(all))
-			ft_sort_less(all);
-//	}
+	ft_sort_more(all);
+	ft_sort_less(all);
 }
 
 void	ft_push_swap(char **av)

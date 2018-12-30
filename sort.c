@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/29 22:00:54 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/30 14:13:44 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,61 +113,38 @@ void	ft_find_ref(t_all *all)
 
 void	ft_ko_ok(t_all *all)
 {
-	if (ft_is_sorted(all))
+	if (ft_is_sorted(all, 'a', '<'))
 		ft_putstr("OK\n");
 	else
 		ft_putstr("KO\n");
 }
 
-int		ft_is_sorted(t_all *all)
+int		ft_is_sorted(t_all *all, char list, char order)
 {
 	t_stack	*tmp;
 
 	if (!all->a || all->b)
 		return (0);
-	tmp = all->a;
-	while (tmp->next != NULL)
+	tmp = (list == 'a') ? all->a : all->b;
+	if (order == '<')
 	{
-		if (tmp->n > tmp->next->n)
-			return (0);
-		tmp = tmp->next;
+		while (tmp->next != NULL)
+		{
+			if (tmp->n > tmp->next->n)
+				return (0);
+			tmp = tmp->next;
+		}
+		return (1);
 	}
-	return (1);
+	else
+	{
+		while (tmp->next != NULL)
+		{
+			if (tmp->n < tmp->next->n)
+				return (0);
+			tmp = tmp->next;
+		}
+		return (1);
+	}
+	return (0);
 }
-
-// void	ft_find_min_max(t_all *all)
-// {
-// 	t_stack		*tmp;
-
-// 	tmp = all->a;
-// 	all->min = tmp->n;
-// 	all->max = tmp->n;
-// 	tmp = tmp->next;
-// 	while (tmp->next != all->a->next)
-// 	{
-// 		if (tmp->n < all->min)
-// 			all->min = tmp->n;
-// 		if (tmp->n > all->max)
-// 			all->max = tmp->n;
-// 		tmp = tmp->next;
-// 	}
-// }
-
-
-// void	ft_find_min_max(t_all *all)
-// {
-// 	t_stack		*tmp;
-
-// 	tmp = all->a;
-// 	all->min = tmp->n;
-// 	all->max = tmp->n;
-// 	tmp = tmp->next;
-// 	while (tmp->next != all->a->next)
-// 	{
-// 		if (tmp->n < all->min)
-// 			all->min = tmp->n;
-// 		if (tmp->n > all->max)
-// 			all->max = tmp->n;
-// 		tmp = tmp->next;
-// 	}
-// }
