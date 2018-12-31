@@ -48,10 +48,7 @@ t_all	*ft_do_ops(t_all *all)
 	line = NULL;
 	count = 0;
 	if (all->v || all->c)
-	{
-		printf("\E[H\E[2J");
-		ft_debug_v(all, "initial state:");
-	}
+		ft_debug_v(all, "\E[H\E[2Jinitial state:");
 	while ((get_next_line(0, &line)) == 1)
 	{
 		ft_read_do(line, all);
