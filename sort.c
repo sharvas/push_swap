@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/30 18:50:46 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/31 16:23:58 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_find_len(t_all *all, char c)
 	len = 1;
 	tmp = (c == 'a') ? all->a : all->b;
 	top = tmp;
-	while (tmp->next != top)
+	while (tmp && tmp->next != top)
 	{
 		len++;
 		tmp = tmp->next;
