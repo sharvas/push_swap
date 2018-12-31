@@ -50,6 +50,7 @@ typedef struct		s_flags
 /*
 **		checker.c
 */
+void	ft_read_do(char *line, t_all *all);
 t_all	*ft_do_ops(t_all *all);
 void	ft_checker(char **argv);
 int		main(int argc, char **argv);
