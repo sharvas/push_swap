@@ -50,22 +50,16 @@ t_all	*ft_do_ops(t_all *all)
 	if (all->v || all->c)
 	{
 		printf("\E[H\E[2J");
-		if (all->c)
-			ft_debug_c(all, "initial state:");
-		else
-			ft_debug_v(all, "initial state:");
+		ft_debug_v(all, "initial state:");
 	}
 	while ((get_next_line(0, &line)) == 1)
 	{
 		ft_read_do(line, all);
 		count++;
-		if (all->v || all->c)
-		{
-			if (all->c)
-				ft_debug_c(all, line);
-			else
-				ft_debug_v(all, line);
-		}
+		if (all->v)
+			ft_debug_v(all, line);
+		else if (all->c)
+			ft_debug_c(all, line);
 		free(line);
 		line = NULL;
 	}
