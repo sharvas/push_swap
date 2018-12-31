@@ -6,49 +6,60 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/30 18:53:24 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/31 14:06:59 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_setmax_b(t_all *all)
+{
+	t_stack	*tmp;
+	t_stack	*max;
+
+	tmp = all->b;
+	max = all->b;
+	while (tmp && tmp->next != all->b)
+	{
+		if (tmp->n < tmp->next->n)
+			max = tmp->next;
+		tmp = tmp->next;
+	}
+	while (all->b != max)
+		ft_rb(all);
+}
+
 void	ft_sort_less(t_all *all)
 {
 	t_stack	*tmp_b;
 	int		count_b;
-	int		count_a;
 	int		size_a;
 	int		size_b;
 
-	count_a = 0;
 	size_a = ft_find_len(all, 'a');
-	while (count_a++ < size_a)
+	while (size_a--)
 	{
 		if (all->a->n <= all->median)
 		{
-			if (all->b)
-				size_b = ft_find_len(all, 'b');
-			else
-				size_b = 0;
+			size_b = (all->b) ? ft_find_len(all, 'b') : 0;
 			count_b = 0;
 			tmp_b = all->b;
-			while (all->b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n)
+			while (tmp_b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n)
 			{
 				count_b++;
 				tmp_b = tmp_b->next;
 			}
-			if (count_b <= size_b)
+			if (tmp_b != all->b || count_b > 1)
 			{
 				while (count_b--)
 					ft_rb(all);
 			}
 			ft_pb(all);
+			ft_setmax_b(all);
 		}
 		else
 			ft_ra(all);
 	}
-	while (all->b->n != all->median)
-		ft_rb(all);
 	size_b = ft_find_len(all, 'b');
 	while (size_b--)
 		ft_pa(all);
@@ -58,39 +69,33 @@ void	ft_sort_more(t_all *all)
 {
 	t_stack	*tmp_b;
 	int		count_b;
-	int		count_a;
 	int		size_b;
 	int		size_a;
 
-	count_a = 0;
 	size_a = ft_find_len(all, 'a');
-	while (count_a++ < size_a)
+	while (size_a--)
 	{
 		if (all->a->n > all->median)
 		{
-			if (all->b)
-				size_b = ft_find_len(all, 'b');
-			else
-				size_b = 0;
+			size_b = (all->b) ? ft_find_len(all, 'b') : 0;
 			count_b = 0;
 			tmp_b = all->b;
-			while (all->b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n)
+			while (tmp_b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n)
 			{
 				count_b++;
 				tmp_b = tmp_b->next;
 			}
-			if (count_b <= size_b)
+			if (tmp_b != all->b || count_b > 1)
 			{
 				while (count_b--)
 					ft_rb(all);
 			}
 			ft_pb(all);
+			ft_setmax_b(all);
 		}
 		else
 			ft_ra(all);
 	}
-	while (all->b->n != all->max)
-		ft_rb(all);
 	size_b = ft_find_len(all, 'b');
 	while (size_b--)
 		ft_pa(all);
