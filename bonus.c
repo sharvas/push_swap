@@ -87,9 +87,9 @@ void	ft_debug_c(t_all *all, char *str)
 	t_stack	*stack_b;
 	int		flag_a;
 	int		flag_b;
-	int		count;
+	int		row;
 
-	count = 0;
+	row = 0;
 	flag_a = 0;
 	flag_b = 0;
 	stack_a = all->a;
@@ -100,10 +100,12 @@ void	ft_debug_c(t_all *all, char *str)
 		printf("\x1B[35m");
 	while ((stack_a && stack_a->next != all->a) || (stack_b && stack_b->next != all->b))
 	{
-		if (ft_strcmp(str, "ra") == 0 || ft_strcmp(str, "rra") == 0)
+		if (ft_strcmp(str, "ra") == 0 || ft_strcmp(str, "rra") == 0 || (ft_strcmp(str, "pa") == 0 && !row) || (ft_strcmp(str, "sa") == 0 && row < 2))
 			ft_print_row_ca(stack_a, stack_b, flag_a, flag_b);
-		else if (ft_strcmp(str, "rb") == 0 || ft_strcmp(str, "rrb") == 0)
+		else if (ft_strcmp(str, "rb") == 0 || ft_strcmp(str, "rrb") == 0 || (ft_strcmp(str, "pb") == 0 && !row) ||  (ft_strcmp(str, "sb") == 0 && row < 2))
 			ft_print_row_cb(stack_a, stack_b, flag_a, flag_b);
+		else if (ft_strcmp(str, "ss") == 0 && row < 2)
+			ft_print_row_cab(stack_a, stack_b, flag_a, flag_b);
 		else
 			ft_print_row(stack_a, stack_b, flag_a, flag_b);
 		if (stack_a && stack_a->next != all->a)
@@ -114,8 +116,16 @@ void	ft_debug_c(t_all *all, char *str)
 			stack_b = stack_b->next;
 		else
 			flag_b = 1;
+		row++;
 	}
-	ft_print_row(stack_a, stack_b, flag_a, flag_b);
+	if (ft_strcmp(str, "ra") == 0 || ft_strcmp(str, "rra") == 0 || (ft_strcmp(str, "pa") == 0 && !row) || (ft_strcmp(str, "sa") == 0 && row < 2))
+		ft_print_row_ca(stack_a, stack_b, flag_a, flag_b);
+	else if (ft_strcmp(str, "rb") == 0 || ft_strcmp(str, "rrb") == 0 || (ft_strcmp(str, "pb") == 0 && !row) ||  (ft_strcmp(str, "sb") == 0 && row < 2))
+		ft_print_row_cb(stack_a, stack_b, flag_a, flag_b);
+	else if (ft_strcmp(str, "ss") == 0 && row < 2)
+		ft_print_row_cab(stack_a, stack_b, flag_a, flag_b);
+	else
+		ft_print_row(stack_a, stack_b, flag_a, flag_b);
 	printf("\x1B[0m\n");
 }//convert printf to ft_printf
 
