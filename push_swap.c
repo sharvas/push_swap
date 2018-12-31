@@ -6,7 +6,7 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/30 14:55:46 by svaskeli         ###   ########.fr       */
+/*   Updated: 2018/12/31 11:06:54 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,9 @@ void	ft_sort_more(t_all *all)
 
 void	ft_sort(t_all *all)
 {
-	ft_sort_more(all);
-	ft_sort_less(all);
+//	ft_sort_more(all);
+//	ft_sort_less(all);
+	quickSort(all);
 }
 
 void	ft_push_swap(char **av)
