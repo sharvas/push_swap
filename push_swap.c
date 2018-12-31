@@ -140,7 +140,7 @@ void	ft_sort_more(t_all *all)
 			ft_setmax_b(all, if_rotate);
 			count_b = 0;
 			tmp_b = all->b;
-			while (tmp_b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n)
+			while (tmp_b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n && !ft_is_sorted(all, 'b'))
 			{
 				count_b++;
 				tmp_b = tmp_b->next;

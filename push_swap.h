@@ -62,7 +62,7 @@ int		ft_find_len(t_all *all, char c);
 void	ft_simple_sort(t_stack *cpy);
 void	ft_find_ref(t_all *all);
 void	ft_ko_ok(t_all *all);
-int		ft_is_sorted(t_all *all);
+int		ft_is_sorted(t_all *all, char c);
 
 /*
 **		do_push_swap.c

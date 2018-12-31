@@ -64,6 +64,8 @@ void	ft_fill_a(t_all *all, char **argv)
 		if (ft_strcmp(argv[i], "-f") == 0)
 		{
 			i++;
+			if (!argv[i])
+				ft_checker_usage();
 //			open fd
 		}
 	}

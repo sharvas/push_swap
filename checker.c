@@ -56,10 +56,10 @@ t_all	*ft_do_ops(t_all *all)
 	{
 		ft_read_do(line, all);
 		count++;
-		if (all->v)
-			ft_debug_v(all, line);
-		else if (all->c)
+		if (all->c)
 			ft_debug_c(all, line);
+		else if (all->v)
+			ft_debug_v(all, line);
 		free(line);
 		line = NULL;
 	}
