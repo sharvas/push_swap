@@ -103,15 +103,27 @@ void	ft_add_end(t_all *all, int n);
 void	ft_add_top(t_all *all, char stack, int n);
 void	ft_del_top(t_all *all, char stack);
 
-
 /*
 **		bonus.c
 */
-void	ft_print_row(t_stack *stack_a, t_stack *stack_b, t_flags *flags);
-void	ft_debug_v(t_all *all, char *str);
-void	ft_debug_c(t_all *all, char *str);
+int		ft_is_bonus(char *str);
 void	ft_push_swap_usage(void);
 void	ft_checker_usage(void);
-int		ft_is_bonus(char *str);
+
+/*
+**		bonus_c.c
+*/
+void	ft_print_row_ca(t_stack *s_a, t_stack *s_b, t_flags *flags);
+void	ft_print_row_cb(t_stack *s_a, t_stack *s_b, t_flags *flags);
+void	ft_print_row_cab(t_stack *s_a, t_stack *s_b, t_flags *flags);
+void	ft_debug_c_print(t_stack *s_a, t_stack *s_b, t_flags flags, char *str);
+void	ft_debug_c(t_all *all, char *str);
+
+/*
+**		bonus_v.c
+*/
+t_flags	ft_initialize_flags(t_flags *flags);
+void	ft_print_row(t_stack *s_a, t_stack *s_b, t_flags *flags);
+void	ft_debug_v(t_all *all, char *str);
 
 #endif
