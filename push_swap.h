@@ -100,6 +100,7 @@ void	ft_del_top(t_all *all, char stack);
 /*
 **		bonus.c
 */
+void	ft_print_row(t_stack *stack_a, t_stack *stack_b, int flag_a, int flag_b);
 void	ft_debug_v(t_all *all, char *str);
 void	ft_debug_c(t_all *all, char *str);
 void	ft_push_swap_usage(void);

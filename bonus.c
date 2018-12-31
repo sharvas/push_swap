@@ -12,12 +12,52 @@
 
 #include "push_swap.h"
 
+void	ft_print_row(t_stack *stack_a, t_stack *stack_b, int flag_a, int flag_b)
+{
+	if (stack_a && stack_b && !flag_a && !flag_b)
+		printf("%- 12d|%- 12d\n", stack_a->n, stack_b->n);
+	else if (stack_a && !flag_a)
+		printf("%- 12d|%12s\n", stack_a->n, "");
+	else if (stack_b && !flag_b)
+		printf("%12s|%- 12d\n", "", stack_b->n);
+}
+
+void	ft_print_row_ca(t_stack *stack_a, t_stack *stack_b, int flag_a, int flag_b)
+{
+	if (stack_a && stack_b && !flag_a && !flag_b)
+		printf("\x1B[35m%- 12d\x1B[0m|%- 12d\n", stack_a->n, stack_b->n);
+	else if (stack_a && !flag_a)
+		printf("\x1B[35m%- 12d\x1B[0m|%12s\n", stack_a->n, "");
+	else if (stack_b && !flag_b)
+		printf("%12s|%- 12d\n", "", stack_b->n);
+}
+
+void	ft_print_row_cb(t_stack *stack_a, t_stack *stack_b, int flag_a, int flag_b)
+{
+	if (stack_a && stack_b && !flag_a && !flag_b)
+		printf("%- 12d|\x1B[35m%- 12d\x1B[0m\n", stack_a->n, stack_b->n);
+	else if (stack_a && !flag_a)
+		printf("%- 12d|%12s\n", stack_a->n, "");
+	else if (stack_b && !flag_b)
+		printf("%12s|\x1B[35m%- 12d\x1B[0m\n", "", stack_b->n);
+}
+
+void	ft_print_row_cab(t_stack *stack_a, t_stack *stack_b, int flag_a, int flag_b)
+{
+	if (stack_a && stack_b && !flag_a && !flag_b)
+		printf("\x1B[35m%- 12d|%- 12d\x1B[0m\n", stack_a->n, stack_b->n);
+	else if (stack_a && !flag_a)
+		printf("\x1B[35m%- 12d|%12s\x1B[0m\n", stack_a->n, "");
+	else if (stack_b && !flag_b)
+		printf("\x1B[35m%12s|%- 12d\x1B[0m\n", "", stack_b->n);
+}
+
 void	ft_debug_v(t_all *all, char *str)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		flag_a;
-	int		flag_b;	
+	int		flag_b;
 
 	flag_a = 0;
 	flag_b = 0;	
@@ -27,12 +67,7 @@ void	ft_debug_v(t_all *all, char *str)
 	printf(" %-11s| %s\n", "a", "b");
 	while ((stack_a && stack_a->next != all->a) || (stack_b && stack_b->next != all->b))
 	{
-		if (stack_a && stack_b && !flag_a && !flag_b)
-			printf("%- 12d|%- 12d\n", stack_a->n, stack_b->n);
-		else if (stack_a && stack_a->next != all->a)
-			printf("%- 12d|%12s\n", stack_a->n, "");
-		else if (stack_b && stack_b->next != all->b)
-			printf("%12s|%- 12d\n", "", stack_b->n);
+		ft_print_row(stack_a, stack_b, flag_a, flag_b);
 		if (stack_a && stack_a->next != all->a)
 			stack_a = stack_a->next;
 		else
@@ -42,12 +77,7 @@ void	ft_debug_v(t_all *all, char *str)
 		else
 			flag_b = 1;
 	}
-	if (stack_a && stack_b && !flag_a && !flag_b)
-	 	printf("%- 12d|%- 12d\n", stack_a->n, stack_b->n);
-	else if (stack_a && !flag_a)
-		printf("%- 12d|%12s\n", stack_a->n, "");
-	else if (stack_b && !flag_b)
-		printf("%12s|%- 12d\n", "", stack_b->n);
+	ft_print_row(stack_a, stack_b, flag_a, flag_b);
 	printf("\n");
 }//convert printf to ft_printf
 
@@ -56,22 +86,26 @@ void	ft_debug_c(t_all *all, char *str)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		flag_a;
-	int		flag_b;	
+	int		flag_b;
+	int		count;
 
+	count = 0;
 	flag_a = 0;
-	flag_b = 0;	
+	flag_b = 0;
 	stack_a = all->a;
 	stack_b = all->b;
-	printf("%s\n", str);
-	printf("\x1B[35m %-11s|\x1B[0m %s\n", "a", "b");
+	printf("\x1B[35m%s\x1B[0m\n", str);
+	printf(" %-11s| %s\n", "a", "b");
+	if ((ft_strcmp(str, "rrr") == 0) || (ft_strcmp(str, "rr") == 0))
+		printf("\x1B[35m");
 	while ((stack_a && stack_a->next != all->a) || (stack_b && stack_b->next != all->b))
 	{
-		if (stack_a && stack_b && !flag_a && !flag_b)
-			printf("%- 12d|%- 12d\n", stack_a->n, stack_b->n);
-		else if (stack_a && stack_a->next != all->a)
-			printf("%- 12d|%12s\n", stack_a->n, "");
-		else if (stack_b && stack_b->next != all->b)
-			printf("%12s|%- 12d\n", "", stack_b->n);
+		if (ft_strcmp(str, "ra") == 0 || ft_strcmp(str, "rra") == 0)
+			ft_print_row_ca(stack_a, stack_b, flag_a, flag_b);
+		else if (ft_strcmp(str, "rb") == 0 || ft_strcmp(str, "rrb") == 0)
+			ft_print_row_cb(stack_a, stack_b, flag_a, flag_b);
+		else
+			ft_print_row(stack_a, stack_b, flag_a, flag_b);
 		if (stack_a && stack_a->next != all->a)
 			stack_a = stack_a->next;
 		else
@@ -81,14 +115,9 @@ void	ft_debug_c(t_all *all, char *str)
 		else
 			flag_b = 1;
 	}
-	if (stack_a && stack_b && !flag_a && !flag_b)
-	 	printf("%- 12d|%- 12d\n", stack_a->n, stack_b->n);
-	else if (stack_a && !flag_a)
-		printf("%- 12d|%12s\n", stack_a->n, "");
-	else if (stack_b && !flag_b)
-		printf("%12s|%- 12d\n", "", stack_b->n);
-	printf("\n");
-}
+	ft_print_row(stack_a, stack_b, flag_a, flag_b);
+	printf("\x1B[0m\n");
+}//convert printf to ft_printf
 
 void	ft_push_swap_usage(void)
 {
