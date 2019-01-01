@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:37:52 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/29 18:22:47 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/01 16:20:34 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_sa(t_all *all)
 {
 	int	tmp;
 
-	if (all->a && all->a->next != /*all->a*/NULL)
+	if (all->a && all->a->next != NULL)
 	{
 		tmp = all->a->n;
 		all->a->n = all->a->next->n;
@@ -30,7 +30,7 @@ void	ft_sb(t_all *all)
 {
 	int	tmp;
 
-	if (all->b && all->b->next != /*all->b*/NULL)
+	if (all->b && all->b->next != NULL)
 	{
 		tmp = all->b->n;
 		all->b->n = all->b->next->n;

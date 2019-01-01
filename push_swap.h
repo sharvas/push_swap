@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:04:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/31 19:14:41 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/01 16:06:53 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_all
 {
 	struct s_stack	*a;
 	struct s_stack	*b;
+	struct s_stack	*last;
 	int				v;
 	int				min;
 //	int				qu;
@@ -101,9 +102,9 @@ void	ft_debug_v(t_all *all, char *str);
 void	ft_push_swap_usage(void);
 void	ft_checker_usage(void);
 
-void	swap(int *a, int *b, t_all *all);
-t_stack	*partition(t_stack *head, t_stack *last, t_all *all);
-void	_quickSort(t_stack *head, t_stack *last, t_all *all);
+//void	swap(int *a, int *b, t_all **all);
+//t_stack	*partition(t_stack *head, t_stack *last, t_all *all);
+//void	_quickSort(t_stack *head, t_stack *last, t_all *all);
 void	quickSort(t_all *all);
 
 #endif

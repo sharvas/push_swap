@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/30 14:13:44 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/01 16:19:28 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,16 +94,24 @@ t_stack	*ft_dublicate_list(t_all *all)
 void	ft_find_ref(t_all *all)
 {
 	t_stack		*cpy;
+	t_stack		*tmp;
 	int			count;
+
+	tmp = all->a;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	all->last = tmp;
 
 	all->len = ft_find_len(all, 'a');
 	cpy = ft_dublicate_list(all);
 	ft_simple_sort(cpy);
 	all->min = cpy->n;
+
 	count = (all->len / 2);
 	while (count--)
 		cpy = cpy->next;
 	all->median = cpy->n;
+
 	count = (all->len / 2);
 	while (++count < all->len)
 		cpy = cpy->next;
