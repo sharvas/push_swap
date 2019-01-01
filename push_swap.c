@@ -167,6 +167,16 @@ void	ft_sort(t_all *all)
 	ft_sort_less(all);
 }
 
+void	ft_sort_algo_switch(t_all *all)
+{
+	if (ft_is_sorted(all, 'a'))
+		return ;
+	if (ft_find_len(all, 'a') <= 5)
+		ft_sort_small(all);
+	else
+		ft_sort(all);
+}
+
 void	ft_push_swap(char **av)
 {
 	t_all	*all;
@@ -176,7 +186,8 @@ void	ft_push_swap(char **av)
 	all->display = 1;
 	ft_fill_a(all, av);
 	ft_find_ref(all);
-	ft_sort(all);
+//	ft_sort(all);
+	ft_sort_algo_switch(all);
 }
 
 int		main(int ac, char **av)
