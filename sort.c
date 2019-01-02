@@ -128,7 +128,7 @@ void	ft_find_ref(t_all *all)
 
 void	ft_ko_ok(t_all *all)
 {
-	if (ft_is_sorted(all, 'a'))
+	if (ft_is_sorted(all, 'a') && !all->b)
 		ft_putstr("OK\n");
 	else
 		ft_putstr("KO\n");
@@ -139,8 +139,6 @@ int		ft_is_sorted(t_all *all, char c)
 	t_stack	*tmp;
 	t_stack	*top;
 
-	if (c == 'a' && (!all->a || all->b))
-		return (0);
 	tmp = (c == 'a') ? all->a : all->b;
 	top = tmp;
 	while (tmp->next != top)
