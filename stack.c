@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 13:19:49 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/30 18:50:34 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/02 18:00:38 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,6 @@ void	ft_add_end(t_all *all, int n)
 		(*top)->prev = tmp;
 		tmp->prev->next = tmp;
 		tmp->n = n;
-//		tmp->top = 1;
-//		(*top)->top = 0;
 	}
 	else
 	{
@@ -107,7 +105,6 @@ void	ft_add_end(t_all *all, int n)
 		(*top)->next = *top;
 		(*top)->prev = *top;
 		(*top)->n = n;
-//		(*top)->top = 1;
 	}
 }
 
@@ -127,8 +124,6 @@ void	ft_add_top(t_all *all, char stack, int n)
 		tmp->prev->next = tmp;
 		tmp->n = n;
 		*top = (*top)->prev;
-//		tmp->top = 1;
-//		(*top)->top = 0;
 	}
 	else
 	{
@@ -137,7 +132,6 @@ void	ft_add_top(t_all *all, char stack, int n)
 		(*top)->next = *top;
 		(*top)->prev = *top;
 		(*top)->n = n;
-//		(*top)->top = 1;
 	}
 }
 
@@ -161,7 +155,6 @@ void	ft_del_top(t_all *all, char stack)
 			tmp->prev->next = *top;
 			(*top)->prev = tmp->prev;
 			free(tmp);
-//			(*top)->top = 1;
 		}
 	}
 }

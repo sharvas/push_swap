@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-int	ft_find_max(t_all *all, char stack)
+/*int	ft_find_max(t_all *all, char stack)
 {
 	t_stack		*tmp;
 	int			max;
@@ -35,7 +35,7 @@ int	ft_find_min(t_all *all, char stack)
 			min = tmp->n;
 	}
 	return (min);
-}
+}*/
 
 void	ft_rotate_direction(t_all *all, int num, int direction)
 {

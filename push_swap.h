@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:04:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/30 18:48:10 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/02 17:59:00 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,10 @@ int		main(int argc, char **argv);
 
 /*
 **		push_swap_v2.c 
-*/// correct to no v2
+*/// functions left to add
 void	ft_setmax_b(t_all *all, int if_rotate);
 int		ft_isleft(t_all *all, char c);
 
-void	ft_rotate_direction(t_all *all, int max);
 void	ft_pa_sort(t_all *all);
 void	ft_sort_v2(t_all *all);
 void	ft_sort_algo_switch(t_all *all);
