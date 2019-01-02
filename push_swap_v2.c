@@ -68,42 +68,6 @@ int		ft_isleft(t_all *all, char c)
 	return (0);
 }
 
-int	ft_find_min(t_all *all, char stack)
-{
-	t_stack		*tmp;
-	int		min;
-	int		len;
-
-	tmp = (stack == 'a') ? all->a : all->b;
-	len = ft_find_len(all, stack);
-	min = tmp->n;
-	while (len--)
-	{
-		tmp = tmp->next;
-		if (tmp->n < min)
-			min = tmp->n;
-	}
-	return (min);
-}
-
-int	ft_find_max(t_all *all, char stack)
-{
-	t_stack		*tmp;
-	int		max;
-	int		len;
-
-	tmp = (stack == 'a') ? all->a : all->b;
-	len = ft_find_len(all, stack);
-	max = tmp->n;
-	while (len--)
-	{
-		tmp = tmp->next;
-		if (tmp->n > max)
-			max = tmp->n;
-	}
-	return (max);
-}
-
 void	ft_rotate_direction(t_all *all, int max)
 {
 	t_stack	*tmp;

@@ -165,3 +165,39 @@ void	ft_del_top(t_all *all, char stack)
 		}
 	}
 }
+
+int	ft_find_min(t_all *all, char stack)
+{
+	t_stack		*tmp;
+	int		min;
+	int		len;
+
+	tmp = (stack == 'a') ? all->a : all->b;
+	len = ft_find_len(all, stack);
+	min = tmp->n;
+	while (len--)
+	{
+		tmp = tmp->next;
+		if (tmp->n < min)
+			min = tmp->n;
+	}
+	return (min);
+}
+
+int	ft_find_max(t_all *all, char stack)
+{
+	t_stack		*tmp;
+	int		max;
+	int		len;
+
+	tmp = (stack == 'a') ? all->a : all->b;
+	len = ft_find_len(all, stack);
+	max = tmp->n;
+	while (len--)
+	{
+		tmp = tmp->next;
+		if (tmp->n > max)
+			max = tmp->n;
+	}
+	return (max);
+}
