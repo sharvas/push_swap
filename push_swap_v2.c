@@ -86,6 +86,26 @@ int	ft_find_max(t_all *all, char stack)
 	return (max);
 }
 
+void	ft_rotate_direction(t_all *all, int max)
+{
+	t_stack	*tmp;
+	int		count;
+
+	count = 0;
+	tmp = all->b;
+	while (tmp->n != max)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+	if (count <= (ft_find_len(all, 'b') / 2))
+		while (all->b->n != max)
+			ft_rb(all);
+	else
+		while (all->b->n != max)
+			ft_rrb(all);
+}
+
 void	ft_sort_v2(t_all *all)
 {
 	int		size_a;
@@ -106,8 +126,7 @@ void	ft_sort_v2(t_all *all)
 	while (size_b--)
 	{
 		max = ft_find_max(all, 'b');
-		while (all->b->n != max)// or rra?
-			ft_rb(all);
+		ft_rotate_direction(all, max);
 		ft_pa(all);
 	}
 	while (tmp--)
@@ -119,8 +138,7 @@ void	ft_sort_v2(t_all *all)
 	while (size_b--)
 	{
 		max = ft_find_max(all, 'b');
-		while (all->b->n != max)// or rra?
-			ft_rb(all);
+		ft_rotate_direction(all, max);
 		ft_pa(all);
 	}
 }
