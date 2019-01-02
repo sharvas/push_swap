@@ -12,11 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_sort_2(t_all *all)
-{
-	ft_sa(all);
-}
-
 void	ft_sort_3(t_all *all)
 {
 	if (all->a->n == all->min)
@@ -50,8 +45,6 @@ void	ft_sort_4(t_all *all)
 
 void	ft_sort_5(t_all *all)
 {
-	t_stack	*tmp;
-	tmp = all->a;
 	while (ft_find_len(all, 'b') < 2)
 	{
 		if (all->a->n < all->median)
@@ -69,7 +62,7 @@ void	ft_sort_5(t_all *all)
 void	ft_sort_small(t_all *all)
 {
 	if (ft_find_len(all, 'a') == 2)
-		ft_sort_2(all);
+		ft_sa(all);
 	else if (ft_find_len(all, 'a') == 3)
 		ft_sort_3(all);
 	else if (ft_find_len(all, 'a') == 4)
