@@ -67,9 +67,9 @@ int		ft_is_sorted(t_all *all, char c);
 /*
 **		solve_small.c
 */
-void	ft_sort_2(t_all *all);
 void	ft_sort_3(t_all *all);
 void	ft_sort_4(t_all *all);
+void	ft_sort_5(t_all *all);
 void	ft_sort_small(t_all *all);
 
 /*
