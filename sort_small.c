@@ -14,12 +14,17 @@
 
 void	ft_sort_3(t_all *all)
 {
-	if (all->a->n == all->min)
+	int	min;
+	int	max;
+
+	min = ft_find_min(all, 'a');
+	max = ft_find_max(all, 'a');	
+	if (all->a->n == min)
 	{
 		ft_sa(all);
 		ft_ra(all);
 	}
-	else if (all->a->n == all->max)
+	else if (all->a->n == max)
 	{
 		ft_ra(all);
 		if (!ft_is_sorted(all, 'a'))
@@ -27,7 +32,7 @@ void	ft_sort_3(t_all *all)
 	}
 	else
 	{
-		if (all->a->next->n == all->max)
+		if (all->a->next->n == max)
 			ft_rra(all);
 		else
 			ft_sa(all);

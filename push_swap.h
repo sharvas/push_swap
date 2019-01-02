@@ -56,6 +56,21 @@ void	ft_checker(char **argv);
 int		main(int argc, char **argv);
 
 /*
+**		push_swap_v2.c 
+*/// correct to no v2
+void	ft_setmax_b(t_all *all, int if_rotate);
+int		ft_isleft(t_all *all, char c);
+
+int		ft_find_min(t_all *all, char stack);
+int		ft_find_max(t_all *all, char stack);
+
+void	ft_rotate_direction(t_all *all, int max);
+void	ft_pa_sort(t_all *all);
+void	ft_sort_v2(t_all *all);
+void	ft_sort_algo_switch(t_all *all);
+void	ft_push_swap(char **av);
+
+/*
 **		sort.c
 */
 int		ft_find_len(t_all *all, char c);

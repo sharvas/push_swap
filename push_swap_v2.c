@@ -68,6 +68,24 @@ int		ft_isleft(t_all *all, char c)
 	return (0);
 }
 
+int	ft_find_min(t_all *all, char stack)
+{
+	t_stack		*tmp;
+	int		min;
+	int		len;
+
+	tmp = (stack == 'a') ? all->a : all->b;
+	len = ft_find_len(all, stack);
+	min = tmp->n;
+	while (len--)
+	{
+		tmp = tmp->next;
+		if (tmp->n < min)
+			min = tmp->n;
+	}
+	return (min);
+}
+
 int	ft_find_max(t_all *all, char stack)
 {
 	t_stack		*tmp;
