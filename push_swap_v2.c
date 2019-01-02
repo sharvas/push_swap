@@ -106,13 +106,21 @@ void	ft_rotate_direction(t_all *all, int max)
 			ft_rrb(all);
 }
 
+void	ft_pa_sort(t_all *all)
+{
+	int		max;
+
+	max = ft_find_max(all, 'b');
+	ft_rotate_direction(all, max);
+	ft_pa(all);
+}
+
 void	ft_sort_v2(t_all *all)
 {
 	int		size_a;
 	int		size_b;
 	int 	tmp;
 	size_a = ft_find_len(all, 'a');
-	int		max;
 
 	while (size_a--)
 	{
@@ -124,11 +132,7 @@ void	ft_sort_v2(t_all *all)
 	size_b = ft_find_len(all, 'b');
 	tmp = all->len - size_b;
 	while (size_b--)
-	{
-		max = ft_find_max(all, 'b');
-		ft_rotate_direction(all, max);
-		ft_pa(all);
-	}
+		ft_pa_sort(all);
 	while (tmp--)
 	{
 		ft_rra(all);
@@ -136,11 +140,7 @@ void	ft_sort_v2(t_all *all)
 	}
 	size_b = ft_find_len(all, 'b');
 	while (size_b--)
-	{
-		max = ft_find_max(all, 'b');
-		ft_rotate_direction(all, max);
-		ft_pa(all);
-	}
+		ft_pa_sort(all);
 }
 
 void	ft_sort_algo_switch(t_all *all)
