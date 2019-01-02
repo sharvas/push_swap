@@ -1,4 +1,4 @@
-2. print out the move in visualiser
-3. print usage (no input or -h)
-4. read from file (with flag -f needs aditional argument for file path)
-5. colors bonus
+1. when less than 6 items in B reverse sort them there and pa
+2. moves into string and rrr, ...
+3. confirm that we're realy using min moves
+4. 

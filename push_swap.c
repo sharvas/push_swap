@@ -6,7 +6,7 @@
 /*   By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 09:12:37 by svaskeli          #+#    #+#             */
-/*   Updated: 2018/12/31 16:53:46 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/02 17:54:59 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	ft_sort_less(t_all *all)
 			ft_setmax_b(all, if_rotate);
 			count_b = 0;
 			tmp_b = all->b;
-			while (tmp_b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n/* && !ft_is_sorted(all, 'b')*/)
+			while (tmp_b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n)
 			{
 				count_b++;
 				tmp_b = tmp_b->next;
@@ -107,7 +107,7 @@ void	ft_sort_less(t_all *all)
 			if (tmp_b != all->b || count_b > 1)
 			{
 				while (count_b-- && if_rotate)
-					ft_rb(all); //check if rb or rrb
+					ft_rb(all);
 			}
 			ft_pb(all);
 		}
@@ -140,7 +140,7 @@ void	ft_sort_more(t_all *all)
 			ft_setmax_b(all, if_rotate);
 			count_b = 0;
 			tmp_b = all->b;
-			while (tmp_b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n/* && !ft_is_sorted(all, 'b')*/)
+			while (tmp_b && size_b > 1 && count_b < size_b && all->a->n < tmp_b->n)
 			{
 				count_b++;
 				tmp_b = tmp_b->next;
@@ -148,7 +148,7 @@ void	ft_sort_more(t_all *all)
 			if (tmp_b != all->b || count_b > 1)
 			{
 				while (count_b-- && if_rotate)
-					ft_rb(all); //check if rb or rrb
+					ft_rb(all);
 			}
 			ft_pb(all);
 		}
@@ -186,7 +186,6 @@ void	ft_push_swap(char **av)
 	all->display = 1;
 	ft_fill_a(all, av);
 	ft_find_ref(all);
-//	ft_sort(all);
 	ft_sort_algo_switch(all);
 }
 
