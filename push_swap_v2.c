@@ -120,8 +120,8 @@ void	ft_sort_v2(t_all *all)
 	int		size_a;
 	int		size_b;
 	int 	tmp;
-	size_a = ft_find_len(all, 'a');
 
+	size_a = ft_find_len(all, 'a');
 	while (size_a--)
 	{
 		if (all->a->n >= all->median)
