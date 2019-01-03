@@ -95,8 +95,84 @@ t_stack	*ft_dublicate_list(t_all *all)
 	return (cpy);
 }
 
+void	ft_find_sevenths(t_all *all)
+{
+	t_stack		*top;
+	t_stack		*cpy;
+	int			count;
+
+	all->len = ft_find_len(all, 'a');
+	cpy = ft_dublicate_list(all);
+	ft_simple_sort(cpy);
+	top = cpy;
+	count = (all->len / 7);
+	all->min = cpy->n;
+	while (count--)
+		cpy = cpy->next;
+	all->one_seventh = cpy->n;
+	cpy = top;
+	count = ((all->len / 7) * 2);
+	while (count--)
+		cpy = cpy->next;
+	all->two_sevenths = cpy->n;
+	cpy = top;
+	count = ((all->len / 7) * 3);
+	while (count--)
+		cpy = cpy->next;
+	all->three_sevenths = cpy->n;
+	cpy = top;
+	count = ((all->len / 7) * 4);
+	while (count--)
+		cpy = cpy->next;
+	all->four_sevenths = cpy->n;
+	cpy = top;
+	count = ((all->len / 7) * 5);
+	while (count--)
+		cpy = cpy->next;
+	all->five_sevenths = cpy->n;
+	cpy = top;
+	count = ((all->len / 7) * 6);
+	while (count--)
+		cpy = cpy->next;
+	all->six_sevenths = cpy->n;
+	free(cpy);
+}
+
+void	ft_find_thirds(t_all *all)
+{
+	t_stack		*top;
+	t_stack		*cpy;
+	int			count;
+
+	all->len = ft_find_len(all, 'a');
+	cpy = ft_dublicate_list(all);
+	ft_simple_sort(cpy);
+	top = cpy;
+	count = (all->len / 3);
+	all->min = cpy->n;
+	while (count--)
+		cpy = cpy->next;
+	all->one_third = cpy->n;
+	cpy = top;
+	count = (all->len / 2);
+	while (count--)
+		cpy = cpy->next;
+	all->median = cpy->n;
+	cpy = top;
+	count = ((all->len / 3) * 2);
+	while (count--)
+		cpy = cpy->next;
+	all->two_thirds = cpy->n;
+	while (cpy->next)
+		cpy = cpy->next;
+	all->max = cpy->n;
+	free(cpy);
+}
+
 void	ft_find_ref(t_all *all)
 {
+	ft_find_thirds(all);
+	ft_find_sevenths(all);
 	t_stack		*top;
 	t_stack		*cpy;
 	int			count;

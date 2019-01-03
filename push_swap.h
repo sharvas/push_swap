@@ -31,10 +31,18 @@ typedef struct		s_all
 	int				v;
 	int				c;
 	int				min;
-	int				qu;
 	int				median;
-	int				three_qu;
 	int				max;
+	int				one_third;
+	int				qu;//
+	int				three_qu;//
+	int 			two_thirds;
+	int				one_seventh;
+	int				two_sevenths;
+	int				three_sevenths;
+	int				four_sevenths;
+	int				five_sevenths;
+	int				six_sevenths;
 	int				len;
 	int				display;
 	char			*instructions;
