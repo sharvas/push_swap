@@ -32,7 +32,7 @@ int		ft_up_down(t_all *all, int num)
 
 int		ft_min_max(t_all *all, int max, int min)
 {
-	t_stack	*tmp;
+	// t_stack	*tmp;
 	int		count_max;
 	int		count_min;
 	int		max_direction;
@@ -177,6 +177,8 @@ void	ft_push_swap(char **av)
 	ft_fill_a(all, av);
 	ft_find_ref(all);
 	ft_sort_algo_switch(all);
+	ft_condense_comb(all);
+	ft_putstr(all->instructions);
 }
 
 int		main(int ac, char **av)

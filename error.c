@@ -63,6 +63,27 @@ int		ft_atoi_error(char *str)
 	return (a);
 }
 
+char		*ft_strdup_empty(void)
+{
+	char	*str;
+
+	str = NULL;
+	if (!(str = ft_strdup("")))
+		ft_error();
+	return (str);
+}
+
+char		*ft_strjoinfree_s1_error(char *s1, char *s2)
+{
+	char	*str;
+
+	str = NULL;
+	if (!(str = ft_strjoinfree_s1(s1, s2)))
+		ft_error();//need to free string
+	return (str);
+}
+
+
 // void	ft_free_stack(t_stack *stack)
 // {
 // 	while ()

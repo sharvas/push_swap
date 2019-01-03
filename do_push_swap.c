@@ -12,6 +12,30 @@
 
 #include "push_swap.h"
 
+void	ft_pa(t_all *all)
+{
+	if (all->b)
+	{
+		ft_add_top(all, 'a', all->b->n);
+		ft_del_top(all, 'b');
+	}
+	if (all->display)
+		all->instructions = ft_strjoinfree_s1_error(all->instructions, "pa\n");
+//		ft_putstr("pa\n");
+}
+
+void	ft_pb(t_all *all)
+{
+	if (all->a)
+	{
+		ft_add_top(all, 'b', all->a->n);
+		ft_del_top(all, 'a');
+	}
+	if (all->display)
+		all->instructions = ft_strjoinfree_s1_error(all->instructions, "pb\n");
+		// ft_putstr("pb\n");
+}
+
 void	ft_sa(t_all *all)
 {
 	int	tmp;
@@ -23,7 +47,8 @@ void	ft_sa(t_all *all)
 		all->a->next->n = tmp;
 	}
 	if (all->display)
-		ft_putstr("sa\n");
+		all->instructions = ft_strjoinfree_s1_error(all->instructions, "sa\n");
+//		ft_putstr("sa\n");
 }
 
 void	ft_sb(t_all *all)
@@ -37,27 +62,6 @@ void	ft_sb(t_all *all)
 		all->b->next->n = tmp;
 	}
 	if (all->display)
-		ft_putstr("sb\n");
-}
-
-void	ft_pa(t_all *all)
-{
-	if (all->b)
-	{
-		ft_add_top(all, 'a', all->b->n);
-		ft_del_top(all, 'b');
-	}
-	if (all->display)
-		ft_putstr("pa\n");
-}
-
-void	ft_pb(t_all *all)
-{
-	if (all->a)
-	{
-		ft_add_top(all, 'b', all->a->n);
-		ft_del_top(all, 'a');
-	}
-	if (all->display)
-		ft_putstr("pb\n");
+		all->instructions = ft_strjoinfree_s1_error(all->instructions, "sb\n");
+//		ft_putstr("sb\n");
 }
