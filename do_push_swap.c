@@ -21,7 +21,6 @@ void	ft_pa(t_all *all)
 	}
 	if (all->display)
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "pa\n");
-//		ft_putstr("pa\n");
 }
 
 void	ft_pb(t_all *all)
@@ -33,7 +32,6 @@ void	ft_pb(t_all *all)
 	}
 	if (all->display)
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "pb\n");
-		// ft_putstr("pb\n");
 }
 
 void	ft_sa(t_all *all)
@@ -48,7 +46,6 @@ void	ft_sa(t_all *all)
 	}
 	if (all->display)
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "sa\n");
-//		ft_putstr("sa\n");
 }
 
 void	ft_sb(t_all *all)
@@ -63,5 +60,4 @@ void	ft_sb(t_all *all)
 	}
 	if (all->display)
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "sb\n");
-//		ft_putstr("sb\n");
 }

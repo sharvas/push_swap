@@ -88,10 +88,8 @@ void	ft_fill_a(t_all *all, char **argv)
 			ft_fill_error(all, array[j++]);
 	}
 	else
-	{
 		while (argv[i])
 			ft_fill_error(all, argv[i++]);
-	}
 }
 
 void	ft_add_end(t_all *all, int n)
