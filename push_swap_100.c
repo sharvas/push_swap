@@ -149,7 +149,7 @@ void	ft_sort(t_all *all)
 	while (size_b--)
 		ft_pa_sort(all);
 	while (all->a->n != all->min)
-		ft_ra(all);
+		ft_rra(all);
 }
 
 void	ft_sort_algo_switch(t_all *all)
