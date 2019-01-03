@@ -162,33 +162,6 @@ void	ft_sort_algo_switch(t_all *all)
 		ft_sort(all);
 }
 
-void	ft_condense_instructions(t_all *all)
-{
-	char	*str;
-	char	*str_all;
-	int		n;
-	char	*verbose;
-	char	*tmp;
-
-	str = all->instructions;
-	while ((verbose = ft_strstr(str, "ra\nrb\n")))
-	{
-		tmp = str;
-		str_all = str;
-		n = 0;
-
-		while(tmp != verbose)
-		{
-			tmp++;
-			n++;
-		}
-		str = ft_strndup(str, n);//free
-		str = ft_strjoinfree_s1(str, "rr\n");
-		str = ft_strjoinfree_s1(str, str_all + n + 6);
-	}
-	all->instructions = str;
-}
-
 void	ft_push_swap(char **av)
 {
 	t_all	*all;
@@ -199,7 +172,7 @@ void	ft_push_swap(char **av)
 	ft_fill_a(all, av);
 	ft_find_ref(all);
 	ft_sort_algo_switch(all);
-	ft_condense_instructions(all);
+	ft_condense_comb(all);
 	ft_putstr(all->instructions);
 }
 

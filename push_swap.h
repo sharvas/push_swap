@@ -131,6 +131,14 @@ int		ft_find_min(t_all *all, char stack);
 int		ft_find_max(t_all *all, char stack);
 
 /*
+**		condense_comb.c
+*/
+void	ft_condense_rr(t_all *all);
+void	ft_condense_rrr(t_all *all);
+void	ft_condense_ss(t_all *all);
+void	ft_condense_comb(t_all *all);
+
+/*
 **		bonus.c
 */
 int		ft_is_bonus(char *str);
