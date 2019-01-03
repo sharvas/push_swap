@@ -4,5 +4,8 @@
 4. leaks in dublicate list and push_swap->init
 5. error handling
 
+6. fixed -> there was KO with 2 1 3 4 0 // if 3 num, no check if sorted.
+
+----------------------------------------------------------
 *. stop rotating if no more suitable num left in stack 'a'
 *. use enum to store partitions

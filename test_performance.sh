@@ -1,5 +1,7 @@
+# test for 5 random numbers
+# update num (range), case (test runs), limit (exceed limit) when needed
 num=5
-case=50
+case=100
 limit=12
 
 exceed=0
@@ -11,7 +13,7 @@ fail="OK"
 while [ $count -lt $(expr $case + 1) ]
 do
 	arg=$(ruby -e "puts (1..$num).to_a.shuffle.join(' ')")
-	echo ".\c"
+	echo "\r-- $count/$case --\c"
 	line=$(./push_swap $arg | wc -l)
 	sum=$(expr $sum + $line)
 	if [ $line -lt $best ]
@@ -41,9 +43,11 @@ echo "exceed max    :        $exceed"
 echo "< 12"
 echo " "
 
-num1=100
-case1=50
-limit1=1500
+# test for 100 random numbers
+# update num (range), case (test runs), limit (exceed limit) when needed
+num=100
+case=100
+limit=1500
 
 exceed=0
 count=1
@@ -51,10 +55,10 @@ sum=0
 best=10000
 worst=0
 fail="OK"
-while [ $count -lt $(expr $case1 + 1) ]
+while [ $count -lt $(expr $case + 1) ]
 do
-	arg=$(ruby -e "puts (1..$num1).to_a.shuffle.join(' ')")
-	echo ".\c"
+	arg=$(ruby -e "puts (1..$num).to_a.shuffle.join(' ')")
+	echo "\r-- $count/$case --\c"
 	line=$(./push_swap $arg | wc -l)
 	sum=$(expr $sum + $line)
 	if [ $line -lt $best ]
@@ -65,7 +69,7 @@ do
 	then
 		worst=$line
 	fi
-	if [ $line -gt $limit1 ]
+	if [ $line -gt $limit ]
 	then
 		exceed=$(expr $exceed + 1)
 	fi
@@ -74,8 +78,8 @@ do
 done
 echo " "
 echo "100 numbers case"
-echo "range         :      1 to $num1"
-echo "test runs     :      $case1"
+echo "range         :      1 to $num"
+echo "test runs     :      $case"
 echo "avg           :      $(expr $sum / $(expr $count - 1))"
 echo "best          : $best"
 echo "worst         : $worst"
@@ -84,9 +88,11 @@ echo "exceed max    :      $exceed"
 echo "< 700: 5 | < 900: 4 | < 1100: 3 | < 1300: 2 | < 1500: 1"
 echo " "
 
-num2=500
-case2=50
-limit2=11500
+# test for 500 random numbers
+# update num (range), case (test runs), limit (exceed limit) when needed
+num=500
+case=100
+limit=11500
 
 exceed=0
 count=1
@@ -94,10 +100,10 @@ sum=0
 best=100000
 worst=0
 fail="OK"
-while [ $count -lt $(expr $case2 + 1) ]
+while [ $count -lt $(expr $case + 1) ]
 do
-	arg=$(ruby -e "puts (1..$num2).to_a.shuffle.join(' ')")
-	echo ".\c"
+	arg=$(ruby -e "puts (1..$num).to_a.shuffle.join(' ')")
+	echo "\r-- $count/$case --\c"
 	line=$(./push_swap $arg | wc -l)
 	sum=$(expr $sum + $line)
 	if [ $line -lt $best ]
@@ -108,7 +114,7 @@ do
 	then
 		worst=$line
 	fi
-	if [ $line -gt $limit2 ]
+	if [ $line -gt $limit ]
 	then
 		exceed=$(expr $exceed + 1)
 	fi
@@ -117,8 +123,8 @@ do
 done
 echo " "
 echo "500 numbers case"
-echo "range         :     1 to $num2"
-echo "test runs     :     $case2"
+echo "range         :     1 to $num"
+echo "test runs     :     $case"
 echo "avg           :     $(expr $sum / $(expr $count - 1))"
 echo "best          : $best"
 echo "worst         : $worst"
