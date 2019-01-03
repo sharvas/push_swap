@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/31 16:23:58 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/03 19:48:31 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ void	ft_find_sevenths(t_all *all)
 	while (count--)
 		cpy = cpy->next;
 	all->six_sevenths = cpy->n;
+	while (cpy->prev)
+		cpy = cpy->prev;
 	free(cpy);
 }
 
@@ -166,6 +168,8 @@ void	ft_find_thirds(t_all *all)
 	while (cpy->next)
 		cpy = cpy->next;
 	all->max = cpy->n;
+	while (cpy->prev)
+		cpy = cpy->prev;
 	free(cpy);
 }
 
@@ -199,15 +203,17 @@ void	ft_find_ref(t_all *all)
 	while (cpy->next)
 		cpy = cpy->next;
 	all->max = cpy->n;
+	while (cpy->prev)
+		cpy = cpy->prev;
 	free(cpy);
 }
 
 void	ft_ko_ok(t_all *all)
 {
 	if (ft_is_sorted(all, 'a') && !all->b)
-		ft_putstr("OK\n");
+		ft_putstr("\x1B[32mOK\x1B[0m\n");
 	else
-		ft_putstr("KO\n");
+		ft_putstr("\x1B[31mKO\x1B[0m\n");
 }
 
 int		ft_is_sorted(t_all *all, char c)

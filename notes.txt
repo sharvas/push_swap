@@ -1,4 +1,8 @@
-1. when less than 6 items in B reverse sort them there and pa
-2. moves into string and rrr, ...
-3. confirm that we're realy using min moves
-4. 
+1. confirm that we're realy using min moves
+2. test
+3. norm
+4. leaks in dublicate list and push_swap->init
+5. error handling
+
+*. stop rotating if no more suitable num left in stack 'a'
+*. use enum to store partitions
