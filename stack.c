@@ -27,6 +27,7 @@ t_all	*ft_initialize(t_all *all)
 	all->max = 0;
 	all->len = 0;
 	all->display = 0;
+	all->instructions = ft_strdup_empty();//need to free
 	return (all);
 }
 

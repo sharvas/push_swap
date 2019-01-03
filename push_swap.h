@@ -38,6 +38,7 @@ typedef struct		s_all
 	int				max;
 	int				len;
 	int				display;
+	char			*instructions;
 }					t_all;
 
 typedef struct		s_flags
@@ -86,10 +87,10 @@ void	ft_sort_small(t_all *all);
 /*
 **		do_push_swap.c
 */
-void	ft_sa(t_all *all);
-void	ft_sb(t_all *all);
 void	ft_pa(t_all *all);
 void	ft_pb(t_all *all);
+void	ft_sa(t_all *all);
+void	ft_sb(t_all *all);
 
 /*
 **		do_rotate.c
@@ -112,6 +113,9 @@ void	ft_rrr(t_all *all);
 void	ft_error(/*t_all *all*/);
 int		ft_atoi_error(char *str);
 int 	ft_is_duplicate(t_all *all, intmax_t n);
+
+char	*ft_strdup_empty(void);
+char	*ft_strjoinfree_s1_error(char *s1, char *s2);
 
 /*
 **		stack.c
