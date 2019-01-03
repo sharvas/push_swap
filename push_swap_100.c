@@ -1,42 +1,6 @@
 
 #include "push_swap.h"
 
-/*int	ft_find_max(t_all *all, char stack)
-{
-	t_stack		*tmp;
-	int			max;
-	int			len;
-
-	tmp = (stack == 'a') ? all->a : all->b;
-	len = ft_find_len(all, stack);
-	max = tmp->n;
-	while (len--)
-	{
-		tmp = tmp->next;
-		if (tmp->n > max)
-			max = tmp->n;
-	}
-	return (max);
-}
-
-int	ft_find_min(t_all *all, char stack)
-{
-	t_stack		*tmp;
-	int			min;
-	int			len;
-
-	tmp = (stack == 'a') ? all->a : all->b;
-	len = ft_find_len(all, stack);
-	min = tmp->n;
-	while (len--)
-	{
-		tmp = tmp->next;
-		if (tmp->n < min)
-			min = tmp->n;
-	}
-	return (min);
-}*/
-
 void	ft_rotate_direction(t_all *all, int num, int direction)
 {
 	if (direction > 0)
@@ -152,12 +116,53 @@ void	ft_sort(t_all *all)
 		ft_rra(all);
 }
 
+int		ft_sort_module(t_all *all, int size, int start, int end)
+{
+	int		size_b;
+	int 	next_size;
+
+	while (all->a->n > end)
+		ft_ra(all);
+	while (size--)
+	{
+		if (all->a->n >= start && all->a->n < end)
+			ft_pb(all);
+		else
+			ft_ra(all);
+	}
+	size_b = ft_find_len(all, 'b');
+	next_size = size_b;
+	while (size_b--)
+		ft_pa_sort(all);
+
+	return (next_size);
+}
+
+void	ft_sort_big(t_all *all)
+{
+	int		size_a;
+	int 	tmp1;
+	int		tmp2;
+	int		tmp3;
+	int		tmp4;
+
+	size_a = ft_find_len(all, 'a');
+	tmp1 = ft_sort_module(all, size_a, all->three_qu, all->max);
+	tmp2 = ft_sort_module(all, all->len - tmp1, all->median, all->three_qu);
+	tmp3 = ft_sort_module(all, all->len - tmp1 - tmp2, all->qu, all->median);
+	tmp4 = ft_sort_module(all, all->len - tmp1 - tmp2 - tmp3, all->min, all->qu);
+	while (all->a->n != all->min)
+		ft_ra(all);
+}
+
 void	ft_sort_algo_switch(t_all *all)
 {
 	if (ft_is_sorted(all, 'a'))
 		return ;
-	if (ft_find_len(all, 'a') <= 5)
+	else if (ft_find_len(all, 'a') <= 5)
 		ft_sort_small(all);
+	else if (ft_find_len(all, 'a') > 100)
+		ft_sort_big(all);
 	else
 		ft_sort(all);
 }

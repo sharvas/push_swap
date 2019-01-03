@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:04:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/02 17:59:00 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/03 10:48:58 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct		s_stack
 	int				n;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-//	int				top;
 }					t_stack;
 
 typedef struct		s_all
@@ -79,7 +78,7 @@ int		ft_is_sorted(t_all *all, char c);
 /*
 **		solve_small.c
 */
-void	ft_sort_3(t_all *all);
+void	ft_sort_3(t_all *all, char stack);
 void	ft_sort_4(t_all *all);
 void	ft_sort_5(t_all *all);
 void	ft_sort_small(t_all *all);
