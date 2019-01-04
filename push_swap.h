@@ -14,8 +14,9 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include "unistd.h"
-# include "stdio.h" // rm, just for testing
+# include <unistd.h>
+# include <stdio.h> // rm, just for testing
+# include <fcntl.h>
 
 typedef struct		s_stack
 {
@@ -30,12 +31,11 @@ typedef struct		s_all
 	struct s_stack	*b;
 	int				v;
 	int				c;
+	char			*f;
+	int				fd;
 	int				min;
-	int				median;
 	int				max;
 	int				one_third;
-	int				qu;//
-	int				three_qu;//
 	int 			two_thirds;
 	int				one_seventh;
 	int				two_sevenths;
@@ -130,12 +130,14 @@ char	*ft_strjoinfree_s1_error(char *s1, char *s2);
 t_all	*ft_initialize(t_all *all);
 void	ft_fill_error(t_all *all, char *str);
 void	ft_fill_a(t_all *all, char **argv);
+void	ft_fill_a_ps(t_all *all, char **argv);
 void	ft_add_end(t_all *all, int n);
 void	ft_add_top(t_all *all, char stack, int n);
 void	ft_del_top(t_all *all, char stack);
 
 int		ft_find_min(t_all *all, char stack);
 int		ft_find_max(t_all *all, char stack);
+
 
 /*
 **		condense_comb.c

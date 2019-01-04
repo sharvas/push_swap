@@ -156,11 +156,6 @@ void	ft_find_thirds(t_all *all)
 		cpy = cpy->next;
 	all->one_third = cpy->n;
 	cpy = top;
-	count = (all->len / 2);
-	while (count--)
-		cpy = cpy->next;
-	all->median = cpy->n;
-	cpy = top;
 	count = ((all->len / 3) * 2);
 	while (count--)
 		cpy = cpy->next;
@@ -179,27 +174,12 @@ void	ft_find_ref(t_all *all)
 	ft_find_sevenths(all);
 	t_stack		*top;
 	t_stack		*cpy;
-	int			count;
 
 	all->len = ft_find_len(all, 'a');
 	cpy = ft_dublicate_list(all);
 	ft_simple_sort(cpy);
 	top = cpy;
-	count = (all->len / 4);
 	all->min = cpy->n;
-	while (count--)
-		cpy = cpy->next;
-	all->qu = cpy->n;
-	cpy = top;
-	count = (all->len / 2);
-	while (count--)
-		cpy = cpy->next;
-	all->median = cpy->n;
-	cpy = top;
-	count = ((all->len / 2) + (all->len / 4));
-	while (count--)
-		cpy = cpy->next;
-	all->three_qu = cpy->n;
 	while (cpy->next)
 		cpy = cpy->next;
 	all->max = cpy->n;

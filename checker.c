@@ -49,7 +49,7 @@ t_all	*ft_do_ops(t_all *all)
 	count = 0;
 	if (all->v || all->c)
 		ft_debug_v(all, "initial state:");
-	while ((get_next_line(0, &line)) == 1)
+	while ((get_next_line(all->fd, &line)) == 1)
 	{
 		ft_read_do(line, all);
 		count++;
@@ -72,10 +72,10 @@ void	ft_checker(char **argv)
 	all = NULL;
 	all = ft_initialize(all);
 	ft_fill_a(all, argv);
-	// ft_find_ref(all);
 	all = ft_do_ops(all);
 	ft_ko_ok(all);
 //	ft_free_all(all);
+	close(all->fd);
 }
 
 int		main(int argc, char **argv)

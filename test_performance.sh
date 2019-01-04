@@ -29,8 +29,8 @@ do
 		exceed=$(expr $exceed + 1)
 	fi
 	count=$(expr $count + 1)
-	fail=$(./push_swap $arg | ./checker $arg)
 done
+fail=$(./push_swap $arg | ./checker $arg)
 echo " "
 echo "5 numbers case"
 echo "range         :        1 to $num"
@@ -74,8 +74,8 @@ do
 		exceed=$(expr $exceed + 1)
 	fi
 	count=$(expr $count + 1)
-	fail=$(./push_swap $arg | ./checker $arg)
 done
+fail=$(./push_swap $arg | ./checker $arg)
 echo " "
 echo "100 numbers case"
 echo "range         :      1 to $num"
@@ -119,8 +119,8 @@ do
 		exceed=$(expr $exceed + 1)
 	fi
 	count=$(expr $count + 1)
-	fail=$(./push_swap $arg | ./checker $arg)
 done
+fail=$(./push_swap $arg | ./checker $arg)
 echo " "
 echo "500 numbers case"
 echo "range         :     1 to $num"

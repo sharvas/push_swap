@@ -20,22 +20,18 @@ t_all	*ft_initialize(t_all *all)
 	all->b = NULL;
 	all->v = 0;
 	all->c = 0;
+	all->f = 0;
+	all->fd = 0;
 	all->min = 0;
-	all->qu = 0;//
-	all->median = 0;
-	all->three_qu = 0;//
 	all->max = 0;
-
 	all->one_third = 0;
 	all->two_thirds = 0;
-
 	all->one_seventh = 0;
 	all->two_sevenths = 0;
 	all->three_sevenths = 0;
 	all->four_sevenths = 0;
 	all->five_sevenths = 0;
 	all->six_sevenths = 0;
-
 	all->len = 0;
 	all->display = 0;
 	all->instructions = ft_strdup_empty();//need to free
@@ -78,8 +74,38 @@ void	ft_fill_a(t_all *all, char **argv)
 			i++;
 			if (!argv[i])
 				ft_checker_usage();
-//			open fd
+			all->f = argv[i];
+			all->fd = open(all->f, O_RDONLY);
+			i++;
+			if (!argv[i])
+				ft_checker_usage();
 		}
+	}
+	if (ft_strchr(argv[i], ' '))
+	{
+		array = ft_split_whitespaces(argv[i]);
+		while (array[j])
+			ft_fill_error(all, array[j++]);
+	}
+	else
+		while (argv[i])
+			ft_fill_error(all, argv[i++]);
+}
+
+void	ft_fill_a_ps(t_all *all, char **argv)
+{
+	int		i;
+	int		j;
+	char	**array;
+
+	i = 1;
+	j = 0;
+	array = NULL;
+	if (ft_strcmp(argv[i], "-f") == 0)
+	{
+		i++;
+		all->f = argv[i];
+		i++;
 	}
 	if (ft_strchr(argv[i], ' '))
 	{

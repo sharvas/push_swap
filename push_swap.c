@@ -158,6 +158,17 @@ void	ft_sort_algo_switch(t_all *all)
 		ft_sort_100(all);
 }
 
+void	ft_putfile(t_all *all)
+{
+	int	fd;
+
+	if((fd = open(all->f, O_RDWR|O_CREAT|O_EXCL, 0666)) < 0)
+		ft_error();//usage??
+	if((write(fd, all->instructions, ft_strlen(all->instructions))) < 0)
+		ft_error();//usage??
+	close(fd);
+}
+
 void	ft_push_swap(char **av)
 {
 	t_all	*all;
@@ -165,16 +176,19 @@ void	ft_push_swap(char **av)
 	all = NULL;
 	all = ft_initialize(all);
 	all->display = 1;
-	ft_fill_a(all, av);
+	ft_fill_a_ps(all, av);
 	ft_find_ref(all);
 	ft_sort_algo_switch(all);
 	ft_condense_comb(all);
-	ft_putstr(all->instructions);
+	if (!all->f)
+		ft_putstr(all->instructions);
+	else
+		ft_putfile(all);
 }
 
 int		main(int ac, char **av)
 {
-	if (ac == 1)
+	if (ac == 1 || ((ac == 2 || ac == 3) && (ft_strcmp(av[1], "-f") == 0)))
 		ft_push_swap_usage();
 	ft_push_swap(av);
 	return (0);
