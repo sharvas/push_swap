@@ -41,6 +41,15 @@ void	ft_sort_3(t_all *all, char stack)
 	}
 }
 
+void	ft_sort_4(t_all *all)
+{
+	while (all->a->n != all->min)
+		ft_ra(all);
+	ft_pb(all);
+	ft_sort_3(all, 'a');
+	ft_pa(all);
+}
+
 void	ft_rotate_small(t_all *all, int min)
 {
 	t_stack	*tmp;
@@ -65,15 +74,6 @@ void	ft_rotate_small(t_all *all, int min)
 	ft_pb(all);
 }
 
-void	ft_sort_4(t_all *all)
-{
-	while (all->a->n != all->min)
-		ft_ra(all);
-	ft_pb(all);
-	ft_sort_3(all, 'a');
-	ft_pa(all);
-}
-
 void	ft_sort_5(t_all *all)
 {
 	int min;
@@ -82,16 +82,10 @@ void	ft_sort_5(t_all *all)
 	{
 		min = ft_find_min(all, 'a');
 		ft_rotate_small(all, min);
-//		if (all->a->n < all->median)
-//			ft_pb(all);
-//		else
-//			ft_ra(all);
 	}
 	ft_sort_3(all, 'a');
 	ft_pa(all);
 	ft_pa(all);
-//	if (!ft_is_sorted(all, 'a'))
-//		ft_sa(all);
 }
 
 void	ft_sort_small(t_all *all)

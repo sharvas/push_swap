@@ -64,14 +64,18 @@ void	ft_checker(char **argv);
 int		main(int argc, char **argv);
 
 /*
-**		push_swap_v2.c 
-*/// functions left to add
-void	ft_setmax_b(t_all *all, int if_rotate);
-int		ft_isleft(t_all *all, char c);
-
+**		push_swap.c 
+*/
+void	ft_rotate_direction(t_all *all, int num, int direction);
+int		ft_up_down(t_all *all, int num);
+int		ft_min_max(t_all *all, int max, int min);
+void	ft_pushback(t_all *all, int min_max);
 void	ft_pa_sort(t_all *all);
-void	ft_sort_v2(t_all *all);
+int		ft_sort_module(t_all *all, int size, int start, int end);
+void	ft_sort_100(t_all *all);
+void	ft_sort_big(t_all *all);
 void	ft_sort_algo_switch(t_all *all);
+void	ft_putfile(t_all *all);
 void	ft_push_swap(char **av);
 
 /*
@@ -79,6 +83,9 @@ void	ft_push_swap(char **av);
 */
 int		ft_find_len(t_all *all, char c);
 void	ft_simple_sort(t_stack *cpy);
+t_stack	*add_link(t_stack *cpy, int n);
+t_stack	*ft_dublicate_list(t_all *all);
+int		ft_find_this(t_stack *cpy, int count);
 void	ft_find_ref(t_all *all);
 void	ft_ko_ok(t_all *all);
 int		ft_is_sorted(t_all *all, char c);
@@ -88,6 +95,7 @@ int		ft_is_sorted(t_all *all, char c);
 */
 void	ft_sort_3(t_all *all, char stack);
 void	ft_sort_4(t_all *all);
+void	ft_rotate_small(t_all *all, int min);
 void	ft_sort_5(t_all *all);
 void	ft_sort_small(t_all *all);
 
@@ -120,7 +128,6 @@ void	ft_rrr(t_all *all);
 void	ft_error(/*t_all *all*/);
 int		ft_atoi_error(char *str);
 int 	ft_is_duplicate(t_all *all, intmax_t n);
-
 char	*ft_strdup_empty(void);
 char	*ft_strjoinfree_s1_error(char *s1, char *s2);
 
@@ -134,17 +141,13 @@ void	ft_fill_a_ps(t_all *all, char **argv);
 void	ft_add_end(t_all *all, int n);
 void	ft_add_top(t_all *all, char stack, int n);
 void	ft_del_top(t_all *all, char stack);
-
 int		ft_find_min(t_all *all, char stack);
 int		ft_find_max(t_all *all, char stack);
-
 
 /*
 **		condense_comb.c
 */
-void	ft_condense_rr(t_all *all);
-void	ft_condense_rrr(t_all *all);
-void	ft_condense_ss(t_all *all);
+void	ft_condense_str(t_all *all, char *find, char *replace);
 void	ft_condense_comb(t_all *all);
 
 /*
