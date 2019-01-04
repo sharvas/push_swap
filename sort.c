@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 10:20:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/03 19:48:31 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/04 17:44:13 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,9 @@ void	ft_find_ref(t_all *all)
 	while (cpy->next)
 		cpy = cpy->next;
 	all->max = cpy->n;
-	free(cpy);//
+	while (cpy->prev)
+		cpy = cpy->prev;
+	ft_free_stack(cpy);
 }
 
 void	ft_ko_ok(t_all *all)

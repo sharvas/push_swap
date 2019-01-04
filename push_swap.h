@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:04:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/03 10:48:58 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/04 18:09:06 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,8 @@ int		ft_atoi_error(char *str);
 int 	ft_is_duplicate(t_all *all, intmax_t n);
 char	*ft_strdup_empty(void);
 char	*ft_strjoinfree_s1_error(char *s1, char *s2);
+void	ft_free_stack(t_stack *stack);
+void	ft_free_all(t_all *all);
 
 /*
 **		stack.c

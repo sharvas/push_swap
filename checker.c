@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:28:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/26 15:28:20 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/04 18:09:48 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_checker(char **argv)
 	ft_fill_a(all, argv);
 	all = ft_do_ops(all);
 	ft_ko_ok(all);
-//	ft_free_all(all);
+	ft_free_all(all);
 	close(all->fd);
 }
 

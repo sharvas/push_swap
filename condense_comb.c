@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/03 13:19:39 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/03 13:19:40 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/04 18:18:21 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 void	ft_condense_str(t_all *all, char *find, char *replace)
 {
 	char	*str;
-	char	*str_all;
-	int		n;
 	char	*verbose;
 	char	*tmp;
+	int		n;
 
 	str = all->instructions;
 	while ((verbose = ft_strstr(str, find)))
 	{
 		tmp = str;
-		str_all = str;
+//		str_all = str;
 		n = 0;
 
 		while(tmp != verbose)
@@ -32,10 +31,17 @@ void	ft_condense_str(t_all *all, char *find, char *replace)
 			tmp++;
 			n++;
 		}
-		str = ft_strndup(str, n);
-		str = ft_strjoinfree_s1(str, replace);
-		str = ft_strjoinfree_s1(str, str_all + n + ft_strlen(find));
-		// free(all->instructions);
+		tmp = str;
+		if (!(str = (char*)malloc(sizeof(char*) * (n + ft_strlen(replace) + ft_strlen(tmp + n + ft_strlen(find))))))
+			ft_error(/*all*/);
+		str = ft_strncpy(str, tmp, n);
+		str = ft_strcat(str, replace);
+		str = ft_strcat(str, tmp + n + ft_strlen(find));
+//		free(tmp); >> need to free, but crashes with cases of 100 random
+
+//		str = ft_strndup(str, n);// need to free str
+//		str = ft_strjoinfree_s1(str, replace);
+//		str = ft_strjoinfree_s1(str, str_all + n + ft_strlen(find));//need to free s2
 	}
 	all->instructions = str;
 }

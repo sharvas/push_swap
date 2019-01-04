@@ -184,6 +184,7 @@ void	ft_push_swap(char **av)
 		ft_putstr(all->instructions);
 	else
 		ft_putfile(all);
+	ft_free_all(all);
 }
 
 int		main(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/22 17:04:27 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/04 18:08:41 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,17 +84,32 @@ char		*ft_strjoinfree_s1_error(char *s1, char *s2)
 }
 
 
-// void	ft_free_stack(t_stack *stack)
-// {
-// 	while ()
-// 	{
+void	ft_free_stack(t_stack *stack)
+{
+	t_stack *tmp;
+	t_stack	*end;
 
-// 	}
-// }
+	if (stack)
+		end = stack->prev;
+	else
+		end = stack;
+ 	while (stack != end)
+	{
+		tmp = stack->next;
+		if (stack)
+			free(stack);
+		stack = tmp;
+	}
+	if (end)
+		free(end);
+}
 
-// void	ft_free_all()
-// {
-// 	ft_free_stack(a);
-// 	ft_free_stack(b);
-
-// }
+void	ft_free_all(t_all *all)
+{
+	ft_free_stack(all->a);
+	ft_free_stack(all->b);
+	if (all->instructions)
+		free(all->instructions);
+	if (all)
+		free(all);
+}
