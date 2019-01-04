@@ -75,7 +75,8 @@ void	ft_fill_a(t_all *all, char **argv)
 			if (!argv[i])
 				ft_checker_usage();
 			all->f = argv[i];
-			all->fd = open(all->f, O_RDONLY);
+			if((all->fd = open(all->f, O_RDONLY)) < 0)
+				ft_error();
 			i++;
 			if (!argv[i])
 				ft_checker_usage();
