@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 11:43:46 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 11:43:47 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 14:40:54 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,29 +52,25 @@ void	ft_find_replace(t_all *all, char *find, char *replace)
 	char	*tmp;
 	int		n;
 
+	int i = 1;
 	str = all->instructions;
 	while ((verbose = ft_strstr(str, find)))
 	{
 		tmp = str;
-//		str_all = str;
 		n = 0;
 
-		while(tmp != verbose)
-		{
-			tmp++;
+		while(tmp++ != verbose)
 			n++;
-		}
 		tmp = str;
-		if (!(str = (char*)malloc(sizeof(char*) * (n + ft_strlen(replace) + ft_strlen(tmp + n + ft_strlen(find))))))
+		if (!(str = ft_strnew((n + ft_strlen(replace) + ft_strlen(tmp + n + ft_strlen(find))))))
 			ft_error(/*all*/);
 		str = ft_strncpy(str, tmp, n);
 		str = ft_strcat(str, replace);
 		str = ft_strcat(str, tmp + n + ft_strlen(find));
-//		free(tmp); >> need to free, but crashes with cases of 100 random
-
-//		str = ft_strndup(str, n);// need to free str
-//		str = ft_strjoinfree_s1(str, replace);
-//		str = ft_strjoinfree_s1(str, str_all + n + ft_strlen(find));//need to free s2
+		if (tmp)
+			free(tmp);
+		tmp = NULL;
+		verbose = NULL;
 	}
 	all->instructions = str;
 }
