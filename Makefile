@@ -6,16 +6,17 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/05 14:18:51 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/05 14:18:52 by dfinnis          ###   ########.fr        #
+#    Updated: 2019/01/05 17:39:24 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PUSH_SWAP =		push_swap
 CHECKER =		checker
+INC =			includes/
 NAME =			$(PUSH_SWAP) $(CHECKER)
 
 FLAGS =			-Wall -Werror -Wextra
-COMP =			gcc -Wall -Werror -Wextra -I includes -I libft/ -I libft/libft -c -o
+COMP =			gcc $(FLAGS) -I $(INC) -I libft/ -I libft/libft -c -o
 
 LIBFT_A = 		libft.a
 
@@ -63,20 +64,24 @@ OBJ_PATH =		$(PS_OBJ_PATH) $(C_OBJ_PATH) $(S_OBJ_PATH)
 all:			do_libft $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
-				@mkdir -p $(OBJ_DIR)
+				mkdir -p $(OBJ_DIR)
 
 $(NAME):		$(OBJ_PATH)
-				@gcc $(FLAGS) $(PS_OBJ_PATH) $(S_OBJ_PATH) libft.a -o push_swap \
-					-I includes -I libft/
-				@gcc $(FLAGS) $(C_OBJ_PATH) $(S_OBJ_PATH) libft.a -o checker \
-					-I includes -I libft/
+				gcc $(FLAGS) $(PS_OBJ_PATH) $(S_OBJ_PATH) libft.a -o push_swap \
+					-I $(INC) -I libft/
+				gcc $(FLAGS) $(C_OBJ_PATH) $(S_OBJ_PATH) libft.a -o checker \
+					-I $(INC) -I libft/
 
-$(PS_OBJ_PATH):	$(PS_SRC_PATH)
-				@$(MAKE) $(PS_OBJ)
-$(C_OBJ_PATH):	$(C_SRC_PATH)
-				@$(MAKE) $(C_OBJ)
-$(S_OBJ_PATH):	$(S_SRC_PATH)
-				@$(MAKE) $(S_OBJ)
+#$(obj/123/%.o): $(src/123/%.c)
+#	gcc $< 
+
+
+#$(PS_OBJ_PATH):	$(PS_SRC_PATH)
+#				@$(MAKE) $(PS_OBJ)
+#$(C_OBJ_PATH):	$(C_SRC_PATH)
+#				@$(MAKE) $(C_OBJ)
+#$(S_OBJ_PATH):	$(S_SRC_PATH)
+#				@$(MAKE) $(S_OBJ)
 
 $(PS_OBJ):		$(LIBFT_A)
 				@$(COMP) $(OBJ_DIR)$@ $(PS_SRC_DIR)$(@:%.o=%.c)
@@ -86,16 +91,16 @@ $(S_OBJ):		$(LIBFT_A)
 				@$(COMP) $(OBJ_DIR)$@ $(S_SRC_DIR)$(@:%.o=%.c)
 
 do_libft:
-				@make -C $(LIBFT)
-				@cp $(LIBFT)/$(LIBFT_A) .
+				make -C $(LIBFT)
+				cp $(LIBFT)/$(LIBFT_A) .
 
 clean:
-				@/bin/rm -rf $(OBJ_DIR) $(LIBFT_A)
-				@make -C $(LIBFT) clean
+				/bin/rm -rf $(OBJ_DIR) $(LIBFT_A)
+				make -C $(LIBFT) clean
 
 fclean: clean
-				@/bin/rm -f $(NAME) $(LIBFT_A)
-				@make -C $(LIBFT) fclean
+				/bin/rm -f $(NAME) $(LIBFT_A)
+				make -C $(LIBFT) fclean
 
 re: 			fclean all
 
