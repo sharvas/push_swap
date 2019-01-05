@@ -65,11 +65,9 @@ $(LIBFT_A):
 	@echo "Libft:" $(GREEN) Compiling Libft $(DEFAULT)
 	@make -C $(LIBFT)
 
-$(COMP):
-	@gcc $(FLAGS) -c $(SRC_PATH) -o $(OBJS_DIR)
-
-$(NAME): $(LIBFT_A) $(OBJS_DIR) $(OBJ_PATH) $(COMP)
+$(NAME): $(LIBFT_A) $(OBJS_DIR) $(OBJ_PATH)
 	@echo "Push_swap:" $(GREEN) $(NAME) $(DEFAULT)
+	gcc $(FLAGS) -c $(SRC_PATH) -o $(OBJS_PATH)
 	gcc $(FLAGS) $(PS_OBJ_PATH) $(SH_OBJ_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
 	gcc $(FLAGS) $(CH_OBJ_PATH) $(SH_OBJ_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
 
