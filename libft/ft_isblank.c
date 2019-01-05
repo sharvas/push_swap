@@ -16,5 +16,5 @@ int	ft_isblank(int c)
 {
 	if (!c)
 		return (0);
-	return (c == ' ' || (c >= 9 && c<= 13));
+	return (c == ' ' || (c >= 9 && c <= 13));
 }
