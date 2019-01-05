@@ -30,7 +30,7 @@ t_all	*ft_initialize(t_all *all)
 	all->e_seven = 0;
 	all->f_seven = 0;
 	all->write_instructions = 0;
-	all->instructions = ft_strdup_empty();//need to free
+	all->instructions = ft_strdup_empty();
 	all->v = 0;
 	all->c = 0;
 	all->f = 0;
