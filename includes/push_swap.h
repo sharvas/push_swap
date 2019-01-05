@@ -167,7 +167,7 @@ void				ft_rrr(t_all *all);
 /*
 **		error.c
 */
-void				ft_error(/*t_all *all*/);
+void				ft_error(t_all *all);
 int					ft_atoi_error(char *str, t_all *all);
 int					ft_is_duplicate(t_all *all, intmax_t n);
 void				ft_free_stack(t_stack *stack);
