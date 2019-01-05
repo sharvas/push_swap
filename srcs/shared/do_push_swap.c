@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:37:52 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/30 18:24:21 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:29:08 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_pa(t_all *all)
 {
@@ -20,7 +20,7 @@ void	ft_pa(t_all *all)
 		ft_del_top(all, 'b');
 	}
 	if (all->write_instructions)
-		all->instructions = ft_strjoinfree_s1_error(all->instructions, "pa\n");
+		all->instructions = ft_strjoinfree_s1_error(all, "pa\n");
 }
 
 void	ft_pb(t_all *all)
@@ -31,7 +31,7 @@ void	ft_pb(t_all *all)
 		ft_del_top(all, 'a');
 	}
 	if (all->write_instructions)
-		all->instructions = ft_strjoinfree_s1_error(all->instructions, "pb\n");
+		all->instructions = ft_strjoinfree_s1_error(all, "pb\n");
 }
 
 void	ft_sa(t_all *all)
@@ -45,7 +45,7 @@ void	ft_sa(t_all *all)
 		all->a->next->n = tmp;
 	}
 	if (all->write_instructions)
-		all->instructions = ft_strjoinfree_s1_error(all->instructions, "sa\n");
+		all->instructions = ft_strjoinfree_s1_error(all, "sa\n");
 }
 
 void	ft_sb(t_all *all)
@@ -59,5 +59,5 @@ void	ft_sb(t_all *all)
 		all->b->next->n = tmp;
 	}
 	if (all->write_instructions)
-		all->instructions = ft_strjoinfree_s1_error(all->instructions, "sb\n");
+		all->instructions = ft_strjoinfree_s1_error(all, "sb\n");
 }

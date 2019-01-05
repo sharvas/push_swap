@@ -6,34 +6,34 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 11:58:47 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 11:58:48 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 15:40:21 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_find_refs(t_all *all)
 {
-	t_stack		*cpy;
-
 	all->len = ft_find_len(all, 'a');
-	cpy = ft_dublicate_list(all);
-	ft_simple_sort(cpy);
-	all->min = cpy->n;
-	all->a_third = ft_find_ref(cpy, (all->len / 3));
-	all->b_third = ft_find_ref(cpy, ((all->len / 3) * 2));
-	all->a_seven = ft_find_ref(cpy, (all->len / 7));
-	all->b_seven = ft_find_ref(cpy, ((all->len / 7) * 2));
-	all->c_seven = ft_find_ref(cpy, ((all->len / 7) * 3));
-	all->d_seven = ft_find_ref(cpy, ((all->len / 7) * 4));
-	all->e_seven = ft_find_ref(cpy, ((all->len / 7) * 5));
-	all->f_seven = ft_find_ref(cpy, ((all->len / 7) * 6));
-	while (cpy->next)
-		cpy = cpy->next;
-	all->max = cpy->n;
-	while (cpy->prev)
-		cpy = cpy->prev;
-	ft_free_stack(cpy);
+	all->cpy = ft_dublicate_list(all);
+	ft_simple_sort(all->cpy);
+	all->min = all->cpy->n;
+	all->a_third = ft_find_ref(all->cpy, (all->len / 3));
+	all->b_third = ft_find_ref(all->cpy, ((all->len / 3) * 2));
+	all->a_seven = ft_find_ref(all->cpy, (all->len / 7));
+	all->b_seven = ft_find_ref(all->cpy, ((all->len / 7) * 2));
+	all->c_seven = ft_find_ref(all->cpy, ((all->len / 7) * 3));
+	all->d_seven = ft_find_ref(all->cpy, ((all->len / 7) * 4));
+	all->e_seven = ft_find_ref(all->cpy, ((all->len / 7) * 5));
+	all->f_seven = ft_find_ref(all->cpy, ((all->len / 7) * 6));
+	while (all->cpy->next)
+		all->cpy = all->cpy->next;
+	all->max = all->cpy->n;
+	while (all->cpy->prev)
+		all->cpy = all->cpy->prev;
+	if (all->cpy)
+		ft_free_stack(all->cpy);
+	all->cpy = NULL;
 }
 
 int		ft_find_ref(t_stack *cpy, int count)
@@ -58,24 +58,24 @@ t_stack	*ft_dublicate_list(t_all *all)
 	cpy = NULL;
 	while (tmp != all->a->prev)
 	{
-		cpy = add_link(cpy, tmp->n);
+		cpy = add_link(cpy, tmp->n, all);
 		tmp = tmp->next;
 	}
-	cpy = add_link(cpy, tmp->n);
+	cpy = add_link(cpy, tmp->n, all);
 	tmp = tmp->next;
 	while (cpy->prev)
 		cpy = cpy->prev;
 	return (cpy);
 }
 
-t_stack	*add_link(t_stack *cpy, int n)
+t_stack	*add_link(t_stack *cpy, int n, t_all *all)
 {
 	t_stack	*tmp;
 
 	if (cpy)
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(/*all*/);
+			ft_error(all);
 		tmp->prev = cpy;
 		tmp->next = NULL;
 		cpy->next = tmp;
@@ -85,7 +85,7 @@ t_stack	*add_link(t_stack *cpy, int n)
 	else
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(/*all*/);
+			ft_error(all);
 		tmp->prev = NULL;
 		tmp->next = NULL;
 		tmp->n = n;

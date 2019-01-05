@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:28:18 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/04 18:09:48 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/05 16:19:11 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_checker_usage(void)
 {
@@ -30,8 +30,8 @@ void	ft_checker(char **argv)
 	ft_read_args_checker(all, argv);
 	all = ft_do_ops(all);
 	ft_ko_ok(all);
-	ft_free_all(all);
 	close(all->fd);
+	ft_free_all(all);
 }
 
 int		main(int argc, char **argv)

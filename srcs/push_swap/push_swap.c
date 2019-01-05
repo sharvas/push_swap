@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 13:04:09 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 13:04:10 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 15:28:27 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_push_swap_usage(void)
 {

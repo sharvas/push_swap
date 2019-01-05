@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 11:48:48 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 11:48:50 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 15:28:16 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_sort_3(t_all *all, char stack)
 {

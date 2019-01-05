@@ -6,16 +6,16 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/04 18:08:41 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:29:26 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_error(/*t_all *all*/)
+void	ft_error(t_all *all)
 {
 	ft_putstr("Error\n");
-//	ft_free_all(all);//
+	ft_free_all(all);
 	exit(1);
 }
 
@@ -38,7 +38,7 @@ int		ft_is_duplicate(t_all *all, intmax_t n)
 	return (0);
 }
 
-int		ft_atoi_error(char *str)
+int		ft_atoi_error(char *str, t_all *all)
 {
 	long	a;
 	int		i;
@@ -54,12 +54,12 @@ int		ft_atoi_error(char *str)
 		i++;
 	}
 	if (str[i] < '0' || str[i] > '9')
-		ft_error();
+		ft_error(all);
 	while (str[i] >= '0' && str[i] <= '9' && i < 11)
 		a = (a * 10) + (str[i++] - '0');
 	a *= n;
 	if (str[i] || a > 2147483647 || a < -2147483648)
-		ft_error();
+		ft_error(all);
 	return (a);
 }
 
@@ -72,7 +72,7 @@ void	ft_free_stack(t_stack *stack)
 		end = stack->prev;
 	else
 		end = stack;
-	while (stack != end)
+	while (stack && stack != end)
 	{
 		tmp = stack->next;
 		if (stack)
@@ -81,14 +81,23 @@ void	ft_free_stack(t_stack *stack)
 	}
 	if (end)
 		free(end);
+	stack = NULL;
+	end = NULL;
+	tmp = NULL;
 }
 
 void	ft_free_all(t_all *all)
 {
-	ft_free_stack(all->a);
-	ft_free_stack(all->b);
-	if (all->instructions)
-		free(all->instructions);
 	if (all)
-		free(all);
+	{
+		ft_free_stack(all->a);
+		ft_free_stack(all->b);
+		ft_free_stack(all->cpy);
+		if (all->instructions)
+			free(all->instructions);
+		all->instructions = NULL;
+		if (all)
+			free(all);
+		all = NULL;
+	}
 }

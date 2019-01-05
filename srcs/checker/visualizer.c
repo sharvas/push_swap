@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 10:55:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 10:55:34 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 15:26:47 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 int		ft_is_bonus(char *str)
 {

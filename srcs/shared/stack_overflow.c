@@ -6,18 +6,19 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 12:43:20 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 12:43:22 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 15:29:55 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 t_all	*ft_initialize(t_all *all)
 {
 	if (!(all = (t_all *)malloc(sizeof(t_all))))
-		ft_error();
+		ft_error(all);
 	all->a = NULL;
 	all->b = NULL;
+	all->cpy = NULL;
 	all->len = 0;
 	all->min = 0;
 	all->max = 0;
@@ -30,7 +31,7 @@ t_all	*ft_initialize(t_all *all)
 	all->e_seven = 0;
 	all->f_seven = 0;
 	all->write_instructions = 0;
-	all->instructions = ft_strdup_empty();//need to free
+	all->instructions = ft_strdup_empty(all);
 	all->v = 0;
 	all->c = 0;
 	all->f = 0;

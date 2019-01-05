@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 15:39:00 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/26 15:39:01 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 15:28:51 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_ss(t_all *all)
 {
@@ -19,7 +19,7 @@ void	ft_ss(t_all *all)
 	write = 0;
 	if (all->write_instructions)
 	{
-		all->instructions = ft_strjoinfree_s1_error(all->instructions, "ss\n");
+		all->instructions = ft_strjoinfree_s1_error(all, "ss\n");
 		write = 1;
 		all->write_instructions = 0;
 	}
@@ -36,7 +36,7 @@ void	ft_rr(t_all *all)
 	write = 0;
 	if (all->write_instructions)
 	{
-		all->instructions = ft_strjoinfree_s1_error(all->instructions, "rr\n");
+		all->instructions = ft_strjoinfree_s1_error(all, "rr\n");
 		write = 1;
 		all->write_instructions = 0;
 	}
@@ -53,7 +53,7 @@ void	ft_rrr(t_all *all)
 	write = 0;
 	if (all->write_instructions)
 	{
-		all->instructions = ft_strjoinfree_s1_error(all->instructions, "rrr\n");
+		all->instructions = ft_strjoinfree_s1_error(all, "rrr\n");
 		write = 1;
 		all->write_instructions = 0;
 	}

@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 11:43:46 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 14:40:54 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:27:53 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_read_args_ps(t_all *all, char **argv)
 {
@@ -63,7 +63,7 @@ void	ft_find_replace(t_all *all, char *find, char *replace)
 			n++;
 		tmp = str;
 		if (!(str = ft_strnew((n + ft_strlen(replace) + ft_strlen(tmp + n + ft_strlen(find))))))
-			ft_error(/*all*/);
+			ft_error(all);
 		str = ft_strncpy(str, tmp, n);
 		str = ft_strcat(str, replace);
 		str = ft_strcat(str, tmp + n + ft_strlen(find));
@@ -80,8 +80,8 @@ void	ft_putfile(t_all *all)
 	int	fd;
 
 	if ((fd = open(all->f, O_RDWR | O_CREAT | O_EXCL, 0666)) < 0)
-		ft_error();//usage??
+		ft_error(all);//usage??
 	if ((write(fd, all->instructions, ft_strlen(all->instructions))) < 0)
-		ft_error();//usage??
+		ft_error(all);//usage??
 	close(fd);
 }

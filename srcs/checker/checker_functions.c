@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 10:37:39 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 10:37:40 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 16:14:09 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_read_args_checker(t_all *all, char **argv)
 {
@@ -44,7 +44,7 @@ void	ft_read_args_checker(t_all *all, char **argv)
 void	ft_open_file(t_all *all, char **argv, int i)
 {
 	if ((all->fd = open(all->f, O_RDONLY)) < 0)
-		ft_error();
+		ft_error(all);
 	if (!argv[i])
 		ft_checker_usage();
 }
@@ -66,9 +66,13 @@ t_all	*ft_do_ops(t_all *all)
 			ft_debug_c(all, line);
 		else if (all->v)
 			ft_debug_v(all, line);
-		free(line);
+		if (line)
+			free(line);
 		line = NULL;
 	}
+	if (line)
+		free(line);
+	line = NULL;
 	if (all->v || all->c)
 		printf("\n\x1B[0minstruction count: %d\n\n", count);
 	return (all);
@@ -99,7 +103,7 @@ void	ft_read_do(char *line, t_all *all)
 	else if (ft_strcmp(line, "rrr") == 0)
 		ft_rrr(all);
 	else
-		ft_error(/*all*/);
+		ft_error(all);
 }
 
 void	ft_ko_ok(t_all *all)

@@ -7,3 +7,8 @@
 ----------------------------------------------------------
 *. stop rotating if no more suitable num left in stack 'a'
 *. use enum to store partitions
+
+
+
+////
+1. check if errors in printf and gnl will not leave leaks

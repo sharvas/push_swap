@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 11:29:52 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 11:29:54 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 15:28:05 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_rotate_direction(t_all *all, int num, int direction)
 {

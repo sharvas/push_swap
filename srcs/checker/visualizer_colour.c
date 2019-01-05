@@ -6,11 +6,11 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 10:55:40 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 10:55:41 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/05 15:27:05 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_print_row_ca(t_stack *s_a, t_stack *s_b, t_flags *flags)
 {

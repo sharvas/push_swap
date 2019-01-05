@@ -6,14 +6,14 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:04:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/04 18:09:06 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/05 15:34:47 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdio.h> // rm, just for testing
 # include <fcntl.h>
@@ -29,6 +29,7 @@ typedef struct		s_all
 {
 	struct s_stack	*a;
 	struct s_stack	*b;
+	struct s_stack	*cpy;
 	int				len;
 	int				min;
 	int				max;
@@ -92,7 +93,7 @@ void				ft_putfile(t_all *all);
 void				ft_find_refs(t_all *all);
 int					ft_find_ref(t_stack *cpy, int count);
 t_stack				*ft_dublicate_list(t_all *all);
-t_stack				*add_link(t_stack *cpy, int n);
+t_stack				*add_link(t_stack *cpy, int n, t_all *all);
 void				ft_simple_sort(t_stack *cpy);
 
 /*
@@ -166,7 +167,7 @@ void				ft_rrr(t_all *all);
 **		error.c
 */
 void				ft_error(/*t_all *all*/);
-int					ft_atoi_error(char *str);
+int					ft_atoi_error(char *str, t_all *all);
 int					ft_is_duplicate(t_all *all, intmax_t n);
 void				ft_free_stack(t_stack *stack);
 void				ft_free_all(t_all *all);
@@ -174,8 +175,8 @@ void				ft_free_all(t_all *all);
 /*
 **		error_null.c
 */
-char				*ft_strdup_empty(void);
-char				*ft_strjoinfree_s1_error(char *s1, char *s2);
+char				*ft_strdup_empty(t_all *all);
+char				*ft_strjoinfree_s1_error(t_all *all, char *s2);
 
 /*
 **		visualizer.c
