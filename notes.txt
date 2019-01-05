@@ -1,14 +1,8 @@
-1. confirm that we're realy using min moves
-2. test
-3. norm
-4. leaks in dublicate list and push_swap->init
-5. error handling
-
-----------------------------------------------------------
-*. stop rotating if no more suitable num left in stack 'a'
-*. use enum to store partitions
-
-
+1. confirm that we're realy using min moves // 2. test
 
 ////
 1. check if errors in printf and gnl will not leave leaks
+2. migrate printf
+
+fix makefile
+https://github.com/mfigueras11/42-Corewar/blob/master/virtual_machine/Makefile
