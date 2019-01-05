@@ -95,43 +95,6 @@ t_stack	*ft_dublicate_list(t_all *all)
 	return (cpy);
 }
 
-int		ft_find_this(t_stack *cpy, int count)
-{
-	int	n;
-	t_stack *top;
-
-	top = cpy;
-	while (count--)
-		cpy = cpy->next;
-	n = cpy->n;
-	cpy = top;
-	return(n);
-}
-
-void	ft_find_ref(t_all *all)
-{
-	t_stack		*cpy;
-
-	all->len = ft_find_len(all, 'a');
-	cpy = ft_dublicate_list(all);
-	ft_simple_sort(cpy);
-	all->min = cpy->n;
-	all->one_third = ft_find_this(cpy, (all->len / 3));
-	all->two_thirds = ft_find_this(cpy, ((all->len / 3) * 2));
-	all->one_seventh = ft_find_this(cpy, (all->len / 7));
-	all->two_sevenths = ft_find_this(cpy, ((all->len / 7) * 2));
-	all->three_sevenths = ft_find_this(cpy, ((all->len / 7) * 3));
-	all->four_sevenths = ft_find_this(cpy, ((all->len / 7) * 4));
-	all->five_sevenths = ft_find_this(cpy, ((all->len / 7) * 5));
-	all->six_sevenths = ft_find_this(cpy, ((all->len / 7) * 6));
-	while (cpy->next)
-		cpy = cpy->next;
-	all->max = cpy->n;
-	while (cpy->prev)
-		cpy = cpy->prev;
-	ft_free_stack(cpy);
-}
-
 int		ft_is_sorted(t_all *all, char c)
 {
 	t_stack	*tmp;

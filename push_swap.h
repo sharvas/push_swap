@@ -70,33 +70,25 @@ void	ft_read_do(char *line, t_all *all);
 t_all	*ft_do_ops(t_all *all);
 void	ft_ko_ok(t_all *all);
 
+
+
+
 /*
 **		push_swap.c 
 */
 void	ft_read_args_ps(t_all *all, char **argv);
-void	ft_rotate_direction(t_all *all, int num, int direction);
-int		ft_up_down(t_all *all, int num);
-int		ft_min_max(t_all *all, int max, int min);
-void	ft_pushback(t_all *all, int min_max);
-void	ft_pa_sort(t_all *all);
-int		ft_sort_module(t_all *all, int size, int start, int end);
-void	ft_sort_100(t_all *all);
-void	ft_sort_big(t_all *all);
-void	ft_sort_algo_switch(t_all *all);
+void	ft_find_refs(t_all *all);
+int		ft_find_ref(t_stack *cpy, int count);
 void	ft_putfile(t_all *all);
 void	ft_push_swap(char **av);
 
 /*
-**		sort.c
+**		ps_algo.c 
 */
-int		ft_find_len(t_all *all, char c);
-void	ft_simple_sort(t_stack *cpy);
-t_stack	*add_link(t_stack *cpy, int n);
-t_stack	*ft_dublicate_list(t_all *all);
-int		ft_find_this(t_stack *cpy, int count);
-void	ft_find_ref(t_all *all);
-void	ft_ko_ok(t_all *all);
-int		ft_is_sorted(t_all *all, char c);
+int		ft_sort_module(t_all *all, int size, int start, int end);
+void	ft_sort_100(t_all *all);
+void	ft_sort_big(t_all *all);
+void	ft_sort_algo_switch(t_all *all);
 
 /*
 **		solve_small.c
@@ -106,6 +98,32 @@ void	ft_sort_4(t_all *all);
 void	ft_rotate_small(t_all *all, int min);
 void	ft_sort_5(t_all *all);
 void	ft_sort_small(t_all *all);
+
+/*
+**		ps_pushback.c 
+*/
+void	ft_rotate_direction(t_all *all, int num, int direction);
+int		ft_up_down(t_all *all, int num);
+int		ft_min_max(t_all *all, int max, int min);
+void	ft_pushback(t_all *all, int min_max);
+void	ft_pa_sort(t_all *all);
+
+/*
+**		condense_comb.c
+*/
+void	ft_find_replace(t_all *all, char *find, char *replace);
+void	ft_condense_verbose(t_all *all);
+
+/*
+**		sort.c
+*/
+int		ft_find_len(t_all *all, char c);
+void	ft_simple_sort(t_stack *cpy);
+t_stack	*add_link(t_stack *cpy, int n);
+t_stack	*ft_dublicate_list(t_all *all);
+int		ft_is_sorted(t_all *all, char c);
+
+
 
 /*
 **		do_push_swap.c
@@ -156,12 +174,6 @@ void	ft_del_top(t_all *all, char stack);
 t_all	*ft_initialize(t_all *all);
 int		ft_find_min(t_all *all, char stack);
 int		ft_find_max(t_all *all, char stack);
-
-/*
-**		condense_comb.c
-*/
-void	ft_find_replace(t_all *all, char *find, char *replace);
-void	ft_condense_verbose(t_all *all);
 
 /*
 **		bonus.c
