@@ -52,17 +52,16 @@ void	ft_find_replace(t_all *all, char *find, char *replace)
 	char	*tmp;
 	int		n;
 
-	int i = 1;
 	str = all->instructions;
 	while ((verbose = ft_strstr(str, find)))
 	{
 		tmp = str;
 		n = 0;
-
-		while(tmp++ != verbose)
+		while (tmp++ != verbose)
 			n++;
 		tmp = str;
-		if (!(str = ft_strnew((n + ft_strlen(replace) + ft_strlen(tmp + n + ft_strlen(find))))))
+		if (!(str = ft_strnew((n + ft_strlen(replace) +
+			ft_strlen(tmp + n + ft_strlen(find))))))
 			ft_error(/*all*/);
 		str = ft_strncpy(str, tmp, n);
 		str = ft_strcat(str, replace);
