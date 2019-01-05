@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 11:43:46 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 15:27:53 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/05 16:29:35 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,16 @@ void	ft_find_replace(t_all *all, char *find, char *replace)
 	char	*tmp;
 	int		n;
 
-	int i = 1;
 	str = all->instructions;
 	while ((verbose = ft_strstr(str, find)))
 	{
 		tmp = str;
 		n = 0;
-
-		while(tmp++ != verbose)
+		while (tmp++ != verbose)
 			n++;
 		tmp = str;
-		if (!(str = ft_strnew((n + ft_strlen(replace) + ft_strlen(tmp + n + ft_strlen(find))))))
+		if (!(str = ft_strnew((n + ft_strlen(replace) +
+			ft_strlen(tmp + n + ft_strlen(find))))))
 			ft_error(all);
 		str = ft_strncpy(str, tmp, n);
 		str = ft_strcat(str, replace);
