@@ -13,6 +13,8 @@
 NAME = libft.a
 
 GNL = get_next_line.h
+FT_PRINTF = ft_printf
+PRINTF_H = $(FT_PRINTF)/ft_printf.h
 
 SRCS = ft_atoi.c \
 		ft_atoi_intmax.c \
@@ -100,12 +102,15 @@ FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(PRINTF_FILE):
+	@make -c $(FT_PRINTF)
+
+$(NAME): $(OBJ) $(PRINTF_FILE)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
 $(OBJ): $(SRCS)
-	@gcc -c -I $(INC) -I $(GNL) $(FLAGS) $(SRCS)
+	@gcc -c -I $(INC) -I $(GNL) $(PRINTF_H) $(FLAGS) $(SRCS)
 
 clean:
 	@/bin/rm -f $(OBJ)

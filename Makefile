@@ -10,99 +10,84 @@
 #                                                                              #
 # **************************************************************************** #
 
-PUSH_SWAP =		push_swap
-CHECKER =		checker
-INC =			includes/
-NAME =			$(PUSH_SWAP) $(CHECKER)
+PUSH_SWAP = push_swap
+CHECKER = checker
+NAME = $(PUSH_SWAP) $(CHECKER)
 
-FLAGS =			-Wall -Werror -Wextra
-COMP =			gcc $(FLAGS) -I $(INC) -I libft/ -I libft/libft -c -o
+FLAGS = -Wall -Werror -Wextra
 
-LIBFT_A = 		libft.a
+PS_SRC_DIR = srcs/push_swap/
+CH_SRC_DIR = srcs/checker/
+SH_SRC_DIR = srcs/shared/
+SRC_DIR = $(PS_SRC_DIR) $(CH_SRC_DIR) $(SH_SRC_DIR)
 
-PS_SRC_DIR =	srcs/push_swap/
-C_SRC_DIR =		srcs/checker/
-S_SRC_DIR =		srcs/shared/
-LIBFT =			libft/
+OBJS_DIR = objs/
+SRCS_DIR = srcs/
 
-PS_SRC =		push_swap.c \
-				ps_functions.c \
-				ps_find_refs.c \
-				ps_algo.c \
-				ps_sort_small.c \
-				ps_pushback.c \
+INC = includes/
+#INCLUDE_DIRS =	-I $(INC)
 
-C_SRC =			checker.c \
-				checker_functions.c \
-				visualizer.c \
-				visualizer_colour.c
+LIBFT = libft
+LIBFT_A = $(LIBFT)/libft.a
 
-S_SRC =			stack.c \
-				stack_overflow.c \
-				do_push_swap.c \
-				do_rotate.c \
-				do_comb.c \
-				error.c \
-				error_null.c
+PS_SRC = push_swap.c ps_functions.c ps_find_refs.c ps_algo.c \
+	ps_sort_small.c ps_pushback.c
 
-PS_OBJ =		$(PS_SRC:%.c=%.o)
-C_OBJ =			$(C_SRC:%.c=%.o)
-S_OBJ =			$(S_SRC:%.c=%.o)
-OBJ =			$(PS_OBJ) $(C_OBJ) $(S_OBJ)
+CH_SRC = checker.c checker_functions.c visualizer.c visualizer_colour.c
 
-PS_SRC_PATH =	$(PS_SRC:%=$(PS_SRC_DIR)%)
-C_SRC_PATH =	$(C_SRC:%=$(C_SRC_DIR)%)
-S_SRC_PATH =	$(S_SRC:%=$(S_SRC_DIR)%)
-SRC_PATH =		$(PS_SRC_PATH) $(C_SRC_PATH) $(S_SRC_PATH)
+SH_SRC = stack.c stack_overflow.c do_push_swap.c do_rotate.c do_comb.c \
+	error.c error_null.c
 
-PS_OBJ_PATH =	$(addprefix $(OBJ_DIR), $(PS_OBJ))
-C_OBJ_PATH =	$(addprefix $(OBJ_DIR), $(C_OBJ))
-S_OBJ_PATH =	$(addprefix $(OBJ_DIR), $(S_OBJ))
-OBJ_PATH =		$(PS_OBJ_PATH) $(C_OBJ_PATH) $(S_OBJ_PATH)
+PS_OBJ = $(PS_SRC:%.c=%.o)
+CH_OBJ = $(CH_SRC:%.c=%.o)
+SH_OBJ = $(SH_SRC:%.c=%.o)
+OBJ = $(PS_OBJ) $(CH_OBJ) $(SH_OBJ)
 
+PS_SRC_PATH = $(PS_SRC:%=$(PS_SRC_DIR)%)
+CH_SRC_PATH = $(CH_SRC:%=$(CH_SRC_DIR)%)
+SH_SRC_PATH = $(SH_SRC:%=$(SH_SRC_DIR)%)
+SRC_PATH = $(PS_SRC_PATH) $(CH_SRC_PATH) $(SH_SRC_PATH)
 
-all:			do_libft $(OBJ_DIR) $(NAME)
+PS_OBJ_PATH = $(addprefix $(OBJ_DIR), $(PS_OBJ))
+CH_OBJ_PATH = $(addprefix $(OBJ_DIR), $(CH_OBJ))
+SH_OBJ_PATH = $(addprefix $(OBJ_DIR), $(SH_OBJ))
+OBJ_PATH = $(PS_OBJ_PATH) $(CH_OBJ_PATH) $(SH_OBJ_PATH)
 
-$(OBJ_DIR):
-				mkdir -p $(OBJ_DIR)
+GREEN = "\033[0;32m"
+DEFAULT = "\033[0m"
 
-$(NAME):		$(OBJ_PATH)
-				gcc $(FLAGS) $(PS_OBJ_PATH) $(S_OBJ_PATH) libft.a -o push_swap \
-					-I $(INC) -I libft/
-				gcc $(FLAGS) $(C_OBJ_PATH) $(S_OBJ_PATH) libft.a -o checker \
-					-I $(INC) -I libft/
+all: $(NAME)
 
-#$(obj/123/%.o): $(src/123/%.c)
-#	gcc $< 
+norm:
+	@norminette $(INC) $(SRCS_DIR)
 
+$(LIBFT_A):
+	@echo "Libft:" $(GREEN) Compiling Libft $(DEFAULT)
+	@make -C $(LIBFT)
 
-#$(PS_OBJ_PATH):	$(PS_SRC_PATH)
-#				@$(MAKE) $(PS_OBJ)
-#$(C_OBJ_PATH):	$(C_SRC_PATH)
-#				@$(MAKE) $(C_OBJ)
-#$(S_OBJ_PATH):	$(S_SRC_PATH)
-#				@$(MAKE) $(S_OBJ)
+$(COMP):
+	@gcc $(FLAGS) -c $(SRC_PATH) -o $(OBJS_DIR)
 
-$(PS_OBJ):		$(LIBFT_A)
-				@$(COMP) $(OBJ_DIR)$@ $(PS_SRC_DIR)$(@:%.o=%.c)
-$(C_OBJ):		$(LIBFT_A)
-				@$(COMP) $(OBJ_DIR)$@ $(C_SRC_DIR)$(@:%.o=%.c)
-$(S_OBJ):		$(LIBFT_A)
-				@$(COMP) $(OBJ_DIR)$@ $(S_SRC_DIR)$(@:%.o=%.c)
+$(NAME): $(LIBFT_A) $(OBJS_DIR) $(OBJ_PATH) $(COMP)
+	@echo "Push_swap:" $(GREEN) $(NAME) $(DEFAULT)
+	gcc $(FLAGS) $(PS_OBJ_PATH) $(SH_OBJ_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
+	gcc $(FLAGS) $(CH_OBJ_PATH) $(SH_OBJ_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
 
-do_libft:
-				make -C $(LIBFT)
-				cp $(LIBFT)/$(LIBFT_A) .
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+	@echo "Push_swap:" $(GREEN) $< $(DEFAULT)
+	@gcc $(FLAGS) -c $< -o $@ -I $(LIBFT)
 
 clean:
-				/bin/rm -rf $(OBJ_DIR) $(LIBFT_A)
-				make -C $(LIBFT) clean
+	@make -C $(LIBFT)/ clean
+	@rm -rf $(OBJS_DIR)
 
-fclean: clean
-				/bin/rm -f $(NAME) $(LIBFT_A)
-				make -C $(LIBFT) fclean
+fclean:
+	@make -C $(LIBFT)/ fclean
+	@rm -rf $(OBJS_DIR) $(NAME)
 
-re: 			fclean all
+re: fclean all
 
-.PHONY:			all clean fclean re
-
+.PHONY: all norm clean fclean re
