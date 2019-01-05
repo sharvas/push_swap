@@ -1,6 +1,19 @@
 
 #include "push_swap.h"
 
+void	ft_read_args_ps(t_all *all, char **argv)
+{
+	int		i;
+
+	i = 1;
+	if (ft_strcmp(argv[i], "-f") == 0)
+	{
+		i++;
+		all->f = argv[i++];
+	}
+	ft_fill_a(all, argv, i);
+}
+
 void	ft_rotate_direction(t_all *all, int num, int direction)
 {
 	if (direction > 0)
@@ -175,11 +188,11 @@ void	ft_push_swap(char **av)
 
 	all = NULL;
 	all = ft_initialize(all);
-	all->display = 1;
-	ft_fill_a_ps(all, av);
+	all->write_instructions = 1;
+	ft_read_args_ps(all, av);
 	ft_find_ref(all);
 	ft_sort_algo_switch(all);
-	ft_condense_comb(all);
+	ft_condense_verbose(all);
 	if (!all->f)
 		ft_putstr(all->instructions);
 	else

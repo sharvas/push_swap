@@ -14,51 +14,51 @@
 
 void	ft_ss(t_all *all)
 {
-	int	check;
+	int	write;
 
-	check = 0;
-	if (all->display)
+	write = 0;
+	if (all->write_instructions)
 	{
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "ss\n");
-		check = 1;
-		all->display = 0;
+		write = 1;
+		all->write_instructions = 0;
 	}
 	ft_sa(all);
 	ft_sb(all);
-	if (check)
-		all->display = 1;
+	if (write)
+		all->write_instructions = 1;
 }
 
 void	ft_rr(t_all *all)
 {
-	int	check;
+	int	write;
 
-	check = 0;
-	if (all->display)
+	write = 0;
+	if (all->write_instructions)
 	{
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "rr\n");
-		check = 1;
-		all->display = 0;
+		write = 1;
+		all->write_instructions = 0;
 	}
 	ft_ra(all);
 	ft_rb(all);
-	if (check)
-		all->display = 1;
+	if (write)
+		all->write_instructions = 1;
 }
 
 void	ft_rrr(t_all *all)
 {
-	int	check;
+	int	write;
 
-	check = 0;
-	if (all->display)
+	write = 0;
+	if (all->write_instructions)
 	{
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "rrr\n");
-		check = 1;
-		all->display = 0;
+		write = 1;
+		all->write_instructions = 0;
 	}
 	ft_rra(all);
 	ft_rrb(all);
-	if (check)
-		all->display = 1;
+	if (write)
+		all->write_instructions = 1;
 }

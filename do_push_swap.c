@@ -19,7 +19,7 @@ void	ft_pa(t_all *all)
 		ft_add_top(all, 'a', all->b->n);
 		ft_del_top(all, 'b');
 	}
-	if (all->display)
+	if (all->write_instructions)
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "pa\n");
 }
 
@@ -30,7 +30,7 @@ void	ft_pb(t_all *all)
 		ft_add_top(all, 'b', all->a->n);
 		ft_del_top(all, 'a');
 	}
-	if (all->display)
+	if (all->write_instructions)
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "pb\n");
 }
 
@@ -44,7 +44,7 @@ void	ft_sa(t_all *all)
 		all->a->n = all->a->next->n;
 		all->a->next->n = tmp;
 	}
-	if (all->display)
+	if (all->write_instructions)
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "sa\n");
 }
 
@@ -58,6 +58,6 @@ void	ft_sb(t_all *all)
 		all->b->n = all->b->next->n;
 		all->b->next->n = tmp;
 	}
-	if (all->display)
+	if (all->write_instructions)
 		all->instructions = ft_strjoinfree_s1_error(all->instructions, "sb\n");
 }

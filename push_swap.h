@@ -29,10 +29,7 @@ typedef struct		s_all
 {
 	struct s_stack	*a;
 	struct s_stack	*b;
-	int				v;
-	int				c;
-	char			*f;
-	int				fd;
+	int				len;
 	int				min;
 	int				max;
 	int				one_third;
@@ -43,9 +40,12 @@ typedef struct		s_all
 	int				four_sevenths;
 	int				five_sevenths;
 	int				six_sevenths;
-	int				len;
-	int				display;
+	int				write_instructions;
 	char			*instructions;
+	int				v;
+	int				c;
+	char			*f;
+	int				fd;
 }					t_all;
 
 typedef struct		s_flags
@@ -58,14 +58,22 @@ typedef struct		s_flags
 /*
 **		checker.c
 */
-void	ft_read_do(char *line, t_all *all);
-t_all	*ft_do_ops(t_all *all);
 void	ft_checker(char **argv);
 int		main(int argc, char **argv);
 
 /*
+**		checker_functions.c
+*/
+void	ft_read_args_checker(t_all *all, char **argv);
+void	ft_open_file(t_all *all, char **argv, int i);
+void	ft_read_do(char *line, t_all *all);
+t_all	*ft_do_ops(t_all *all);
+void	ft_ko_ok(t_all *all);
+
+/*
 **		push_swap.c 
 */
+void	ft_read_args_ps(t_all *all, char **argv);
 void	ft_rotate_direction(t_all *all, int num, int direction);
 int		ft_up_down(t_all *all, int num);
 int		ft_min_max(t_all *all, int max, int min);
@@ -137,9 +145,8 @@ void	ft_free_all(t_all *all);
 **		stack.c
 */
 t_all	*ft_initialize(t_all *all);
+void	ft_fill_a(t_all *all, char **argv, int i);
 void	ft_fill_error(t_all *all, char *str);
-void	ft_fill_a(t_all *all, char **argv);
-void	ft_fill_a_ps(t_all *all, char **argv);
 void	ft_add_end(t_all *all, int n);
 void	ft_add_top(t_all *all, char stack, int n);
 void	ft_del_top(t_all *all, char stack);
@@ -149,8 +156,8 @@ int		ft_find_max(t_all *all, char stack);
 /*
 **		condense_comb.c
 */
-void	ft_condense_str(t_all *all, char *find, char *replace);
-void	ft_condense_comb(t_all *all);
+void	ft_find_replace(t_all *all, char *find, char *replace);
+void	ft_condense_verbose(t_all *all);
 
 /*
 **		bonus.c

@@ -132,14 +132,6 @@ void	ft_find_ref(t_all *all)
 	ft_free_stack(cpy);
 }
 
-void	ft_ko_ok(t_all *all)
-{
-	if (ft_is_sorted(all, 'a') && !all->b)
-		ft_putstr("\x1B[32mOK\x1B[0m\n");
-	else
-		ft_putstr("\x1B[31mKO\x1B[0m\n");
-}
-
 int		ft_is_sorted(t_all *all, char c)
 {
 	t_stack	*tmp;
