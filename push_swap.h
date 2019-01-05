@@ -144,12 +144,16 @@ void	ft_free_all(t_all *all);
 /*
 **		stack.c
 */
-t_all	*ft_initialize(t_all *all);
 void	ft_fill_a(t_all *all, char **argv, int i);
 void	ft_fill_error(t_all *all, char *str);
 void	ft_add_end(t_all *all, int n);
 void	ft_add_top(t_all *all, char stack, int n);
 void	ft_del_top(t_all *all, char stack);
+
+/*
+**		stack_support.c
+*/
+t_all	*ft_initialize(t_all *all);
 int		ft_find_min(t_all *all, char stack);
 int		ft_find_max(t_all *all, char stack);
 
