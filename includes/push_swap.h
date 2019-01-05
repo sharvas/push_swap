@@ -83,6 +83,7 @@ int					main(int ac, char **av);
 **		ps_functions.c
 */
 void				ft_read_args_ps(t_all *all, char **argv);
+int					ft_is_verbose(char *instructions);
 void				ft_condense_verbose(t_all *all);
 void				ft_find_replace(t_all *all, char *find, char *replace);
 void				ft_putfile(t_all *all);

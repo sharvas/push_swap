@@ -25,24 +25,48 @@ void	ft_read_args_ps(t_all *all, char **argv)
 	ft_fill_a(all, argv, i);
 }
 
+int		ft_is_verbose(char *instructions)
+{
+	if (ft_strstr(instructions, "\nra\nrra\n") ||
+		ft_strstr(instructions, "rra\nra\n") ||
+		ft_strstr(instructions, "\nrb\nrrb\n") ||
+		ft_strstr(instructions, "rrb\nrb\n") ||
+		ft_strstr(instructions, "pb\npa\n") ||
+		ft_strstr(instructions, "pa\npb\n") ||
+		ft_strstr(instructions, "sa\nsa\n") ||
+		ft_strstr(instructions, "sb\nsb\n") ||
+		ft_strstr(instructions, "\nra\nrb\n") ||
+		ft_strstr(instructions, "\nrb\nra\n") ||
+		ft_strstr(instructions, "rra\nrrb\n") ||
+		ft_strstr(instructions, "sa\nsb\n") ||
+		ft_strstr(instructions, "sb\nsa\n") ||
+		ft_strstr(instructions, "\nrr\nrrr\n") ||
+		ft_strstr(instructions, "rrr\nrr\n"))
+		return (1);
+	return (0);
+}
+
 void	ft_condense_verbose(t_all *all)
 {
-	ft_find_replace(all, "\nra\nrra\n", "\n");
-	ft_find_replace(all, "rra\nra\n", "");
-	ft_find_replace(all, "\nrb\nrrb\n", "\n");
-	ft_find_replace(all, "rrb\nrb\n", "");
-	ft_find_replace(all, "pb\npa\n", "");
-	ft_find_replace(all, "pa\npb\n", "");
-	ft_find_replace(all, "sa\nsa\n", "");
-	ft_find_replace(all, "sb\nsb\n", "");
-	ft_find_replace(all, "\nra\nrb\n", "\nrr\n");
-	ft_find_replace(all, "\nrb\nra\n", "\nrr\n");
-	ft_find_replace(all, "rra\nrrb\n", "rrr\n");
-	ft_find_replace(all, "rrb\nrra\n", "rrr\n");
-	ft_find_replace(all, "sa\nsb\n", "ss\n");
-	ft_find_replace(all, "sb\nsa\n", "ss\n");
-	ft_find_replace(all, "\nrr\nrrr\n", "\n");
-	ft_find_replace(all, "rrr\nrr\n", "");
+	while (ft_is_verbose(all->instructions))
+	{
+		ft_find_replace(all, "\nra\nrra\n", "\n");
+		ft_find_replace(all, "rra\nra\n", "");
+		ft_find_replace(all, "\nrb\nrrb\n", "\n");
+		ft_find_replace(all, "rrb\nrb\n", "");
+		ft_find_replace(all, "pb\npa\n", "");
+		ft_find_replace(all, "pa\npb\n", "");
+		ft_find_replace(all, "sa\nsa\n", "");
+		ft_find_replace(all, "sb\nsb\n", "");
+		ft_find_replace(all, "\nra\nrb\n", "\nrr\n");
+		ft_find_replace(all, "\nrb\nra\n", "\nrr\n");
+		ft_find_replace(all, "rra\nrrb\n", "rrr\n");
+		ft_find_replace(all, "rrb\nrra\n", "rrr\n");
+		ft_find_replace(all, "sa\nsb\n", "ss\n");
+		ft_find_replace(all, "sb\nsa\n", "ss\n");
+		ft_find_replace(all, "\nrr\nrrr\n", "\n");
+		ft_find_replace(all, "rrr\nrr\n", "");
+	}
 }
 
 void	ft_find_replace(t_all *all, char *find, char *replace)
