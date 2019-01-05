@@ -58,6 +58,7 @@ typedef struct		s_flags
 /*
 **		checker.c
 */
+void	ft_checker_usage(void);
 void	ft_checker(char **argv);
 int		main(int argc, char **argv);
 
@@ -70,17 +71,29 @@ void	ft_read_do(char *line, t_all *all);
 t_all	*ft_do_ops(t_all *all);
 void	ft_ko_ok(t_all *all);
 
-
-
-
 /*
 **		push_swap.c 
 */
+void	ft_push_swap_usage(void);
+void	ft_push_swap(char **av);
+int		main(int ac, char **av);
+
+/*
+**		ps_functions.c
+*/
 void	ft_read_args_ps(t_all *all, char **argv);
+void	ft_condense_verbose(t_all *all);
+void	ft_find_replace(t_all *all, char *find, char *replace);
+void	ft_putfile(t_all *all);
+
+/*
+**		ps_find_refs.c
+*/
 void	ft_find_refs(t_all *all);
 int		ft_find_ref(t_stack *cpy, int count);
-void	ft_putfile(t_all *all);
-void	ft_push_swap(char **av);
+t_stack	*ft_dublicate_list(t_all *all);
+t_stack	*add_link(t_stack *cpy, int n);
+void	ft_simple_sort(t_stack *cpy);
 
 /*
 **		ps_algo.c 
@@ -91,7 +104,7 @@ void	ft_sort_big(t_all *all);
 void	ft_sort_algo_switch(t_all *all);
 
 /*
-**		solve_small.c
+**		ps_sort_small.c
 */
 void	ft_sort_3(t_all *all, char stack);
 void	ft_sort_4(t_all *all);
@@ -109,21 +122,22 @@ void	ft_pushback(t_all *all, int min_max);
 void	ft_pa_sort(t_all *all);
 
 /*
-**		condense_comb.c
+**		stack.c
 */
-void	ft_find_replace(t_all *all, char *find, char *replace);
-void	ft_condense_verbose(t_all *all);
+void	ft_fill_a(t_all *all, char **argv, int i);
+void	ft_fill_error(t_all *all, char *str);
+void	ft_add_end(t_all *all, int n);
+void	ft_add_top(t_all *all, char stack, int n);
+void	ft_del_top(t_all *all, char stack);
 
 /*
-**		sort.c
+**		stack_overflow.c
 */
-int		ft_find_len(t_all *all, char c);
-void	ft_simple_sort(t_stack *cpy);
-t_stack	*add_link(t_stack *cpy, int n);
-t_stack	*ft_dublicate_list(t_all *all);
-int		ft_is_sorted(t_all *all, char c);
-
-
+t_all	*ft_initialize(t_all *all);
+int		ft_find_len(t_all *all, char stack);
+int		ft_find_min(t_all *all, char stack);
+int		ft_find_max(t_all *all, char stack);
+int		ft_is_sorted(t_all *all, char stack);
 
 /*
 **		do_push_swap.c
@@ -154,37 +168,19 @@ void	ft_rrr(t_all *all);
 void	ft_error(/*t_all *all*/);
 int		ft_atoi_error(char *str);
 int 	ft_is_duplicate(t_all *all, intmax_t n);
-char	*ft_strdup_empty(void);
-char	*ft_strjoinfree_s1_error(char *s1, char *s2);
 void	ft_free_stack(t_stack *stack);
 void	ft_free_all(t_all *all);
 
 /*
-**		stack.c
+**		error_null.c
 */
-void	ft_fill_a(t_all *all, char **argv, int i);
-void	ft_fill_error(t_all *all, char *str);
-void	ft_add_end(t_all *all, int n);
-void	ft_add_top(t_all *all, char stack, int n);
-void	ft_del_top(t_all *all, char stack);
-
-/*
-**		stack_support.c
-*/
-t_all	*ft_initialize(t_all *all);
-int		ft_find_min(t_all *all, char stack);
-int		ft_find_max(t_all *all, char stack);
-
-/*
-**		bonus.c
-*/
-int		ft_is_bonus(char *str);
-void	ft_push_swap_usage(void);
-void	ft_checker_usage(void);
+char	*ft_strdup_empty(void);
+char	*ft_strjoinfree_s1_error(char *s1, char *s2);
 
 /*
 **		visualizer.c
 */
+int		ft_is_bonus(char *str);
 t_flags	ft_initialize_flags(t_flags *flags);
 void	ft_print_row(t_stack *s_a, t_stack *s_b, t_flags *flags);
 void	ft_debug_v(t_all *all, char *str);

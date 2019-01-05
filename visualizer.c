@@ -12,6 +12,14 @@
 
 #include "push_swap.h"
 
+int		ft_is_bonus(char *str)
+{
+	if (!str)
+		return (0);
+	return (ft_strcmp(str, "-v") == 0) || (ft_strcmp(str, "-c") == 0) ||
+	(ft_strcmp(str, "-f") == 0);
+}
+
 t_flags	ft_initialize_flags(t_flags *flags)
 {
 	flags->a = 0;

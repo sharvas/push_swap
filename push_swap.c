@@ -1,65 +1,12 @@
 
 #include "push_swap.h"
 
-void	ft_read_args_ps(t_all *all, char **argv)
+void	ft_push_swap_usage(void)
 {
-	int		i;
-
-	i = 1;
-	if (ft_strcmp(argv[i], "-f") == 0)
-	{
-		i++;
-		all->f = argv[i++];
-	}
-	ft_fill_a(all, argv, i);
-}
-
-void	ft_find_refs(t_all *all)
-{
-	t_stack		*cpy;
-
-	all->len = ft_find_len(all, 'a');
-	cpy = ft_dublicate_list(all);
-	ft_simple_sort(cpy);
-	all->min = cpy->n;
-	all->one_third = ft_find_ref(cpy, (all->len / 3));
-	all->two_thirds = ft_find_ref(cpy, ((all->len / 3) * 2));
-	all->one_seventh = ft_find_ref(cpy, (all->len / 7));
-	all->two_sevenths = ft_find_ref(cpy, ((all->len / 7) * 2));
-	all->three_sevenths = ft_find_ref(cpy, ((all->len / 7) * 3));
-	all->four_sevenths = ft_find_ref(cpy, ((all->len / 7) * 4));
-	all->five_sevenths = ft_find_ref(cpy, ((all->len / 7) * 5));
-	all->six_sevenths = ft_find_ref(cpy, ((all->len / 7) * 6));
-	while (cpy->next)
-		cpy = cpy->next;
-	all->max = cpy->n;
-	while (cpy->prev)
-		cpy = cpy->prev;
-	ft_free_stack(cpy);
-}
-
-int		ft_find_ref(t_stack *cpy, int count)
-{
-	int	n;
-	t_stack *top;
-
-	top = cpy;
-	while (count--)
-		cpy = cpy->next;
-	n = cpy->n;
-	cpy = top;
-	return(n);
-}
-
-void	ft_putfile(t_all *all)
-{
-	int	fd;
-
-	if((fd = open(all->f, O_RDWR|O_CREAT|O_EXCL, 0666)) < 0)
-		ft_error();//usage??
-	if((write(fd, all->instructions, ft_strlen(all->instructions))) < 0)
-		ft_error();//usage??
-	close(fd);
+	ft_putstr("usage:	./push_swap [-f] n1 [n2...]\n");
+	ft_putstr("n1, n2 etc.: numbers between -2147483648 and 2147483647\n");
+	ft_putstr("-f file_name writes instructions to file_name\n");
+	exit(1);
 }
 
 void	ft_push_swap(char **av)

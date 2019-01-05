@@ -1,16 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   condense_comb.c                                    :+:      :+:    :+:   */
+/*   ps_functions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/03 13:19:39 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/04 18:18:21 by svaskeli         ###   ########.fr       */
+/*   Created: 2019/01/05 11:43:46 by dfinnis           #+#    #+#             */
+/*   Updated: 2019/01/05 11:43:47 by dfinnis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_read_args_ps(t_all *all, char **argv)
+{
+	int		i;
+
+	i = 1;
+	if (ft_strcmp(argv[i], "-f") == 0)
+	{
+		i++;
+		all->f = argv[i++];
+	}
+	ft_fill_a(all, argv, i);
+}
+
+void	ft_condense_verbose(t_all *all)
+{
+	ft_find_replace(all, "\nra\nrra\n", "\n");
+	ft_find_replace(all, "rra\nra\n", "");
+	ft_find_replace(all, "\nrb\nrrb\n", "\n");
+	ft_find_replace(all, "rrb\nrb\n", "");
+	ft_find_replace(all, "pb\npa\n", "");
+	ft_find_replace(all, "pa\npb\n", "");
+	ft_find_replace(all, "sa\nsa\n", "");
+	ft_find_replace(all, "sb\nsb\n", "");
+	ft_find_replace(all, "\nra\nrb\n", "\nrr\n");
+	ft_find_replace(all, "\nrb\nra\n", "\nrr\n");
+	ft_find_replace(all, "rra\nrrb\n", "rrr\n");
+	ft_find_replace(all, "rrb\nrra\n", "rrr\n");
+	ft_find_replace(all, "sa\nsb\n", "ss\n");
+	ft_find_replace(all, "sb\nsa\n", "ss\n");
+	ft_find_replace(all, "\nrr\nrrr\n", "\n");
+	ft_find_replace(all, "rrr\nrr\n", "");
+}
 
 void	ft_find_replace(t_all *all, char *find, char *replace)
 {
@@ -46,22 +79,13 @@ void	ft_find_replace(t_all *all, char *find, char *replace)
 	all->instructions = str;
 }
 
-void	ft_condense_verbose(t_all *all)
+void	ft_putfile(t_all *all)
 {
-	ft_find_replace(all, "\nra\nrra\n", "\n");
-	ft_find_replace(all, "rra\nra\n", "");
-	ft_find_replace(all, "\nrb\nrrb\n", "\n");
-	ft_find_replace(all, "rrb\nrb\n", "");
-	ft_find_replace(all, "pb\npa\n", "");
-	ft_find_replace(all, "pa\npb\n", "");
-	ft_find_replace(all, "sa\nsa\n", "");
-	ft_find_replace(all, "sb\nsb\n", "");
-	ft_find_replace(all, "\nra\nrb\n", "\nrr\n");
-	ft_find_replace(all, "\nrb\nra\n", "\nrr\n");
-	ft_find_replace(all, "rra\nrrb\n", "rrr\n");
-	ft_find_replace(all, "rrb\nrra\n", "rrr\n");
-	ft_find_replace(all, "sa\nsb\n", "ss\n");
-	ft_find_replace(all, "sb\nsa\n", "ss\n");
-	ft_find_replace(all, "\nrr\nrrr\n", "\n");
-	ft_find_replace(all, "rrr\nrr\n", "");
+	int	fd;
+
+	if((fd = open(all->f, O_RDWR|O_CREAT|O_EXCL, 0666)) < 0)
+		ft_error();//usage??
+	if((write(fd, all->instructions, ft_strlen(all->instructions))) < 0)
+		ft_error();//usage??
+	close(fd);
 }
