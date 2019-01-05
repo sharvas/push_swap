@@ -15,7 +15,7 @@
 int		ft_sort_module(t_all *all, int size, int start, int end)
 {
 	int		size_b;
-	int 	next_size;
+	int		next_size;
 
 	if (size < all->len / 2)
 	{
@@ -45,7 +45,7 @@ int		ft_sort_module(t_all *all, int size, int start, int end)
 void	ft_sort_100(t_all *all)
 {
 	int		size_a;
-	int 	tmp;
+	int		tmp;
 
 	size_a = ft_find_len(all, 'a');
 	tmp = ft_sort_module(all, size_a, all->two_thirds, all->max);
@@ -58,7 +58,7 @@ void	ft_sort_100(t_all *all)
 void	ft_sort_big(t_all *all)
 {
 	int		size_a;
-	int 	tmp;
+	int		tmp;
 
 	size_a = ft_find_len(all, 'a');
 	tmp = ft_sort_module(all, size_a, all->six_sevenths, all->max);

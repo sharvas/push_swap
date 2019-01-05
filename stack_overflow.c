@@ -40,9 +40,9 @@ t_all	*ft_initialize(t_all *all)
 
 int		ft_find_len(t_all *all, char stack)
 {
-	t_stack		*tmp;
-	t_stack		*top;
-	int			len;
+	t_stack	*tmp;
+	t_stack	*top;
+	int		len;
 
 	len = 1;
 	tmp = (stack == 'a') ? all->a : all->b;
@@ -57,7 +57,7 @@ int		ft_find_len(t_all *all, char stack)
 
 int		ft_find_min(t_all *all, char stack)
 {
-	t_stack		*tmp;
+	t_stack	*tmp;
 	int		min;
 	int		len;
 
@@ -75,7 +75,7 @@ int		ft_find_min(t_all *all, char stack)
 
 int		ft_find_max(t_all *all, char stack)
 {
-	t_stack		*tmp;
+	t_stack	*tmp;
 	int		max;
 	int		len;
 

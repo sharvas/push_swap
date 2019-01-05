@@ -62,5 +62,4 @@ void	ft_debug_v(t_all *all, char *str)
 			flags.b = 1;
 	}
 	ft_print_row(s_a, s_b, &flags);
-	printf("\n");
 }//convert printf to ft_printf

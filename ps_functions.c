@@ -83,9 +83,9 @@ void	ft_putfile(t_all *all)
 {
 	int	fd;
 
-	if((fd = open(all->f, O_RDWR|O_CREAT|O_EXCL, 0666)) < 0)
+	if ((fd = open(all->f, O_RDWR | O_CREAT | O_EXCL, 0666)) < 0)
 		ft_error();//usage??
-	if((write(fd, all->instructions, ft_strlen(all->instructions))) < 0)
+	if ((write(fd, all->instructions, ft_strlen(all->instructions))) < 0)
 		ft_error();//usage??
 	close(fd);
 }

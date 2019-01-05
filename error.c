@@ -72,7 +72,7 @@ void	ft_free_stack(t_stack *stack)
 		end = stack->prev;
 	else
 		end = stack;
- 	while (stack != end)
+	while (stack != end)
 	{
 		tmp = stack->next;
 		if (stack)

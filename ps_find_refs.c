@@ -38,7 +38,7 @@ void	ft_find_refs(t_all *all)
 
 int		ft_find_ref(t_stack *cpy, int count)
 {
-	int	n;
+	int		n;
 	t_stack *top;
 
 	top = cpy;
@@ -46,7 +46,7 @@ int		ft_find_ref(t_stack *cpy, int count)
 		cpy = cpy->next;
 	n = cpy->n;
 	cpy = top;
-	return(n);
+	return (n);
 }
 
 t_stack	*ft_dublicate_list(t_all *all)

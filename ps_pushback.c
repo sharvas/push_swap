@@ -26,7 +26,7 @@ int		ft_up_down(t_all *all, int num)
 {
 	t_stack	*tmp;
 	int		count;
-	int 	len;
+	int		len;
 
 	count = 0;
 	tmp = all->b;
@@ -48,16 +48,14 @@ int		ft_min_max(t_all *all, int max, int min)
 	int		max_direction;
 	int		min_direction;
 
-	count_max = ft_up_down(all, max);
-	count_min = ft_up_down(all, min);
 	max_direction = 1;
 	min_direction = 1;
-	if (count_max < 0)
+	if ((count_max = ft_up_down(all, max)) < 0)
 	{
 		count_max = -count_max;
 		max_direction = -1;
 	}
-	if (count_min < 0)
+	if ((count_min = ft_up_down(all, min)) < 0)
 	{
 		count_min = -count_min;
 		min_direction = -1;
@@ -68,10 +66,8 @@ int		ft_min_max(t_all *all, int max, int min)
 		return (-1);
 	}
 	else
-	{
 		ft_rotate_direction(all, max, max_direction);
-		return (1);
-	}
+	return (1);
 }
 
 void	ft_pushback(t_all *all, int min_max)

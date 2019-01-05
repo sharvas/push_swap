@@ -43,7 +43,7 @@ void	ft_read_args_checker(t_all *all, char **argv)
 
 void	ft_open_file(t_all *all, char **argv, int i)
 {
-	if((all->fd = open(all->f, O_RDONLY)) < 0)
+	if ((all->fd = open(all->f, O_RDONLY)) < 0)
 		ft_error();
 	if (!argv[i])
 		ft_checker_usage();
@@ -70,7 +70,7 @@ t_all	*ft_do_ops(t_all *all)
 		line = NULL;
 	}
 	if (all->v || all->c)
-		printf("instruction count: %d\n\n", count);
+		printf("\n\x1B[0minstruction count: %d\n\n", count);
 	return (all);
 }
 

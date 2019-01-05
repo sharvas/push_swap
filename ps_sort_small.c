@@ -17,7 +17,7 @@ void	ft_sort_3(t_all *all, char stack)
 	int	min;
 	int	max;
 
-	min = (stack =='a') ? ft_find_min(all, 'a') : ft_find_min(all, 'b');
+	min = (stack == 'a') ? ft_find_min(all, 'a') : ft_find_min(all, 'b');
 	max = (stack == 'a') ? ft_find_max(all, 'a') : ft_find_max(all, 'b');
 	if (ft_is_sorted(all, 'a'))
 		return ;
@@ -53,10 +53,10 @@ void	ft_sort_4(t_all *all)
 void	ft_rotate_small(t_all *all, int min)
 {
 	t_stack	*tmp;
-	int	count;
+	int		count;
 
-	count = 0;
 	tmp = all->a;
+	count = 0;
 	while (tmp->n != min)
 	{
 		tmp = tmp->next;
