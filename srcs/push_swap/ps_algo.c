@@ -29,12 +29,7 @@ int		ft_sort_module(t_all *all, int size, int start, int end)
 		while (all->a->n > end)
 			ft_ra(all);
 	while (size--)
-	{
-		if (all->a->n > start && all->a->n <= end)
-			ft_pb(all);
-		else
-			ft_ra(all);
-	}
+		all->a->n > start && all->a->n <= end ? ft_pb(all) : ft_ra(all);
 	size_b = ft_find_len(all, 'b');
 	next_size = size_b;
 	while (size_b--)
