@@ -38,16 +38,6 @@ t_all	*ft_initialize(t_all *all)
 	return (all);
 }
 
-void	ft_fill_error(t_all *all, char *str)
-{
-	int	n;
-
-	n = ft_atoi_error(str);
-	if (ft_is_duplicate(all, n))
-		ft_error(all);
-	ft_add_end(all, n);
-}
-
 void	ft_fill_a(t_all *all, char **argv, int i)
 {
 	int		j;
@@ -64,6 +54,16 @@ void	ft_fill_a(t_all *all, char **argv, int i)
 	else
 		while (argv[i])
 			ft_fill_error(all, argv[i++]);
+}
+
+void	ft_fill_error(t_all *all, char *str)
+{
+	int	n;
+
+	n = ft_atoi_error(str);
+	if (ft_is_duplicate(all, n))
+		ft_error(all);
+	ft_add_end(all, n);
 }
 
 void	ft_add_end(t_all *all, int n)

@@ -167,19 +167,19 @@ void	ft_push_swap_usage(void);
 void	ft_checker_usage(void);
 
 /*
-**		bonus_c.c
+**		visualizer.c
+*/
+t_flags	ft_initialize_flags(t_flags *flags);
+void	ft_print_row(t_stack *s_a, t_stack *s_b, t_flags *flags);
+void	ft_debug_v(t_all *all, char *str);
+
+/*
+**		visualizer_colour.c
 */
 void	ft_print_row_ca(t_stack *s_a, t_stack *s_b, t_flags *flags);
 void	ft_print_row_cb(t_stack *s_a, t_stack *s_b, t_flags *flags);
 void	ft_print_row_cab(t_stack *s_a, t_stack *s_b, t_flags *flags);
 void	ft_debug_c_print(t_stack *s_a, t_stack *s_b, t_flags flags, char *str);
 void	ft_debug_c(t_all *all, char *str);
-
-/*
-**		bonus_v.c
-*/
-t_flags	ft_initialize_flags(t_flags *flags);
-void	ft_print_row(t_stack *s_a, t_stack *s_b, t_flags *flags);
-void	ft_debug_v(t_all *all, char *str);
 
 #endif
