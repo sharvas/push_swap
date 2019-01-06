@@ -45,6 +45,7 @@ typedef struct		s_all
 	char			*instructions;
 	int				v;
 	int				c;
+	int				t;	
 	char			*f;
 	int				fd;
 }					t_all;
@@ -55,22 +56,6 @@ typedef struct		s_flags
 	int				b;
 	int				row;
 }					t_flags;
-
-/*
-**		checker.c
-*/
-void				ft_checker_usage(void);
-void				ft_checker(char **argv);
-int					main(int argc, char **argv);
-
-/*
-**		checker_functions.c
-*/
-void				ft_read_args_checker(t_all *all, char **argv);
-void				ft_open_file(t_all *all, char **argv, int i);
-void				ft_read_do(char *line, t_all *all);
-t_all				*ft_do_ops(t_all *all);
-void				ft_ko_ok(t_all *all);
 
 /*
 **		push_swap.c
@@ -98,12 +83,21 @@ t_stack				*add_link(t_stack *cpy, int n, t_all *all);
 void				ft_simple_sort(t_stack *cpy);
 
 /*
-**		ps_algo.c
+**		ps_sort_pb.c
 */
 int					ft_sort_module(t_all *all, int size, int start, int end);
 void				ft_sort_100(t_all *all);
 void				ft_sort_big(t_all *all);
 void				ft_sort_algo_switch(t_all *all);
+
+/*
+**		ps_sort_pa.c
+*/
+void				ft_rotate_direction(t_all *all, int num, int direction);
+int					ft_up_down(t_all *all, int num);
+int					ft_min_max(t_all *all, int max, int min);
+void				ft_pushback(t_all *all, int min_max);
+void				ft_pa_sort(t_all *all);
 
 /*
 **		ps_sort_small.c
@@ -115,13 +109,20 @@ void				ft_sort_5(t_all *all);
 void				ft_sort_small(t_all *all);
 
 /*
-**		ps_pushback.c
+**		checker.c
 */
-void				ft_rotate_direction(t_all *all, int num, int direction);
-int					ft_up_down(t_all *all, int num);
-int					ft_min_max(t_all *all, int max, int min);
-void				ft_pushback(t_all *all, int min_max);
-void				ft_pa_sort(t_all *all);
+void				ft_checker_usage(void);
+void				ft_checker(char **argv);
+int					main(int argc, char **argv);
+
+/*
+**		checker_functions.c
+*/
+void				ft_read_args_checker(t_all *all, char **argv);
+void				ft_open_file(t_all *all, char **argv, int i);
+void				ft_read_do(char *line, t_all *all);
+t_all				*ft_do_ops(t_all *all);
+void				ft_ko_ok(t_all *all);
 
 /*
 **		stack.c

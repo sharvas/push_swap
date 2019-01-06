@@ -20,23 +20,20 @@ void	ft_read_args_checker(t_all *all, char **argv)
 	while (ft_is_bonus(argv[i]))
 	{
 		if (ft_strcmp(argv[i], "-v") == 0)
-		{
 			all->v = 1;
-			i++;
-		}
-		if (ft_strcmp(argv[i], "-c") == 0)
-		{
+		else if (ft_strcmp(argv[i], "-c") == 0)
 			all->c = 1;
-			i++;
-		}
-		if (ft_strcmp(argv[i], "-f") == 0)
+		else if (ft_strcmp(argv[i], "-t") == 0)
+			all->t = 1;
+		else if (ft_strcmp(argv[i], "-f") == 0)
 		{
 			i++;
 			if (!argv[i])
 				ft_checker_usage();
-			all->f = argv[i++];
+			all->f = argv[i];
 			ft_open_file(all, argv, i);
 		}
+		i++;
 	}
 	ft_fill_a(all, argv, i);
 }
@@ -70,9 +67,9 @@ t_all	*ft_do_ops(t_all *all)
 			free(line);
 		line = NULL;
 	}
-	if (line)
-		free(line);
-	line = NULL;
+	// if (line)
+	// 	free(line);
+	// line = NULL;
 	if (all->v || all->c)
 		printf("\n\x1B[0minstruction count: %d\n\n", count);
 	return (all);

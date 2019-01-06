@@ -34,6 +34,7 @@ t_all	*ft_initialize(t_all *all)
 	all->instructions = ft_strdup_empty(all);
 	all->v = 0;
 	all->c = 0;
+	all->t = 0;
 	all->f = 0;
 	all->fd = 0;
 	return (all);
