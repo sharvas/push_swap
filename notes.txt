@@ -1,1 +1,0 @@
-1. confirm that we're realy using min moves // 2. test
