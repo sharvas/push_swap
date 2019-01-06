@@ -75,7 +75,7 @@ t_stack	*add_link(t_stack *cpy, int n, t_all *all)
 	if (cpy)
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(all);
+			ft_ps_error(all);
 		tmp->prev = cpy;
 		tmp->next = NULL;
 		cpy->next = tmp;
@@ -85,7 +85,7 @@ t_stack	*add_link(t_stack *cpy, int n, t_all *all)
 	else
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(all);
+			ft_ps_error(all);
 		tmp->prev = NULL;
 		tmp->next = NULL;
 		tmp->n = n;

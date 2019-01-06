@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 10:37:39 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 16:14:09 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/06 15:41:21 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,20 @@ void	ft_read_args_checker(t_all *all, char **argv)
 	while (ft_is_bonus(argv[i]))
 	{
 		if (ft_strcmp(argv[i], "-v") == 0)
-		{
 			all->v = 1;
-			i++;
-		}
-		if (ft_strcmp(argv[i], "-c") == 0)
-		{
+		else if (ft_strcmp(argv[i], "-c") == 0)
 			all->c = 1;
-			i++;
-		}
-		if (ft_strcmp(argv[i], "-f") == 0)
+		else if (ft_strcmp(argv[i], "-t") == 0)
+			all->t = 1;
+		else if (ft_strcmp(argv[i], "-f") == 0)
 		{
 			i++;
 			if (!argv[i])
 				ft_checker_usage();
-			all->f = argv[i++];
+			all->f = argv[i];
 			ft_open_file(all, argv, i);
 		}
+		i++;
 	}
 	ft_fill_a(all, argv, i);
 }
@@ -44,7 +41,8 @@ void	ft_read_args_checker(t_all *all, char **argv)
 void	ft_open_file(t_all *all, char **argv, int i)
 {
 	if ((all->fd = open(all->f, O_RDONLY)) < 0)
-		ft_error(all);
+		ft_ps_error(all);
+	i++;
 	if (!argv[i])
 		ft_checker_usage();
 }
@@ -70,11 +68,8 @@ t_all	*ft_do_ops(t_all *all)
 			free(line);
 		line = NULL;
 	}
-	if (line)
-		free(line);
-	line = NULL;
 	if (all->v || all->c)
-		printf("\n\x1B[0minstruction count: %d\n\n", count);
+		ft_printf("\n\x1B[0minstruction count: %d\n\n", count);
 	return (all);
 }
 
@@ -103,7 +98,7 @@ void	ft_read_do(char *line, t_all *all)
 	else if (ft_strcmp(line, "rrr") == 0)
 		ft_rrr(all);
 	else
-		ft_error(all);
+		ft_ps_error(all);
 }
 
 void	ft_ko_ok(t_all *all)

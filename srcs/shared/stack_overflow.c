@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 12:43:20 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 16:28:51 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/06 15:31:24 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 t_all	*ft_initialize(t_all *all)
 {
 	if (!(all = (t_all *)malloc(sizeof(t_all))))
-		ft_error(all);
+		ft_ps_error(all);
 	all->a = NULL;
 	all->b = NULL;
 	all->cpy = NULL;
+	all->array = NULL;
 	all->len = 0;
 	all->min = 0;
 	all->max = 0;
@@ -31,9 +32,10 @@ t_all	*ft_initialize(t_all *all)
 	all->e_seven = 0;
 	all->f_seven = 0;
 	all->write_instructions = 0;
-	all->instructions = ft_strdup_empty(all);
+	all->instructions = ft_ps_strdup_empty(all);
 	all->v = 0;
 	all->c = 0;
+	all->t = 0;
 	all->f = 0;
 	all->fd = 0;
 	return (all);
@@ -97,9 +99,11 @@ int		ft_is_sorted(t_all *all, char stack)
 	t_stack	*tmp;
 	t_stack	*top;
 
+	if (!all || !all->a)
+		return (0);
 	tmp = (stack == 'a') ? all->a : all->b;
 	top = tmp;
-	while (tmp->next != top)
+	while (tmp && tmp->next != top)
 	{
 		if (tmp->n > tmp->next->n)
 			return (0);
