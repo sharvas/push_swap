@@ -15,9 +15,9 @@
 void	ft_print_row_ca(t_stack *s_a, t_stack *s_b, t_flags *flags)
 {
 	if (s_a && s_b && !flags->a && !flags->b)
-		printf("\x1B[35m%- 12d\x1B[0m|%- 12d\n", s_a->n, s_b->n);
+		printf("\x1b[36m%- 12d\x1B[0m|%- 12d\n", s_a->n, s_b->n);
 	else if (s_a && !flags->a)
-		printf("\x1B[35m%- 12d\x1B[0m|%12s\n", s_a->n, "");
+		printf("\x1b[36m%- 12d\x1B[0m|%12s\n", s_a->n, "");
 	else if (s_b && !flags->b)
 		printf("%12s|%- 12d\n", "", s_b->n);
 }
@@ -25,21 +25,21 @@ void	ft_print_row_ca(t_stack *s_a, t_stack *s_b, t_flags *flags)
 void	ft_print_row_cb(t_stack *s_a, t_stack *s_b, t_flags *flags)
 {
 	if (s_a && s_b && !flags->a && !flags->b)
-		printf("%- 12d|\x1B[35m%- 12d\x1B[0m\n", s_a->n, s_b->n);
+		printf("%- 12d|\x1b[36m%- 12d\x1B[0m\n", s_a->n, s_b->n);
 	else if (s_a && !flags->a)
 		printf("%- 12d|%12s\n", s_a->n, "");
 	else if (s_b && !flags->b)
-		printf("%12s|\x1B[35m%- 12d\x1B[0m\n", "", s_b->n);
+		printf("%12s|\x1b[36m%- 12d\x1B[0m\n", "", s_b->n);
 }
 
 void	ft_print_row_cab(t_stack *s_a, t_stack *s_b, t_flags *flags)
 {
 	if (s_a && s_b && !flags->a && !flags->b)
-		printf("\x1B[35m%- 12d|%- 12d\x1B[0m\n", s_a->n, s_b->n);
+		printf("\x1b[36m%- 12d|%- 12d\x1B[0m\n", s_a->n, s_b->n);
 	else if (s_a && !flags->a)
-		printf("\x1B[35m%- 12d|%12s\x1B[0m\n", s_a->n, "");
+		printf("\x1b[36m%- 12d|%12s\x1B[0m\n", s_a->n, "");
 	else if (s_b && !flags->b)
-		printf("\x1B[35m%12s|%- 12d\x1B[0m\n", "", s_b->n);
+		printf("\x1b[36m%12s|%- 12d\x1B[0m\n", "", s_b->n);
 }
 
 void	ft_debug_c_print(t_stack *s_a, t_stack *s_b, t_flags flags, char *str)
@@ -67,11 +67,10 @@ void	ft_debug_c(t_all *all, char *str)
 	flags = ft_initialize_flags(&flags);
 	s_a = all->a;
 	s_b = all->b;
-	if (all->t)
-		usleep(120000);
-	printf("\E[H\E[2J\n\x1B[35m%s\x1B[0m\n %-11s| %s\n", str, "a", "b");
+	all->t ? usleep(120000) : 0;
+	printf("\E[H\E[2J\n\x1b[36m%s\x1B[0m\n stack a    | stack b\n", str);
 	if ((ft_strcmp(str, "rrr") == 0) || (ft_strcmp(str, "rr") == 0))
-		printf("\x1B[35m");
+		printf("\x1b[36m");
 	while ((s_a && s_a->next != all->a) || (s_b && s_b->next != all->b))
 	{
 		ft_debug_c_print(s_a, s_b, flags, str);

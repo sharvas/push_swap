@@ -47,9 +47,8 @@ void	ft_debug_v(t_all *all, char *str)
 	flags = ft_initialize_flags(&flags);
 	s_a = all->a;
 	s_b = all->b;
-	if (all->t)
-		usleep(120000);
-	printf("\E[H\E[2J\n%s\n %-11s| %s\n", str, "a", "b");
+	all->t ? usleep(120000) : 0;
+	printf("\E[H\E[2J\n%s\n stack a    | stack b\n", str);
 	while ((s_a && s_a->next != all->a) || (s_b && s_b->next != all->b))
 	{
 		ft_print_row(s_a, s_b, &flags);
