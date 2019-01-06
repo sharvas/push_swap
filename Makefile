@@ -6,7 +6,7 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/05 14:18:51 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/06 18:32:34 by svaskeli         ###   ########.fr        #
+#    Updated: 2019/01/06 18:45:09 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,11 +64,11 @@ all: $(PUSH_SWAP) $(CHECKER)
 norm:
 	norminette -R CheckForbiddenSourceHeader $(INC) $(SRCS_DIR)
 
-$(PUSH_SWAP): $(LIBFT_A) $(OBJS_DIR) ps sh $(PS_OBJS_PATH) $(SH_OBJS_PATH)
+$(PUSH_SWAP): $(LIBFT_A) $(OBJS_DIR) $(PS_OBJS_DIR) $(SH_OBJS_DIR) $(PS_OBJS_PATH) $(SH_OBJS_PATH)
 	@echo "Compiling:" $(GREEN) $(PUSH_SWAP) $(DEFAULT)
 	gcc $(FLAGS) $(PS_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
 
-$(CHECKER): $(LIBFT_A) $(OBJS_DIR) ch sh $(CH_OBJS_PATH) $(SH_OBJS_PATH)
+$(CHECKER): $(LIBFT_A) $(OBJS_DIR) $(CH_OBJS_DIR) $(SH_OBJS_DIR) $(CH_OBJS_PATH) $(SH_OBJS_PATH)
 	@echo "Compiling:" $(GREEN) $(CHECKER) $(DEFAULT)
 	gcc $(FLAGS) $(CH_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
 
@@ -76,13 +76,13 @@ $(LIBFT_A):
 	@echo "Compiling:" $(GREEN) Libft $(DEFAULT)
 	@make -C $(LIBFT)
 
-ps:
+$(PS_OBJS_DIR):
 	@mkdir -p $(PS_OBJS_DIR)
 
-ch:
+$(CH_OBJS_DIR):
 	@mkdir -p $(CH_OBJS_DIR)
 
-sh:
+$(SH_OBJS_DIR):
 	@mkdir -p $(SH_OBJS_DIR)
 
 $(OBJS_DIR):
