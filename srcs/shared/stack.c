@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 13:19:49 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 15:29:45 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/06 15:40:28 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 void	ft_fill_a(t_all *all, char **argv, int i)
 {
 	int		j;
-	char	**array;
 
 	j = 0;
-	array = NULL;
 	if (ft_strchr(argv[i], ' '))
 	{
-		array = ft_split_whitespaces(argv[i]);
-		while (array[j])
-			ft_fill_error(all, array[j++]);
+		if (!(all->array = ft_split_whitespaces(argv[i])))
+			ft_ps_error(all);
+		while (all->array[j])
+			ft_fill_error(all, all->array[j++]);
 	}
 	else
 		while (argv[i])

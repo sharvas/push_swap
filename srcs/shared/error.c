@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 17:04:24 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 15:29:26 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/06 15:32:53 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,9 @@ void	ft_free_all(t_all *all)
 		if (all->instructions)
 			free(all->instructions);
 		all->instructions = NULL;
+		if (all->array)
+			ft_2d_char_free(all->array);
+		all->array = NULL;
 		if (all)
 			free(all);
 		all = NULL;

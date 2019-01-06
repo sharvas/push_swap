@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:04:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/06 14:25:55 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/06 15:33:15 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct		s_all
 	struct s_stack	*a;
 	struct s_stack	*b;
 	struct s_stack	*cpy;
+	char			**array;
 	int				len;
 	int				min;
 	int				max;

@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 12:43:20 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 16:28:51 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/06 15:31:24 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_all	*ft_initialize(t_all *all)
 	all->a = NULL;
 	all->b = NULL;
 	all->cpy = NULL;
+	all->array = NULL;
 	all->len = 0;
 	all->min = 0;
 	all->max = 0;
