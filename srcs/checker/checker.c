@@ -40,7 +40,9 @@ int		main(int argc, char **argv)
 		(argc == 2 && ft_is_bonus(argv[1])) ||
 		(argc == 3 && ft_is_bonus(argv[1]) && ft_is_bonus(argv[2])) ||
 		(argc == 4 && ft_is_bonus(argv[1]) && ft_is_bonus(argv[2]) &&
-		ft_is_bonus(argv[3])))
+		ft_is_bonus(argv[3])) ||
+		(argc == 5 && ft_is_bonus(argv[1]) && ft_is_bonus(argv[2]) &&
+		ft_is_bonus(argv[3]) && ft_is_bonus(argv[4])))
 		ft_checker_usage();
 	ft_checker(argv);
 	return (0);

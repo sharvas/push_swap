@@ -45,6 +45,7 @@ typedef struct		s_all
 	char			*instructions;
 	int				v;
 	int				c;
+	int				t;	
 	char			*f;
 	int				fd;
 }					t_all;
