@@ -40,6 +40,7 @@ echo "best          : $best"
 echo "worst         :  $worst"
 echo "KO if failed  :        $fail"
 echo "exceed max    :        $exceed"
+echo "< 12"
 echo " "
 
 # test for 100 random numbers
@@ -84,6 +85,7 @@ echo "best          :   $best"
 echo "worst         :   $worst"
 echo "KO if failed  :        $fail"
 echo "exceed max    :        $exceed"
+echo "< 700: 5 | < 900: 4 | < 1100: 3 | < 1300: 2 | < 1500: 1"
 echo " "
 
 # test for 500 random numbers
@@ -128,3 +130,4 @@ echo "best          :    $best"
 echo "worst         :    $worst"
 echo "KO if failed  :        $fail"
 echo "exceed max    :        $exceed"
+echo "< 5500: 5 | < 7000: 4 | < 8500: 3 | < 10000: 2 | < 11500: 1"
