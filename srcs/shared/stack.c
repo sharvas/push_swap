@@ -14,20 +14,42 @@
 
 void	ft_fill_a(t_all *all, char **argv, int i)
 {
-	int		j;
+	int	j;
 
-	j = 0;
-	if (ft_strchr(argv[i], ' '))
+	while (argv[i])
 	{
-		if (!(all->array = ft_split_whitespaces(argv[i])))
-			ft_ps_error(all);
-		while (all->array[j])
-			ft_fill_error(all, all->array[j++]);
+		j = 0;
+		if (ft_strchr(argv[i], ' '))
+		{
+			if (!(all->array = ft_split_whitespaces(argv[i])))
+				ft_ps_error(all);
+			while (all->array[j])
+				ft_fill_error(all, all->array[j++]);
+			if (all->array)
+				ft_2d_char_free(all->array);
+			all->array = NULL;
+		}
+		else
+			ft_fill_error(all, argv[i]);
+		i++;
 	}
-	else
-		while (argv[i])
-			ft_fill_error(all, argv[i++]);
 }
+
+
+
+
+
+// 	if (ft_strchr(argv[i], ' '))
+// 	{
+// 		if (!(all->array = ft_split_whitespaces(argv[i])))
+// 			ft_ps_error(all);
+// 		while (all->array[j])
+// 			ft_fill_error(all, all->array[j++]);
+// 	}
+// 	else
+// 		while (argv[i])
+// 			ft_fill_error(all, argv[i++]);
+// }
 
 void	ft_fill_error(t_all *all, char *str)
 {

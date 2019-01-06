@@ -99,9 +99,11 @@ int		ft_is_sorted(t_all *all, char stack)
 	t_stack	*tmp;
 	t_stack	*top;
 
+	if (!all || !all->a)
+		return (0);
 	tmp = (stack == 'a') ? all->a : all->b;
 	top = tmp;
-	while (tmp->next != top)
+	while (tmp && tmp->next != top)
 	{
 		if (tmp->n > tmp->next->n)
 			return (0);

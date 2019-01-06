@@ -51,8 +51,11 @@ int		ft_atoi_error(char *str, t_all *all)
 	{
 		if (str[i] == '-')
 			n = -1;
-		i++;
+//		i++;
+		str++;
 	}
+	while (*str == '0' && *(str + 1) == '0'/* || *str == '-'*/)
+		str++;
 	if (str[i] < '0' || str[i] > '9')
 		ft_ps_error(all);
 	while (str[i] >= '0' && str[i] <= '9' && i < 11)
