@@ -6,12 +6,12 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/05 14:18:51 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/05 17:39:24 by svaskeli         ###   ########.fr        #
+#    Updated: 2019/01/06 11:01:08 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-PUSH_SWAP = push_swap
-CHECKER = checker
+PUSH_SWAP = Push_swap
+CHECKER = Checker
 NAME = $(PUSH_SWAP) $(CHECKER)
 
 FLAGS = -Wall -Werror -Wextra
@@ -19,13 +19,13 @@ FLAGS = -Wall -Werror -Wextra
 PS_SRC_DIR = srcs/push_swap/
 CH_SRC_DIR = srcs/checker/
 SH_SRC_DIR = srcs/shared/
-SRC_DIR = $(PS_SRC_DIR) $(CH_SRC_DIR) $(SH_SRC_DIR)
+SRCS_DIRS = $(PS_SRC_DIR) $(CH_SRC_DIR) $(SH_SRC_DIR)
 
 OBJS_DIR = objs/
 SRCS_DIR = srcs/
 
 INC = includes/
-#INCLUDE_DIRS =	-I $(INC)
+INCLUDE_DIRS =	-I $(INC) -I $(LIBFT)
 
 LIBFT = libft
 LIBFT_A = $(LIBFT)/libft.a
@@ -59,24 +59,24 @@ DEFAULT = "\033[0m"
 all: $(NAME)
 
 norm:
-	@norminette $(INC) $(SRCS_DIR)
+	norminette -R CheckForbiddenSourceHeader $(INC) $(SRCS_DIR)
 
 $(LIBFT_A):
-	@echo "Libft:" $(GREEN) Compiling Libft $(DEFAULT)
-	@make -C $(LIBFT)
+	@echo "Compiling:" $(GREEN) Libft $(DEFAULT)
+	make -C $(LIBFT)
 
-$(NAME): $(LIBFT_A) $(OBJS_DIR) $(OBJ_PATH)
-	@echo "Push_swap:" $(GREEN) $(NAME) $(DEFAULT)
-	gcc $(FLAGS) -c $(SRC_PATH) -o $(OBJS_PATH)
+$(NAME): $(LIBFT_A) $(OBJS_DIR) $(OBJ_PATH) $(SRC_PATH)
+	@echo "Compiling:" $(GREEN) $(NAME) $(DEFAULT)
 	gcc $(FLAGS) $(PS_OBJ_PATH) $(SH_OBJ_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
 	gcc $(FLAGS) $(CH_OBJ_PATH) $(SH_OBJ_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
 
-$(OBJS_DIR):
+$(OBJS_DIR): $(SRCS_DIR) $(OBJ_PATH)
 	mkdir -p $(OBJS_DIR)
+	gcc $(FLAGS) -c $(SRCS_DIR) -o $(OBJS_DIR)
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
-	@echo "Push_swap:" $(GREEN) $< $(DEFAULT)
-	@gcc $(FLAGS) -c $< -o $@ -I $(LIBFT)
+#$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+#	@echo "Push_swap:" $(GREEN) $< $(DEFAULT)
+#	@gcc $(FLAGS) -c $< -o $@ -I $(LIBFT)
 
 clean:
 	@make -C $(LIBFT)/ clean
