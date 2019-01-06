@@ -114,11 +114,7 @@ LIB_PATH = $(addprefix $(LIB_DIR), $(LIB_O))
 
 FLAGS = -Wall -Werror -Wextra
 
-#HEADER = -I ../
-
 INC = ft_printf.h
-
-#LIB = -L ../ -lft
 
 all: lib $(NAME)
 
