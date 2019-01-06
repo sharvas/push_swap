@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-PUSH_SWAP = Push_swap
-CHECKER = Checker
+PUSH_SWAP = push_swap
+CHECKER = checker
 NAME = $(PUSH_SWAP) $(CHECKER)
 
 FLAGS = -Wall -Werror -Wextra
@@ -27,8 +27,8 @@ SRCS_DIR = srcs/
 LIBFT = libft
 LIBFT_A = $(LIBFT)/libft.a
 
-PS_SRCS = push_swap.c ps_functions.c ps_find_refs.c ps_algo.c \
-	ps_sort_small.c ps_pushback.c
+PS_SRCS = push_swap.c ps_functions.c ps_find_refs.c ps_sort_pb.c \
+	ps_sort_pa.c ps_sort_small.c
 
 CH_SRCS = checker.c checker_functions.c visualizer.c visualizer_colour.c
 

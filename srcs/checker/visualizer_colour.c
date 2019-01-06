@@ -67,7 +67,7 @@ void	ft_debug_c(t_all *all, char *str)
 	flags = ft_initialize_flags(&flags);
 	s_a = all->a;
 	s_b = all->b;
-	if (!all->t)
+	if (all->t)
 		usleep(120000);
 	printf("\E[H\E[2J\n\x1B[35m%s\x1B[0m\n %-11s| %s\n", str, "a", "b");
 	if ((ft_strcmp(str, "rrr") == 0) || (ft_strcmp(str, "rr") == 0))
