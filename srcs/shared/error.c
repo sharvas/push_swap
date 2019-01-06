@@ -12,7 +12,7 @@
 
 #include "../../includes/push_swap.h"
 
-void	ft_error(t_all *all)
+void	ft_ps_error(t_all *all)
 {
 	ft_putstr("Error\n");
 	ft_free_all(all);
@@ -54,12 +54,12 @@ int		ft_atoi_error(char *str, t_all *all)
 		i++;
 	}
 	if (str[i] < '0' || str[i] > '9')
-		ft_error(all);
+		ft_ps_error(all);
 	while (str[i] >= '0' && str[i] <= '9' && i < 11)
 		a = (a * 10) + (str[i++] - '0');
 	a *= n;
 	if (str[i] || a > 2147483647 || a < -2147483648)
-		ft_error(all);
+		ft_ps_error(all);
 	return (a);
 }
 

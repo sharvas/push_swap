@@ -36,7 +36,7 @@ void	ft_fill_error(t_all *all, char *str)
 
 	n = ft_atoi_error(str, all);
 	if (ft_is_duplicate(all, n))
-		ft_error(all);
+		ft_ps_error(all);
 	ft_add_end(all, n);
 }
 
@@ -49,7 +49,7 @@ void	ft_add_end(t_all *all, int n)
 	if (*top)
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(all);
+			ft_ps_error(all);
 		tmp->next = *top;
 		tmp->prev = (*top)->prev;
 		(*top)->prev = tmp;
@@ -59,7 +59,7 @@ void	ft_add_end(t_all *all, int n)
 	else
 	{
 		if (!(*top = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(all);
+			ft_ps_error(all);
 		(*top)->next = *top;
 		(*top)->prev = *top;
 		(*top)->n = n;
@@ -75,7 +75,7 @@ void	ft_add_top(t_all *all, char stack, int n)
 	if (*top)
 	{
 		if (!(tmp = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(all);
+			ft_ps_error(all);
 		tmp->next = *top;
 		tmp->prev = (*top)->prev;
 		(*top)->prev = tmp;
@@ -86,7 +86,7 @@ void	ft_add_top(t_all *all, char stack, int n)
 	else
 	{
 		if (!(*top = (t_stack *)malloc(sizeof(t_stack))))
-			ft_error(all);
+			ft_ps_error(all);
 		(*top)->next = *top;
 		(*top)->prev = *top;
 		(*top)->n = n;

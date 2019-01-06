@@ -6,14 +6,14 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:04:33 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/05 15:34:47 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/06 14:25:55 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "../libft/ft_printf/ft_printf.h"
 # include <unistd.h>
 # include <stdio.h> // rm, just for testing
 # include <fcntl.h>
@@ -168,7 +168,7 @@ void				ft_rrr(t_all *all);
 /*
 **		error.c
 */
-void				ft_error(t_all *all);
+void				ft_ps_error(t_all *all);
 int					ft_atoi_error(char *str, t_all *all);
 int					ft_is_duplicate(t_all *all, intmax_t n);
 void				ft_free_stack(t_stack *stack);
@@ -177,8 +177,8 @@ void				ft_free_all(t_all *all);
 /*
 **		error_null.c
 */
-char				*ft_strdup_empty(t_all *all);
-char				*ft_strjoinfree_s1_error(t_all *all, char *s2);
+char				*ft_ps_strdup_empty(t_all *all);
+char				*ft_strjoinfree_s1_ps(t_all *all, char *s2);
 
 /*
 **		visualizer.c

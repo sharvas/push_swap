@@ -19,7 +19,7 @@ void	ft_ss(t_all *all)
 	write = 0;
 	if (all->write_instructions)
 	{
-		all->instructions = ft_strjoinfree_s1_error(all, "ss\n");
+		all->instructions = ft_strjoinfree_s1_ps(all, "ss\n");
 		write = 1;
 		all->write_instructions = 0;
 	}
@@ -36,7 +36,7 @@ void	ft_rr(t_all *all)
 	write = 0;
 	if (all->write_instructions)
 	{
-		all->instructions = ft_strjoinfree_s1_error(all, "rr\n");
+		all->instructions = ft_strjoinfree_s1_ps(all, "rr\n");
 		write = 1;
 		all->write_instructions = 0;
 	}
@@ -53,7 +53,7 @@ void	ft_rrr(t_all *all)
 	write = 0;
 	if (all->write_instructions)
 	{
-		all->instructions = ft_strjoinfree_s1_error(all, "rrr\n");
+		all->instructions = ft_strjoinfree_s1_ps(all, "rrr\n");
 		write = 1;
 		all->write_instructions = 0;
 	}

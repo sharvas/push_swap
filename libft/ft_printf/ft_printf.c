@@ -99,7 +99,7 @@ int		ft_printf(char const *format, ...)
 	t_print			all;
 
 	va_start(ap, format);
-	ft_initialize(&all);
+	ft_initialize_print(&all);
 	if (!(all.form = ft_strdup(format)))
 		ft_error(NULL, all.form);
 	while (all.form[all.len] != '\0')

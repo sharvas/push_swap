@@ -15,7 +15,7 @@
 t_all	*ft_initialize(t_all *all)
 {
 	if (!(all = (t_all *)malloc(sizeof(t_all))))
-		ft_error(all);
+		ft_ps_error(all);
 	all->a = NULL;
 	all->b = NULL;
 	all->cpy = NULL;
@@ -31,7 +31,7 @@ t_all	*ft_initialize(t_all *all)
 	all->e_seven = 0;
 	all->f_seven = 0;
 	all->write_instructions = 0;
-	all->instructions = ft_strdup_empty(all);
+	all->instructions = ft_ps_strdup_empty(all);
 	all->v = 0;
 	all->c = 0;
 	all->t = 0;

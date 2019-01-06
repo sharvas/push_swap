@@ -6,13 +6,13 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 09:27:39 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/19 09:27:41 by dfinnis          ###   ########.fr       */
+/*   Updated: 2019/01/06 15:05:48 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_initialize(t_print *all)
+void	ft_initialize_print(t_print *all)
 {
 	all->printed = 0;
 	all->len = 0;

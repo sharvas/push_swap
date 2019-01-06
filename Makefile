@@ -6,7 +6,7 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/05 14:18:51 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/06 13:37:33 by svaskeli         ###   ########.fr        #
+#    Updated: 2019/01/06 15:01:26 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,17 @@ CH_SRCS_DIR = srcs/checker/
 SH_SRCS_DIR = srcs/shared/
 SRCS_DIRS = $(PS_SRCS_DIR) $(CH_SRCS_DIR) $(SH_SRCS_DIR)
 
+PS_OBJS_DIR = objs/push_swap/
+CH_OBJS_DIR = objs/checker/
+SH_OBJS_DIR = objs/shared/
+OBJ_SUB_DIR = $(PS_OBJS_DIR) $(CH_OBJS_DIR) $(SH_OBJS_DIR)
+
+
 OBJS_DIR = objs/
 SRCS_DIR = srcs/
 
-LIBFT = libft
-LIBFT_A = $(LIBFT)/libft.a
+LIBFT = libft/ft_printf
+LIBFT_A = $(LIBFT)/libftprintf.a
 
 PS_SRCS = push_swap.c ps_functions.c ps_find_refs.c ps_sort_pb.c \
 	ps_sort_pa.c ps_sort_small.c
@@ -45,9 +51,9 @@ CH_SRCS_PATH = $(CH_SRCS:%=$(CH_SRCS_DIR)%)
 SH_SRCS_PATH = $(SH_SRCS:%=$(SH_SRCS_DIR)%)
 SRCS_PATH = $(PS_SRCS_PATH) $(CH_SRCS_PATH) $(SH_SRCS_PATH)
 
-PS_OBJS_PATH = $(addprefix $(OBJS_DIR), $(PS_OBJS))
-CH_OBJS_PATH = $(addprefix $(OBJS_DIR), $(CH_OBJS))
-SH_OBJS_PATH = $(addprefix $(OBJS_DIR), $(SH_OBJS))
+PS_OBJS_PATH = $(addprefix $(PS_OBJS_DIR), $(PS_OBJS))
+CH_OBJS_PATH = $(addprefix $(CH_OBJS_DIR), $(CH_OBJS))
+SH_OBJS_PATH = $(addprefix $(SH_OBJS_DIR), $(SH_OBJS))
 OBJS_PATH = $(PS_OBJS_PATH) $(CH_OBJS_PATH) $(SH_OBJS_PATH)
 
 GREEN = "\033[0;32m"
@@ -58,7 +64,7 @@ all: $(NAME)
 norm:
 	norminette -R CheckForbiddenSourceHeader $(INC) $(SRCS_DIR)
 
-$(NAME): $(LIBFT_A) $(OBJS_DIR)
+$(NAME): $(LIBFT_A) $(OBJS_DIR) ps ch sh $(OBJS_PATH)
 	@echo "Compiling:" $(GREEN) $(NAME) $(DEFAULT)
 	gcc $(FLAGS) $(PS_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
 	gcc $(FLAGS) $(CH_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
@@ -67,10 +73,22 @@ $(LIBFT_A):
 	@echo "Compiling:" $(GREEN) Libft $(DEFAULT)
 	@make -C $(LIBFT)
 
+ps:
+	mkdir -p $(PS_OBJS_DIR)
+
+ch:
+	mkdir -p $(CH_OBJS_DIR)
+
+sh:
+	mkdir -p $(SH_OBJS_DIR)
+
 $(OBJS_DIR):
-	@mkdir -p $(OBJS_DIR)
-	gcc $(FLAGS) -c $(SRCS_PATH)
-	@mv $(OBJS) $(OBJS_DIR)
+	mkdir -p $(OBJS_DIR)
+
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+	@echo "Compiling:" $(GREEN) $< $(DEFAULT)
+	gcc $(FLAGS) -c $< -o $@
+#	@mv $(OBJS) $(OBJS_DIR)
 
 clean:
 	@make -C $(LIBFT)/ clean

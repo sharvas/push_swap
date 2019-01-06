@@ -86,7 +86,7 @@ void	ft_find_replace(t_all *all, char *find, char *replace)
 		tmp = str;
 		if (!(str = ft_strnew((n + ft_strlen(replace) +
 			ft_strlen(tmp + n + ft_strlen(find))))))
-			ft_error(all);
+			ft_ps_error(all);
 		str = ft_strncpy(str, tmp, n);
 		str = ft_strcat(str, replace);
 		str = ft_strcat(str, tmp + n + ft_strlen(find));
@@ -103,8 +103,8 @@ void	ft_putfile(t_all *all)
 	int	fd;
 
 	if ((fd = open(all->f, O_RDWR | O_CREAT | O_EXCL, 0666)) < 0)
-		ft_error(all);
+		ft_ps_error(all);
 	if ((write(fd, all->instructions, ft_strlen(all->instructions))) < 0)
-		ft_error(all);
+		ft_ps_error(all);
 	close(fd);
 }

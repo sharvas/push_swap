@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:06:08 by dfinnis           #+#    #+#             */
-/*   Updated: 2018/12/18 18:15:06 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/06 15:04:27 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int					ft_printf(char const *format, ...);
 /*
 **		initialize.c
 */
-void				ft_initialize(t_print *all);
+void				ft_initialize_print(t_print *all);
 void				ft_reinitialize(t_print *all);
 
 /*

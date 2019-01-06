@@ -41,7 +41,7 @@ void	ft_read_args_checker(t_all *all, char **argv)
 void	ft_open_file(t_all *all, char **argv, int i)
 {
 	if ((all->fd = open(all->f, O_RDONLY)) < 0)
-		ft_error(all);
+		ft_ps_error(all);
 	if (!argv[i])
 		ft_checker_usage();
 }
@@ -71,7 +71,7 @@ t_all	*ft_do_ops(t_all *all)
 	// 	free(line);
 	// line = NULL;
 	if (all->v || all->c)
-		printf("\n\x1B[0minstruction count: %d\n\n", count);
+		ft_printf("\n\x1B[0minstruction count: %d\n\n", count);
 	return (all);
 }
 
@@ -100,7 +100,7 @@ void	ft_read_do(char *line, t_all *all)
 	else if (ft_strcmp(line, "rrr") == 0)
 		ft_rrr(all);
 	else
-		ft_error(all);
+		ft_ps_error(all);
 }
 
 void	ft_ko_ok(t_all *all)

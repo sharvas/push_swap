@@ -17,7 +17,7 @@ void	ft_ra(t_all *all)
 	if (all->a)
 		all->a = all->a->next;
 	if (all->write_instructions)
-		all->instructions = ft_strjoinfree_s1_error(all, "ra\n");
+		all->instructions = ft_strjoinfree_s1_ps(all, "ra\n");
 }
 
 void	ft_rb(t_all *all)
@@ -25,7 +25,7 @@ void	ft_rb(t_all *all)
 	if (all->b)
 		all->b = all->b->next;
 	if (all->write_instructions)
-		all->instructions = ft_strjoinfree_s1_error(all, "rb\n");
+		all->instructions = ft_strjoinfree_s1_ps(all, "rb\n");
 }
 
 void	ft_rra(t_all *all)
@@ -33,7 +33,7 @@ void	ft_rra(t_all *all)
 	if (all->a)
 		all->a = all->a->prev;
 	if (all->write_instructions)
-		all->instructions = ft_strjoinfree_s1_error(all, "rra\n");
+		all->instructions = ft_strjoinfree_s1_ps(all, "rra\n");
 }
 
 void	ft_rrb(t_all *all)
@@ -41,5 +41,5 @@ void	ft_rrb(t_all *all)
 	if (all->b)
 		all->b = all->b->prev;
 	if (all->write_instructions)
-		all->instructions = ft_strjoinfree_s1_error(all, "rrb\n");
+		all->instructions = ft_strjoinfree_s1_ps(all, "rrb\n");
 }
