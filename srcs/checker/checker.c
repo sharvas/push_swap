@@ -16,7 +16,7 @@ void	ft_checker_usage(void)
 {
 	ft_putstr("usage:	./checker [-v] [-c] [-f] n1 [n2...]\n");
 	ft_putstr("n1, n2 etc.: numbers between -2147483648 and 2147483647\n");
-	ft_putstr("-v visualizer, -c colour last operation\n");
+	ft_putstr("-v visualizer, -c colour last operation, -t skip to end\n");
 	ft_putstr("-f file_name reads instructions from file_name\n");
 	exit(1);
 }
