@@ -15,7 +15,6 @@
 
 # include "../libft/ft_printf/ft_printf.h"
 # include <unistd.h>
-# include <stdio.h> // rm, just for testing
 # include <fcntl.h>
 
 typedef struct		s_stack
@@ -46,7 +45,7 @@ typedef struct		s_all
 	char			*instructions;
 	int				v;
 	int				c;
-	int				t;	
+	int				t;
 	char			*f;
 	int				fd;
 }					t_all;

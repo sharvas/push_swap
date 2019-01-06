@@ -25,6 +25,7 @@ CH_OBJS_DIR = objs/checker/
 SH_OBJS_DIR = objs/shared/
 OBJ_SUB_DIR = $(PS_OBJS_DIR) $(CH_OBJS_DIR) $(SH_OBJS_DIR)
 
+INC = includes/
 
 OBJS_DIR = objs/
 SRCS_DIR = srcs/
