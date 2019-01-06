@@ -6,13 +6,12 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/05 14:18:51 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/06 15:01:26 by svaskeli         ###   ########.fr        #
+#    Updated: 2019/01/06 16:52:53 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PUSH_SWAP = push_swap
 CHECKER = checker
-NAME = $(PUSH_SWAP) $(CHECKER)
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -59,31 +58,34 @@ OBJS_PATH = $(PS_OBJS_PATH) $(CH_OBJS_PATH) $(SH_OBJS_PATH)
 GREEN = "\033[0;32m"
 DEFAULT = "\033[0m"
 
-all: $(NAME)
+all: $(PUSH_SWAP) $(CHECKER)
 
 norm:
 	norminette -R CheckForbiddenSourceHeader $(INC) $(SRCS_DIR)
 
-$(NAME): $(LIBFT_A) $(OBJS_DIR) ps ch sh $(OBJS_PATH)
-	@echo "Compiling:" $(GREEN) $(NAME) $(DEFAULT)
-	gcc $(FLAGS) $(PS_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
-	gcc $(FLAGS) $(CH_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
+$(PUSH_SWAP): $(LIBFT_A) $(OBJS_DIR) ps sh $(PS_OBJS_PATH) $(SH_OBJS_PATH)
+	@echo "Compiling:" $(GREEN) $(PUSH_SWAP) $(DEFAULT)
+	@gcc $(FLAGS) $(PS_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
+
+$(CHECKER): $(LIBFT_A) $(OBJS_DIR) ch sh $(CH_OBJS_PATH) $(SH_OBJS_PATH)
+	@echo "Compiling:" $(GREEN) $(CHECKER) $(DEFAULT)
+	@gcc $(FLAGS) $(CH_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
 
 $(LIBFT_A):
 	@echo "Compiling:" $(GREEN) Libft $(DEFAULT)
 	@make -C $(LIBFT)
 
 ps:
-	mkdir -p $(PS_OBJS_DIR)
+	@mkdir -p $(PS_OBJS_DIR)
 
 ch:
-	mkdir -p $(CH_OBJS_DIR)
+	@mkdir -p $(CH_OBJS_DIR)
 
 sh:
-	mkdir -p $(SH_OBJS_DIR)
+	@mkdir -p $(SH_OBJS_DIR)
 
 $(OBJS_DIR):
-	mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 	@echo "Compiling:" $(GREEN) $< $(DEFAULT)
@@ -96,7 +98,7 @@ clean:
 
 fclean:
 	@make -C $(LIBFT)/ fclean
-	@rm -rf $(OBJS_DIR) $(NAME)
+	@rm -rf $(OBJS_DIR) $(PUSH_SWAP) $(CHECKER)
 
 re: fclean all
 
