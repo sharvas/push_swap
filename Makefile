@@ -6,7 +6,7 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/05 14:18:51 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/06 16:52:53 by svaskeli         ###   ########.fr        #
+#    Updated: 2019/01/06 18:32:34 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,11 +66,11 @@ norm:
 
 $(PUSH_SWAP): $(LIBFT_A) $(OBJS_DIR) ps sh $(PS_OBJS_PATH) $(SH_OBJS_PATH)
 	@echo "Compiling:" $(GREEN) $(PUSH_SWAP) $(DEFAULT)
-	@gcc $(FLAGS) $(PS_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
+	gcc $(FLAGS) $(PS_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
 
 $(CHECKER): $(LIBFT_A) $(OBJS_DIR) ch sh $(CH_OBJS_PATH) $(SH_OBJS_PATH)
 	@echo "Compiling:" $(GREEN) $(CHECKER) $(DEFAULT)
-	@gcc $(FLAGS) $(CH_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
+	gcc $(FLAGS) $(CH_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
 
 $(LIBFT_A):
 	@echo "Compiling:" $(GREEN) Libft $(DEFAULT)
