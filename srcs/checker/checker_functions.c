@@ -42,6 +42,7 @@ void	ft_open_file(t_all *all, char **argv, int i)
 {
 	if ((all->fd = open(all->f, O_RDONLY)) < 0)
 		ft_ps_error(all);
+	i++;
 	if (!argv[i])
 		ft_checker_usage();
 }
