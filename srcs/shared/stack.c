@@ -35,22 +35,6 @@ void	ft_fill_a(t_all *all, char **argv, int i)
 	}
 }
 
-
-
-
-
-// 	if (ft_strchr(argv[i], ' '))
-// 	{
-// 		if (!(all->array = ft_split_whitespaces(argv[i])))
-// 			ft_ps_error(all);
-// 		while (all->array[j])
-// 			ft_fill_error(all, all->array[j++]);
-// 	}
-// 	else
-// 		while (argv[i])
-// 			ft_fill_error(all, argv[i++]);
-// }
-
 void	ft_fill_error(t_all *all, char *str)
 {
 	int	n;
