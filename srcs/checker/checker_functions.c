@@ -70,9 +70,9 @@ t_all	*ft_do_ops(t_all *all)
 			free(line);
 		line = NULL;
 	}
-	if (line)
-		free(line);
-	line = NULL;
+	// if (line)
+	// 	free(line);
+	// line = NULL;
 	if (all->v || all->c)
 		printf("\n\x1B[0minstruction count: %d\n\n", count);
 	return (all);
