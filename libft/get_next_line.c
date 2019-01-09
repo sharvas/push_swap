@@ -12,13 +12,6 @@
 
 #include "libft.h"
 
-static void	ft_freestr(char *str)
-{
-	if (str)
-		free(str);
-	str = NULL;
-}
-
 static int	ft_get_line(char **line, char *str)
 {
 	char	*tmp;

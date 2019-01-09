@@ -65,13 +65,9 @@ t_all	*ft_do_ops(t_all *all)
 			ft_debug_c(all, line);
 		else if (all->v)
 			ft_debug_v(all, line);
-		if (line)
-			free(line);
-		line = NULL;
+		ft_freestr(line);
 	}
-	if (line)
-		free(line);
-	line = NULL;
+	ft_freestr(line);
 	if (g == -1)
 		ft_ps_error(all);
 	if (all->v || all->c)

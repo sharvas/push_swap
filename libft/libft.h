@@ -100,6 +100,7 @@ int					ft_listlen_char(char **array);
 void				ft_2d_int_free(int **array);
 void				ft_2d_char_free(char **array);
 int					get_next_line(const int fd, char **line);
+void				ft_freestr(char *str);
 char				**ft_split_whitespaces(char *str);
 int					ft_isblank(int c);
 #endif
