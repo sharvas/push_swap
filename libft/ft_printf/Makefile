@@ -6,7 +6,7 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/07 10:44:29 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/07 10:44:38 by dfinnis          ###   ########.fr        #
+#    Updated: 2019/01/09 13:53:17 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,6 +113,9 @@ LIB_O = $(LIB_C:.c=.o)
 LIB_PATH = $(addprefix $(LIB_DIR), $(LIB_O))
 
 FLAGS = -Wall -Werror -Wextra
+D_G = -g
+D_FS = -fsantize=address
+DEBUG = $(D_G) $(D_FS)
 
 INC = ft_printf.h
 

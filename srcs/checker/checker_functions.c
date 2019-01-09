@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 10:09:55 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/09 11:17:22 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/09 13:44:27 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ t_all	*ft_do_ops(t_all *all)
 {
 	char	*line;
 	int		count;
+	int		g;
 
 	line = NULL;
 	count = 0;
 	if (all->v || all->c)
 		ft_debug_v(all, "initial state:");
-	while ((get_next_line(all->fd, &line)) == 1)
+	while ((g = get_next_line(all->fd, &line)) == 1)
 	{
 		ft_read_do(line, all);
 		count++;
@@ -71,6 +72,8 @@ t_all	*ft_do_ops(t_all *all)
 	if (line)
 		free(line);
 	line = NULL;
+	if (g == -1)
+		ft_ps_error(all);
 	if (all->v || all->c)
 		ft_printf("\n\x1B[0minstruction count: %d\n\n", count);
 	return (all);

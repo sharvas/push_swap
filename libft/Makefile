@@ -6,7 +6,7 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/07 10:44:13 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/09 11:18:04 by svaskeli         ###   ########.fr        #
+#    Updated: 2019/01/09 13:52:16 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,10 @@ OBJ = $(SRCS:.c=.o)
 
 INC = libft.h
 
-FLAGS = -Wall -Werror -Wextra #-g #-fsanitize=address
+FLAGS = -Wall -Werror -Wextra
+D_G = -g
+D_FS = -fsanitize=address
+DEBUG = $(D_G) $(D_FS)
 
 all: $(NAME)
 
