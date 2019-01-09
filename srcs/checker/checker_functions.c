@@ -6,7 +6,7 @@
 /*   By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/05 10:37:39 by dfinnis           #+#    #+#             */
-/*   Updated: 2019/01/06 15:41:21 by svaskeli         ###   ########.fr       */
+/*   Updated: 2019/01/09 11:08:24 by svaskeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ t_all	*ft_do_ops(t_all *all)
 			free(line);
 		line = NULL;
 	}
+	if (line)
+		free(line);
+	line = NULL;
 	if (all->v || all->c)
 		ft_printf("\n\x1B[0minstruction count: %d\n\n", count);
 	return (all);

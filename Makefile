@@ -6,14 +6,14 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/05 14:18:51 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/06 18:45:09 by svaskeli         ###   ########.fr        #
+#    Updated: 2019/01/09 11:09:15 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PUSH_SWAP = push_swap
 CHECKER = checker
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra #-g #-fsanitize=address
 
 PS_SRCS_DIR = srcs/push_swap/
 CH_SRCS_DIR = srcs/checker/

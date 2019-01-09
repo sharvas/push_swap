@@ -6,13 +6,11 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 13:23:03 by dfinnis           #+#    #+#              #
-#    Updated: 2018/12/17 16:55:01 by svaskeli         ###   ########.fr        #
+#    Updated: 2019/01/09 11:09:34 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-
-GNL = get_next_line.h
 
 SRCS = ft_atoi.c \
 		ft_atoi_intmax.c \
@@ -96,7 +94,7 @@ OBJ = $(SRCS:.c=.o)
 
 INC = libft.h
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra #-g #-fsanitize=address
 
 all: $(NAME)
 
@@ -105,7 +103,7 @@ $(NAME): $(OBJ)
 	@ranlib $(NAME)
 
 $(OBJ): $(SRCS)
-	@gcc -c -I $(INC) -I $(GNL) $(FLAGS) $(SRCS)
+	@gcc -c -I $(INC) -I $(FLAGS) $(SRCS)
 
 clean:
 	@/bin/rm -f $(OBJ)
