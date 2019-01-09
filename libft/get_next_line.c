@@ -70,7 +70,6 @@ int	get_next_line(const int fd, char **line)
 			return (0);
 		else if (k == 0 && *line[0])
 			return (1);
-
 	}
 	return (-1);
 }
