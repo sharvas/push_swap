@@ -6,11 +6,9 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/11 13:25:06 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/11 13:25:07 by dfinnis          ###   ########.fr        #
+#    Updated: 2019/01/11 14:25:58 by dfinnis          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-
 
 NAME = libft.a
 
@@ -98,9 +96,6 @@ OBJ = $(SRCS:.c=.o)
 INC = libft.h
 
 FLAGS = -Wall -Werror -Wextra
-D_G = -g
-D_FS = -fsanitize=address
-DEBUG = $(D_G) $(D_FS)
 
 all: $(NAME)
 

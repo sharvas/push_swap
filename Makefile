@@ -6,7 +6,7 @@
 #    By: dfinnis <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/11 13:11:59 by dfinnis           #+#    #+#              #
-#    Updated: 2019/01/11 13:12:03 by dfinnis          ###   ########.fr        #
+#    Updated: 2019/01/11 14:32:00 by dfinnis          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,6 @@ PUSH_SWAP = push_swap
 CHECKER = checker
 
 FLAGS = -Wall -Werror -Wextra
-D_G = -g
-D_FS = -fsanitize=address
-DEBUG = $(D_G) $(D_FS)
 
 PS_SRCS_DIR = srcs/push_swap/
 CH_SRCS_DIR = srcs/checker/
