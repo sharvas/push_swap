@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "push_swap.h"
 
 void	ft_print_row_ca(t_stack *s_a, t_stack *s_b, t_flags *flags)
 {

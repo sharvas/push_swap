@@ -6,7 +6,7 @@
 #    By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/03 17:03:06 by svaskeli          #+#    #+#              #
-#    Updated: 2019/03/03 17:03:08 by svaskeli         ###   ########.fr        #
+#    Updated: 2019/03/03 17:11:15 by svaskeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,15 +62,15 @@ DEFAULT = "\033[0m"
 all: $(PUSH_SWAP) $(CHECKER)
 
 norm:
-	norminette -R CheckForbiddenSourceHeader $(INC) $(SRCS_DIR)
+	norminette $(INC) $(SRCS_DIR)
 
 $(PUSH_SWAP): $(LIBFT_A) $(OBJS_DIR) $(PS_OBJS_DIR) $(SH_OBJS_DIR) $(PS_OBJS_PATH) $(SH_OBJS_PATH)
 	@echo "Compiling:" $(GREEN) $(PUSH_SWAP) $(DEFAULT)
-	gcc $(FLAGS) $(PS_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT)
+	gcc $(FLAGS) $(PS_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(PUSH_SWAP) -I $(LIBFT) -I $(INC)
 
 $(CHECKER): $(LIBFT_A) $(OBJS_DIR) $(CH_OBJS_DIR) $(SH_OBJS_DIR) $(CH_OBJS_PATH) $(SH_OBJS_PATH)
 	@echo "Compiling:" $(GREEN) $(CHECKER) $(DEFAULT)
-	gcc $(FLAGS) $(CH_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT)
+	gcc $(FLAGS) $(CH_OBJS_PATH) $(SH_OBJS_PATH) $(LIBFT_A) -o $(CHECKER) -I $(LIBFT) -I $(INC)
 
 $(LIBFT_A):
 	@echo "Compiling:" $(GREEN) Libft $(DEFAULT)
@@ -90,7 +90,7 @@ $(OBJS_DIR):
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 	@echo "Compiling:" $(GREEN) $< $(DEFAULT)
-	gcc $(FLAGS) -c $< -o $@
+	gcc $(FLAGS) -c $< -o $@ -I $(INC)
 
 clean:
 	@make -C $(LIBFT)/ clean
