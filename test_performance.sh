@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    test_performance.sh                                :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: svaskeli <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/03/03 17:07:53 by svaskeli          #+#    #+#              #
+#    Updated: 2019/03/03 17:08:07 by svaskeli         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # test for 5 random numbers
 # update num (range), case (test runs), limit (exceed limit) when needed
 num=5
