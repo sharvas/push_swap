@@ -68,14 +68,16 @@ OK
 
 For the visualiser us the flag ```-v```. Also you can pipe push_swap instructions with the checker.
 
- [push_swap](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_1.gif)
+![push_swap](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_1.gif)
 
 
 ***algorithm***
 
+
+
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyMDczNDU3NiwyNDY4OTQxMTEsLTMwMz
+eyJoaXN0b3J5IjpbLTI3ODQ4MTgxMSwyNDY4OTQxMTEsLTMwMz
 YwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVd
 fQ==
 -->
