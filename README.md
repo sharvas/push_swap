@@ -84,9 +84,41 @@ Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 
 For the stack of over 100 numbers we devide the stack into 7 parts and sort as described above. Several adjustments were made to optimize the algorithm and exploit all the allowed moves.
 
+A script was writted to evaluate the algorithm's performace:
+```bash
+➜  push_swap git:(master) ✗ ./test_performance.sh
+-- 100/100 --
+5 numbers case
+range         :        1 to 5
+test runs     :        100
+avg moves     :        6
+best          :        0
+worst         :        10
+KO if failed  :        OK
+exceed max    :        0
 
+-- 100/100 --
+100 numbers case
+range         :        1 to 100
+test runs     :        100
+avg moves     :        681
+best          :        620
+worst         :        730
+KO if failed  :        OK
+exceed max    :        0
+
+-- 100/100 --
+500 numbers case
+range         :        1 to 500
+test runs     :        100
+avg moves     :        6463
+best          :        6283
+worst         :        6641
+KO if failed  :        OK
+exceed max    :        0
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzEwNDc5OTQsMjQ2ODk0MTExLC0zMD
-M2MDk4NTgsOTMxMTIxNzc2LC03NDgwMTM3ODEsNjA3MjgxNzA1
-XX0=
+eyJoaXN0b3J5IjpbLTY3Njc3NTQyMCwtMTY3MTA0Nzk5NCwyND
+Y4OTQxMTEsLTMwMzYwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4
+MSw2MDcyODE3MDVdfQ==
 -->
