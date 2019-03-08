@@ -43,9 +43,19 @@ pa
 
 ***checker***
 
-```ba
+```bash
+➜ push_swap ./checker
+usage:	./checker [-v] [-c] [-f] n1 [n2...]
+n1, n2 etc.: numbers between -2147483648 and 2147483647
+-v visualizer, -c colour last operation, -t slow visualizer
+-f file_name reads instructions from file_name
+```
+
+To use checker, we execute it with numbers as an argument(s) in exactly the same format as push_swap above. checker will then wait to receive instructions, one per line, on stdin.
+
+In the following example, we give 1, 0 and 2 as an unsorted list. checker will wait to receive valid instruction(s) sa. We can simulate EOF with Ctrl + d. checker should display OK to indicate the list is sorted, or KO otherwise.
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk5OTUyNTUyLC0zMDM2MDk4NTgsOTMxMT
+eyJoaXN0b3J5IjpbMjMxNjQ4OTc5LC0zMDM2MDk4NTgsOTMxMT
 IxNzc2LC03NDgwMTM3ODEsNjA3MjgxNzA1XX0=
 -->
