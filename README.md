@@ -32,9 +32,12 @@ n1, n2 etc.: numbers between -2147483648 and 2147483647
 -f file_name writes instructions to file_name
 ```
 
-Numbers are accepted in various formats - ```./push_swap "1" "4 5" -9 -08 08 +7```.
+Numbers are accepted in various formats:
+```bash
+./push_swap "1" "4 5" -9 -08 08 +7
+```
 
-The output to the stdout is in the following format:
+push_swap outputs instructions to the stdout like in the example:
 ```bash
 ➜ push_swap ./push_swap "1" "4 5" -008 +7
 rra
@@ -78,12 +81,12 @@ ARG=`ruby -e "puts (-20..20).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./chec
 
 
 ***algorithm***
-
+The
 
 ![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2NTg1MjY0NiwyNDY4OTQxMTEsLTMwMz
+eyJoaXN0b3J5IjpbLTEwMzg4NTc5OCwyNDY4OTQxMTEsLTMwMz
 YwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVd
 fQ==
 -->
