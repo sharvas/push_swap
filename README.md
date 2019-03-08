@@ -62,10 +62,12 @@ sa
 OK
 ```
 
-For the visualiser us the flag ```-v```. Also if you pipe push_swap instructions with the checker and visualisation 
+For the visualiser us the flag ```-v```. Also if you pipe push_swap instructions with the checker you can see the sorting done visualy.
+
+ 
 
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTk4NzQ3MDEsLTMwMzYwOTg1OCw5Mz
-ExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVdfQ==
+eyJoaXN0b3J5IjpbMjQ2ODk0MTExLC0zMDM2MDk4NTgsOTMxMT
+IxNzc2LC03NDgwMTM3ODEsNjA3MjgxNzA1XX0=
 -->
