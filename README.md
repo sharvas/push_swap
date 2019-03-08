@@ -66,7 +66,7 @@ sa
 OK
 ```
 
-For the visualiser us the flag ```-v```. Also you can pipe push_swap instructions with the checker.
+For the visualiser us the flag ```-v```. Also you can pipe push_swap instructions with the checker. ```ARG="1 0 2 -9 3 8"; ./push_swap $ARG | ./checker $ARG``` or
 
 ![push_swap](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_1.gif)
 
@@ -74,10 +74,10 @@ For the visualiser us the flag ```-v```. Also you can pipe push_swap instruction
 ***algorithm***
 
 
-
+![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3ODQ4MTgxMSwyNDY4OTQxMTEsLTMwMz
-YwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVd
-fQ==
+eyJoaXN0b3J5IjpbMjM3MjQ3NywyNDY4OTQxMTEsLTMwMzYwOT
+g1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVdfQ==
+
 -->
