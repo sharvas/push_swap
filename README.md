@@ -55,9 +55,15 @@ Checker expects numbers as arguments in exactly the same format as push_swap abo
 
 If we give 1, 0 and 2 as an unsorted list. Checker will wait to receive valid instructions. In this case ```sa``` will do the job. For EOF press ```Ctrl + d```. Checker will display OK to indicate if the list is sorted, or KO otherwise.
 
+```bash
+➜ push_swap ./checker 1 0 2
+sa
+(ctrl + D)
+OK
+```
 
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3MjQ1MDk1NCwtMzAzNjA5ODU4LDkzMT
+eyJoaXN0b3J5IjpbLTY4NTUxNzQ5MCwtMzAzNjA5ODU4LDkzMT
 EyMTc3NiwtNzQ4MDEzNzgxLDYwNzI4MTcwNV19
 -->
