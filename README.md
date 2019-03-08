@@ -66,12 +66,13 @@ sa
 OK
 ```
 
-For the visualiser us the flag ```-v```. Also you can pipe push_swap instructions with the checker. 
+For the visualiser us the flag ```-v``` or ```-c```. Also you can pipe push_swap instructions with the checker. 
 ```bash
 ARG="1 0 2 -9 3 8"; ./push_swap $ARG | ./checker $ARG
 ``` 
 ```bash
-ARG=`ruby -e "puts (-20..20).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker -c -t $ARG```
+ARG=`ruby -e "puts (-20..20).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker -c -t $ARG
+```
 
 ![push_swap](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_1.gif)
 
@@ -82,7 +83,7 @@ ARG=`ruby -e "puts (-20..20).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./chec
 ![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjgzMTA2MjMsMjQ2ODk0MTExLC0zMD
-M2MDk4NTgsOTMxMTIxNzc2LC03NDgwMTM3ODEsNjA3MjgxNzA1
-XX0=
+eyJoaXN0b3J5IjpbLTI2NTg1MjY0NiwyNDY4OTQxMTEsLTMwMz
+YwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVd
+fQ==
 -->
