@@ -86,7 +86,7 @@ For the stack of over 100 numbers we devide the stack into 7 parts and sort as d
 
 A script was writted to evaluate the algorithm's performace:
 ```bash
-➜  push_swap git:(master) ✗ ./test_performance.sh
+➜ push_swap ./test_performance.sh
 -- 100/100 --
 5 numbers case
 range         :        1 to 5
@@ -118,7 +118,7 @@ KO if failed  :        OK
 exceed max    :        0
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3Njc3NTQyMCwtMTY3MTA0Nzk5NCwyND
-Y4OTQxMTEsLTMwMzYwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4
-MSw2MDcyODE3MDVdfQ==
+eyJoaXN0b3J5IjpbMTExMDcwMDk4LC0xNjcxMDQ3OTk0LDI0Nj
+g5NDExMSwtMzAzNjA5ODU4LDkzMTEyMTc3NiwtNzQ4MDEzNzgx
+LDYwNzI4MTcwNV19
 -->
