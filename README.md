@@ -2,12 +2,7 @@
 
 The goal of this project was to create two programs. ```push_swap``` - that outputs instructions to sort the stack of integers to the stdout. Then the ```checker``` reads those instructions from the stdin and checks if the resulting stack of numbers is sorted.
 
-It is alowed to use  composed of 2 stacks named a and b.
-To start with:
-a contains a random number of either positive or negative numbers without any duplicates.
-b is empty
-The goal is to sort in ascending order numbers into stack a.
-To do this you have the following operations at your disposal:
+It is alowed to use two 2 stacks named a and b. The numbers are read into stack. Stack b at the beginning is empy. The goal is to sort in ascending order numbers into stack a. Only the following operations are allowed:
 
 sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
 sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
@@ -25,6 +20,6 @@ Allowed functions for the mandatory part are write, read, malloc, free and exit.
 
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQzMTIxNTQ5LDkzMTEyMTc3NiwtNzQ4MD
-EzNzgxLDYwNzI4MTcwNV19
+eyJoaXN0b3J5IjpbMjA4ODM0MDIwOSw5MzExMjE3NzYsLTc0OD
+AxMzc4MSw2MDcyODE3MDVdfQ==
 -->
