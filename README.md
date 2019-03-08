@@ -1,6 +1,6 @@
 # push_swap
 
-The goal of this project was to create two programs. ```push_swap``` - that outputs instructions to sort the stack of integers to the stdout. Then the ```checker``` reads those instructions from the stdin and checks if the resulting stack of numbers is sorted. To .
+The goal of this project was to create two programs. ```push_swap``` - that outputs instructions to sort the stack of integers to the stdout. Then the ```checker``` reads those instructions from the stdin and checks if the resulting stack of numbers is sorted. To pass the project, the sorting has to be efficient.
 
 It is alowed to use 2 stacks named a and b. The numbers are read into stack a. Stack b at the beginning is empy. The goal is to sort in ascending order numbers into stack a. Only the following operations are allowed:
 
@@ -18,8 +18,10 @@ It is alowed to use 2 stacks named a and b. The numbers are read into stack a. S
 
 The program cannot leak. All errors must be handled carefully. In no way can the program quit in an unexpected manner (Segmentation fault, bus error, double free, etc). Allowed functions for the mandatory part are write, read, malloc, free and exit. Everything else is forbidden. Other functions can be used for bonus, but their use must be justified.
 
+
+
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDQ5NjEzMjksOTMxMTIxNzc2LC03ND
-gwMTM3ODEsNjA3MjgxNzA1XX0=
+eyJoaXN0b3J5IjpbLTMwMzYwOTg1OCw5MzExMjE3NzYsLTc0OD
+AxMzc4MSw2MDcyODE3MDVdfQ==
 -->
