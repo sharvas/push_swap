@@ -2,6 +2,7 @@
 
 The goal of this project was to create two programs. ```push_swap``` - that outputs instructions to sort the stack of integers to the stdout. Then the ```checker``` reads those instructions from the stdin and checks if the resulting stack of numbers is sorted. To pass the project, the sorting has to be efficient.
 
+
 It is alowed to use 2 stacks named a and b. The numbers are read into stack a. Stack b at the beginning is empy. The goal is to sort in ascending order numbers into stack a. Only the following operations are allowed:
 - ```sa``` : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.
 - ```sb``` : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements.
@@ -15,9 +16,12 @@ It is alowed to use 2 stacks named a and b. The numbers are read into stack a. S
 - ```rrb``` : reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.
 - ```rrr``` : rra and rrb at the same time.
 
+
 The program cannot leak. All errors must be handled carefully. In no way can the program quit in an unexpected manner (Segmentation fault, bus error, double free, etc). Allowed functions for the mandatory part are write, read, malloc, free and exit. Everything else is forbidden. Other functions can be used for bonus, but their use must be justified.
 
+
 Run ```make``` and two programs (```checker``` and ```push_swap```) will be compiled. Both programs take numbers and flags as an argument. Run them without the arguments to see the usage.
+
 
 ***push_swap***
 
@@ -39,6 +43,7 @@ pb
 ra
 pa
 ```
+
 
 ***checker***
 
@@ -65,9 +70,12 @@ For the visualiser us the flag ```-v```. Also you can pipe push_swap instruction
 
  [push_swap](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_1.gif)
 
+
+***algorithm***
+
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1Nzc4Mzc2OSwyNDY4OTQxMTEsLTMwMz
+eyJoaXN0b3J5IjpbLTIyMDczNDU3NiwyNDY4OTQxMTEsLTMwMz
 YwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVd
 fQ==
 -->
