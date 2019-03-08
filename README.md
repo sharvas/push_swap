@@ -18,8 +18,7 @@ It is alowed to use 2 stacks named *a* and *b*. The numbers are read into stack 
 
 The program cannot leak. All errors must be handled carefully. In no way can the program quit in an unexpected manner (Segmentation fault, bus error, double free, etc). Allowed functions for the mandatory part are ```write, read, malloc, free``` and ```exit```.
 
-Run ```make``` and two programs (```checker``` and ```push_swap```) will be compiled. Both programs take numbers and flags as arguments. Run them without the arguments to see the usage.
-
+Run ```make``` and two programs (```checker``` and ```push_swap```) will be compiled. Both programs take numbers and flags as arguments. Run the programs without the arguments to see the usage.
 
 ### push_swap
 
@@ -45,7 +44,6 @@ ra
 pa
 ```
 
-
 ### checker
 
 ```bash
@@ -56,9 +54,9 @@ n1, n2 etc.: numbers between -2147483648 and 2147483647
 -f file_name reads instructions from file_name
 ```
 
-Checker expects numbers as arguments in exactly the same format as push_swap above. Checker then will wait to receive instructions, one per line, on stdin.
+checker expects numbers as arguments in exactly the same format as push_swap above. checker then will wait to receive instructions, one per line, on stdin.
 
-If we give 1, 0 and 2 as an unsorted list. Checker will wait to receive valid instructions. In this case ```sa``` will do the job. For EOF press ```Ctrl + d```. Checker will display OK to indicate if the list is sorted, or KO otherwise.
+If we give 1, 0 and 2 as an unsorted list, checker will wait to receive valid instructions. In this case ```sa``` will do the job. For EOF press ```Ctrl + d```. Checker will display OK to indicate if the list is sorted, or KO otherwise.
 
 ```bash
 ➜ push_swap ./checker 1 0 2
@@ -67,7 +65,7 @@ sa
 OK
 ```
 
-For the visualiser us the flag ```-v``` or ```-c```. Also you can pipe push_swap instructions with the checker. 
+For the visualiser us the flag ```-v``` or ```-c```. Also you can pipe (```|```) push_swap instructions with the checker. 
 ```bash
 ARG="1 0 2 -9 3 8"; ./push_swap $ARG | ./checker $ARG
 ``` 
@@ -84,7 +82,7 @@ The developed algorithm is straightforward.
 ![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwNzkzOTIzNSwyNDY4OTQxMTEsLTMwMz
-YwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVd
-fQ==
+eyJoaXN0b3J5IjpbLTE1MDI3Mjc5MjIsMjQ2ODk0MTExLC0zMD
+M2MDk4NTgsOTMxMTIxNzc2LC03NDgwMTM3ODEsNjA3MjgxNzA1
+XX0=
 -->
