@@ -48,7 +48,7 @@ void	ft_debug_v(t_all *all, char *str)
 	s_a = all->a;
 	s_b = all->b;
 	all->t ? usleep(120000) : 0;
-	ft_printf("\E[H\E[2J\n%s\n stack a    | stack b\n", str);
+	ft_printf("\E[?25l\E[H\E[2J\n%s\n stack a    | stack b\n", str);
 	while ((s_a && s_a->next != all->a) || (s_b && s_b->next != all->b))
 	{
 		ft_print_row(s_a, s_b, &flags);
@@ -62,4 +62,5 @@ void	ft_debug_v(t_all *all, char *str)
 			flags.b = 1;
 	}
 	ft_print_row(s_a, s_b, &flags);
+	ft_printf("\E[?12;25h");
 }

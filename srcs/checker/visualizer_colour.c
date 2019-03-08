@@ -68,7 +68,7 @@ void	ft_debug_c(t_all *all, char *str)
 	s_a = all->a;
 	s_b = all->b;
 	all->t ? usleep(120000) : 0;
-	ft_printf("\E[H\E[2J\n\x1b[36m%s\x1B[0m\n stack a    | stack b\n", str);
+	ft_printf("\x1B[?25l\E[H\E[2J\n\x1b[36m%s\x1B[0m\n stack a    | stack b\n", str);
 	if ((ft_strcmp(str, "rrr") == 0) || (ft_strcmp(str, "rr") == 0))
 		ft_printf("\x1b[36m");
 	while ((s_a && s_a->next != all->a) || (s_b && s_b->next != all->b))
@@ -85,4 +85,5 @@ void	ft_debug_c(t_all *all, char *str)
 		flags.row++;
 	}
 	ft_debug_c_print(s_a, s_b, flags, str);
+	ft_printf("\x1B[?12;25h");
 }
