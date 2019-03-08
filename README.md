@@ -18,10 +18,10 @@ It is alowed to use 2 stacks named a and b. The numbers are read into stack a. S
 
 The program cannot leak. All errors must be handled carefully. In no way can the program quit in an unexpected manner (Segmentation fault, bus error, double free, etc). Allowed functions for the mandatory part are write, read, malloc, free and exit. Everything else is forbidden. Other functions can be used for bonus, but their use must be justified.
 
-
+Run ```make``` and two programs (```checker``` and ```push_swap```) will be compiled. Bot
 
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwMzYwOTg1OCw5MzExMjE3NzYsLTc0OD
-AxMzc4MSw2MDcyODE3MDVdfQ==
+eyJoaXN0b3J5IjpbLTIyNDI1MTExMSwtMzAzNjA5ODU4LDkzMT
+EyMTc3NiwtNzQ4MDEzNzgxLDYwNzI4MTcwNV19
 -->
