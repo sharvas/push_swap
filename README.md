@@ -77,12 +77,12 @@ ARG=`ruby -e "puts (-20..20).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./chec
 
 
 ## algorithm
-The developed algorithm is straightforward. 
+The developed algorithm is straightforward. For stack of less than 100 numbers, 
 
 ![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDI3Mjc5MjIsMjQ2ODk0MTExLC0zMD
-M2MDk4NTgsOTMxMTIxNzc2LC03NDgwMTM3ODEsNjA3MjgxNzA1
-XX0=
+eyJoaXN0b3J5IjpbLTE1NjE1OTE5LDI0Njg5NDExMSwtMzAzNj
+A5ODU4LDkzMTEyMTc3NiwtNzQ4MDEzNzgxLDYwNzI4MTcwNV19
+
 -->
