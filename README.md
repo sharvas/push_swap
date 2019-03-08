@@ -77,12 +77,12 @@ ARG=`ruby -e "puts (-20..20).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./chec
 
 
 ## algorithm
-The developed algorithm is straightforward. For the stack of less than 100 numbers, stack is devided into three parts according to the value, 1/3 are the largest numbers, then 2/3 are the middle numbers and the last third are the smallest numbers. We start by going through the whole stack and pushing to **b** the largest third. Then 
+The developed algorithm is straightforward. For the stack of less than 100 numbers, stack is devided into three parts according to the value, 1/3 are the largest numbers, then 2/3 are the middle numbers and the last third are the smallest numbers. We start by going through the whole stack and pushing to **b** the largest third. Then we look for min and max in b and push to **a** the least "expensive" one. This way in **a** top and bottom are sorted, so we rotate to unsorted part and 
 
 ![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MjQ5MDcwNywyNDY4OTQxMTEsLTMwMz
-YwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVd
-fQ==
+eyJoaXN0b3J5IjpbLTE1NDE1NDA4OTAsMjQ2ODk0MTExLC0zMD
+M2MDk4NTgsOTMxMTIxNzc2LC03NDgwMTM3ODEsNjA3MjgxNzA1
+XX0=
 -->
