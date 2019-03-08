@@ -1,6 +1,6 @@
 # push_swap
 
-The goal of this project was to create two programs. push_swap - that sorts the provided sta of numbers and outputs instructions to sort to the stdout. Then the checker reads those instructions from the stdin and checks if the resulting stack of numbers is sorted.
+The goal of this project was to create two programs. ```push_swap``` - that sorts the provided stack of numbers and outputs instructions to sort to the stdout. Then the ```checker``` reads those instructions from the stdin and checks if the resulting stack of numbers is sorted.
 
 an algorithm which outputs instructions, to sort data. In this project, we must produce two programs, push_swap and checker. push_swap displays on stdout, instructions to sort data in a stack. checker reads stdin and ensures that instructions are valid, and that they sort the data. The two programs can be used together, see below.
 
@@ -27,6 +27,6 @@ Allowed functions for the mandatory part are write, read, malloc, free and exit.
 
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzMjU1NjAzNCwtNzQ4MDEzNzgxLDYwNz
-I4MTcwNV19
+eyJoaXN0b3J5IjpbOTMxMTIxNzc2LC03NDgwMTM3ODEsNjA3Mj
+gxNzA1XX0=
 -->
