@@ -29,10 +29,11 @@ n1, n2 etc.: numbers between -2147483648 and 2147483647
 -f file_name writes instructions to file_name
 ```
 
-Numbers are accepted in various formats - ```
+Numbers are accepted in various formats - ```./push_swap "1" "4 5" -9 -008 008 +7```.
+
 
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1NjY5MjM4MSwtMzAzNjA5ODU4LDkzMT
+eyJoaXN0b3J5IjpbLTM3NzYyNDE5MywtMzAzNjA5ODU4LDkzMT
 EyMTc3NiwtNzQ4MDEzNzgxLDYwNzI4MTcwNV19
 -->
