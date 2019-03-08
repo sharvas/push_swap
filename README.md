@@ -82,9 +82,11 @@ The algorithm is straightforward. For the stack of less than 100 numbers, stack 
 ![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 
-For the stack of over 100 numbers we devide the stack into 7 parts and sort as described above. Various 
+For the stack of over 100 numbers we devide the stack into 7 parts and sort as described above. Several adjustments were made to optimize the algorithm and exploit all the allowed moves.
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDA3NTAyMjcsMjQ2ODk0MTExLC0zMD
+eyJoaXN0b3J5IjpbLTE2NzEwNDc5OTQsMjQ2ODk0MTExLC0zMD
 M2MDk4NTgsOTMxMTIxNzc2LC03NDgwMTM3ODEsNjA3MjgxNzA1
 XX0=
 -->
