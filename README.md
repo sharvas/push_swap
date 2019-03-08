@@ -53,11 +53,11 @@ n1, n2 etc.: numbers between -2147483648 and 2147483647
 
 Checker expects numbers as arguments in exactly the same format as push_swap above. Checker then will wait to receive instructions, one per line, on stdin.
 
-If we give 1, 0 and 2 as an unsorted list. Checker will wait to receive valid instructions.(s) sa. We can simulate EOF with Ctrl + d. checker should display OK to indicate the list is sorted, or KO otherwise.
+If we give 1, 0 and 2 as an unsorted list. Checker will wait to receive valid instructions. In this case ```sa``` will do the job. For EOF press ```Ctrl + d```. Checker will display OK to indicate if the list is sorted, or KO otherwise.
 
 
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjU5NzU3NiwtMzAzNjA5ODU4LDkzMT
+eyJoaXN0b3J5IjpbMTY3MjQ1MDk1NCwtMzAzNjA5ODU4LDkzMT
 EyMTc3NiwtNzQ4MDEzNzgxLDYwNzI4MTcwNV19
 -->
