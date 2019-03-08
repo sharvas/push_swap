@@ -1,6 +1,6 @@
 # push_swap
 
-The goal of this project was to create two programs. ```push_swap``` - that outputs instructions to sort the stack of integers to the stdout. Then the ```checker``` reads those instructions from the stdin and checks if the resulting stack of numbers is sorted. To pass the project, the sorting has to be efficient.
+The goal of this project was to create two programs. ```push_swap``` - outputs instructions to sort the stack of integers to the stdout. The ```checker``` - reads instructions from the stdin and checks if the resulting stack of numbers is sorted. To pass the project, the sorting has to be efficient.
 
 
 It is alowed to use 2 stacks named a and b. The numbers are read into stack a. Stack b at the beginning is empy. The goal is to sort in ascending order numbers into stack a. Only the following operations are allowed:
@@ -86,7 +86,7 @@ The developed algorithm is straightforward.
 ![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMDEyOTE1NCwyNDY4OTQxMTEsLTMwMz
+eyJoaXN0b3J5IjpbMjExNzExNDI5MiwyNDY4OTQxMTEsLTMwMz
 YwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVd
 fQ==
 -->
