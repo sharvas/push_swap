@@ -23,7 +23,7 @@ The program cannot leak. All errors must be handled carefully. In no way can the
 Run ```make``` and two programs (```checker``` and ```push_swap```) will be compiled. Both programs take numbers and flags as an argument. Run them without the arguments to see the usage.
 
 
-***push_swap***
+### push_swap
 
 ```bash
 ➜ push_swap ./push_swap
@@ -48,7 +48,7 @@ pa
 ```
 
 
-***checker***
+### checker
 
 ```bash
 ➜ push_swap ./checker
@@ -80,13 +80,13 @@ ARG=`ruby -e "puts (-20..20).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./chec
 ![push_swap](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_1.gif)
 
 
-***algorithm***
-The
+## algorithm
+The developed algorithm is straightforward. 
 
 ![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzg4NTc5OCwyNDY4OTQxMTEsLTMwMz
+eyJoaXN0b3J5IjpbMTMzMDEyOTE1NCwyNDY4OTQxMTEsLTMwMz
 YwOTg1OCw5MzExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVd
 fQ==
 -->
