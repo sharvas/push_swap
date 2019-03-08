@@ -22,10 +22,17 @@ Run ```make``` and two programs (```checker``` and ```push_swap```) will be comp
 
 ***push_swap***
 
+```bash
+➜ push_swap ./push_swap
+usage:	./push_swap [-f] n1 [n2...]
+n1, n2 etc.: numbers between -2147483648 and 2147483647
+-f file_name writes instructions to file_name
+```
 
+Numbers are accepted in various formats - 
 
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjU1Mzk1LC0zMDM2MDk4NTgsOTMxMT
-IxNzc2LC03NDgwMTM3ODEsNjA3MjgxNzA1XX0=
+eyJoaXN0b3J5IjpbLTExNDUyMjQ0MywtMzAzNjA5ODU4LDkzMT
+EyMTc3NiwtNzQ4MDEzNzgxLDYwNzI4MTcwNV19
 -->
