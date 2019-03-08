@@ -62,8 +62,10 @@ sa
 OK
 ```
 
+For the visualiser us the flag ```-v```. Also if you pipe push_swap instructions with the checker and visualisation 
+
 Created with [this visualiser](https://github.com/o-reo/push_swap_visualizer).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4NTUxNzQ5MCwtMzAzNjA5ODU4LDkzMT
-EyMTc3NiwtNzQ4MDEzNzgxLDYwNzI4MTcwNV19
+eyJoaXN0b3J5IjpbLTE0MTk4NzQ3MDEsLTMwMzYwOTg1OCw5Mz
+ExMjE3NzYsLTc0ODAxMzc4MSw2MDcyODE3MDVdfQ==
 -->
