@@ -65,7 +65,7 @@ sa
 OK
 ```
 
-For the visualiser us the flag ```-v``` or ```-c```. Also you can pipe (```|```) push_swap instructions with the checker. 
+For the visualiser us the flag ```-v``` or ```-c```. Also we can pipe (```|```) push_swap instructions with the checker. 
 ```bash
 ARG="1 0 2 -9 3 8"; ./push_swap $ARG | ./checker $ARG
 ``` 
@@ -77,7 +77,7 @@ ARG=`ruby -e "puts (-20..20).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./chec
 
 
 ## algorithm
-The algorithm is straightforward. For the stack of less than 100 numbers, stack is devided into three parts according to the value, 1/3 are the largest numbers, then 2/3 are the middle numbers and the last third are the smallest numbers. We start by going through the whole stack and pushing to **b** the largest third. Then we look for min and max in b and push to **a** the least "expensive" one. This way in **a** top and bottom are sorted, so we rotate to unsorted part and push to **b** the next third and then repeat the same with the last part.
+The algorithm is straightforward. For the stack of less than 100 numbers, stack is devided into three parts according to the value, 1/3 are the largest numbers, then 2/3 are the middle numbers and the last third are the smallest numbers. We start by going through the whole stack and pushing to **b** the largest third. Then we look for min and max in b and push to **a** the least "expensive" one. This way in **a** top and bottom are sorted, then we rotate to the unsorted part and push to **b** the next third and repeat the same with the last part.
 
 ![algorith](https://github.com/sharvas/push_swap/raw/master/images/ps_vis_2.gif)
 ([
@@ -118,6 +118,3 @@ worst         :        6641
 KO if failed  :        OK
 exceed max    :        0
 ```
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNDIzMDIwODY4XX0=
--->
