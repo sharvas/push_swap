@@ -85,7 +85,7 @@ visualiser](https://github.com/o-reo/push_swap_visualizer))
 
 For the stack of over 100 numbers we devide it into 7 parts and sort as described previously. Also several other adjustments were made to optimize this algorithm and exploit all the allowed moves.
 
-A script was writted to evaluate the algorithm's performace:
+The script was also written to evaluate the algorithm's performace:
 ```
 ➜ push_swap ./test_performance.sh
 -- 100/100 --
