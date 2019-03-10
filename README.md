@@ -22,7 +22,7 @@ Run ```make``` and two programs (```checker``` and ```push_swap```) will be comp
 
 ### push_swap
 
-```bash
+```console
 ➜ push_swap ./push_swap
 usage:	./push_swap [-f] n1 [n2...]
 n1, n2 etc.: numbers between -2147483648 and 2147483647
@@ -30,12 +30,12 @@ n1, n2 etc.: numbers between -2147483648 and 2147483647
 ```
 
 Numbers are accepted in various formats:
-```bash
+```console
 ./push_swap "1" "4 5" -9 -08 08 +7
 ```
 
 push_swap outputs instructions to the stdout like in the example:
-```bash
+```console
 ➜ push_swap ./push_swap "1" "4 5" -008 +7
 rra
 rra
@@ -46,7 +46,7 @@ pa
 
 ### checker
 
-```bash
+```console
 ➜ push_swap ./checker
 usage:	./checker [-v] [-c] [-f] n1 [n2...]
 n1, n2 etc.: numbers between -2147483648 and 2147483647
@@ -58,7 +58,7 @@ checker expects numbers as arguments in exactly the same format as push_swap abo
 
 If we give 1, 0 and 2 as an unsorted list, checker will wait to receive valid instructions. In this case ```sa``` will do the job. For EOF press ```Ctrl + d```. Checker will display OK to indicate if the list is sorted, or KO otherwise.
 
-```bash
+```console
 ➜ push_swap ./checker 1 0 2
 sa
 (ctrl + D)
@@ -86,7 +86,7 @@ visualiser](https://github.com/o-reo/push_swap_visualizer))
 For the stack of over 100 numbers we devide it into 7 parts and sort as described previously. Also several other adjustments were made to optimize this algorithm and exploit all the allowed moves.
 
 The script was also written to evaluate the algorithm's performace:
-```
+```console
 ➜ push_swap ./test_performance.sh
 -- 100/100 --
 5 numbers case
