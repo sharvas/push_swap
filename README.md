@@ -53,14 +53,14 @@ n1, n2 etc.: numbers between -2147483648 and 2147483647
 -f file_name reads instructions from file_name
 ```
 
-`checker` expects numbers as arguments in exactly the same format as `push_swap` above. checker then will wait to receive instructions, one per line, on stdin.
+`checker` expects numbers as arguments in exactly the same format as `push_swap` above. `checker` then will wait to receive instructions, one per line, on stdin.
 
 If we give 1, 0 and 2 as an unsorted list, `checker` will wait to receive valid instructions. In this case, `sa` will do the job. For EOF press `ctrl + d`. `checker` will display `OK` to indicate if the list is sorted, or `KO` otherwise.
 
 ```console
 $> ./checker 1 0 2
 sa
-(ctrl + D)
+(ctrl + d)
 OK
 ```
 
